@@ -1,6 +1,5 @@
 ---
 language: scratch
-permalink
 ---
 
 # Plantagotchi
