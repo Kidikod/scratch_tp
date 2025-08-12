@@ -4,6 +4,8 @@ language: scratch
 
 # Plantagotchi
 
+Test
+
 ![Titre](assets/titre.png)
 
 ## Introduction
