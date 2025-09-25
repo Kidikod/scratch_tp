@@ -6,7 +6,7 @@ description: "Créer un jeu de plantes de compagnie avec Scratch"
 
 # Plantagotchi
 
-![Logo du projet Plantagotchi avec une plante stylisée](assets/Plantamagotchi.pdf-0-0.png)
+![Logo du projet Plantagotchi avec une plante stylisée](assets/Plantagotchi.pdf-0-0.png)
 
 ## Introduction
 
@@ -24,19 +24,19 @@ Dans la section des sprites, cliquez sur ajouter un sprite (le chat avec un sign
 
 
 
-![Interface Scratch montrant le bouton d'ajout de sprite avec l'icône du chat](assets/Plantamagotchi.pdf-0-1.png)
-![Menu contextuel Scratch pour ajouter un nouveau sprite](assets/Plantamagotchi.pdf-1-2.png)
+![Interface Scratch montrant le bouton d'ajout de sprite avec l'icône du chat](assets/Plantagotchi.pdf-0-1.png)
+![Menu contextuel Scratch pour ajouter un nouveau sprite](assets/Plantagotchi.pdf-1-2.png)
 
-![Sélection de l'option "Peindre" pour créer un nouveau sprite](assets/Plantamagotchi.pdf-1-3.png)
+![Sélection de l'option "Peindre" pour créer un nouveau sprite](assets/Plantagotchi.pdf-1-3.png)
 ### 1.1) La plante
 
 J’ai ajouté un nouveau Sprite que j’ai appelé “Plante”.
 Sur le canvas, vous pouvez dessiner une plante simple pour le premier costume, puis le dupliquer pour
 ajouter des feuilles. J’ai fait 5 costumes pour 5 stades de croissance, dont un correspond au stade graine,
 
-![Les 5 costumes de la plante : graine, petite plante, plante moyenne, grande plante et plante sèche](assets/Plantamagotchi.pdf-1-0.png)
+![Les 5 costumes de la plante : graine, petite plante, plante moyenne, grande plante et plante sèche](assets/Plantagotchi.pdf-1-0.png)
 
-![Vue détaillée des costumes individuels de la plante dans l'éditeur Scratch](assets/Plantamagotchi.pdf-1-1.png)
+![Vue détaillée des costumes individuels de la plante dans l'éditeur Scratch](assets/Plantagotchi.pdf-1-1.png)
 
 ### 1.2) Importer des images en tant que costumes
 
@@ -49,9 +49,9 @@ Vous pouvez trouver nos images dans le lien:
 
 
 
-![Interface d'importation d'images dans Scratch](assets/Plantamagotchi.pdf-1-4.png)
+![Interface d'importation d'images dans Scratch](assets/Plantagotchi.pdf-1-4.png)
 
-![Galerie d'images de plantes disponibles sur GitHub](assets/Plantamagotchi.pdf-1-5.png)
+![Galerie d'images de plantes disponibles sur GitHub](assets/Plantagotchi.pdf-1-5.png)
 ## 2) Animer la croissance de la plante
 
 Maintenant que nous avons les graphiques nécessaires, passons à la programmation !
@@ -67,11 +67,11 @@ Il faut commencer par créer une variable pour connaître et modifier le stade d
 Nous allons cliquer sur l'arrière plan, puis dans la categorie “variable” -> créer une nouvelle variable.
 Nous allons l'appeler “stade”
 
-![Interface Scratch montrant la création d'une nouvelle variable](assets/Plantamagotchi.pdf-2-0.png)
+![Interface Scratch montrant la création d'une nouvelle variable](assets/Plantagotchi.pdf-2-0.png)
 
-![Boîte de dialogue pour nommer la nouvelle variable "stade"](assets/Plantamagotchi.pdf-2-1.png)
+![Boîte de dialogue pour nommer la nouvelle variable "stade"](assets/Plantagotchi.pdf-2-1.png)
 
-![Variable "stade" créée et visible dans l'interface](assets/Plantamagotchi.pdf-2-2.png)
+![Variable "stade" créée et visible dans l'interface](assets/Plantagotchi.pdf-2-2.png)
 
 
 Notre nouvelle variable apparaît en haut de l'écran du jeu. Avec click droit, nous allons changer
@@ -79,14 +79,14 @@ l’affichage en barre de défilement pour pouvoir mieux la contrôler.
 
 
 
-![Menu contextuel pour changer l'affichage de la variable en barre de défilement](assets/Plantamagotchi.pdf-2-3.png)
-![Interface de sélection du type d'affichage pour la variable](assets/Plantamagotchi.pdf-3-0.png)
+![Menu contextuel pour changer l'affichage de la variable en barre de défilement](assets/Plantagotchi.pdf-2-3.png)
+![Interface de sélection du type d'affichage pour la variable](assets/Plantagotchi.pdf-3-0.png)
 
-![Confirmation du changement d'affichage de la variable](assets/Plantamagotchi.pdf-3-1.png)
+![Confirmation du changement d'affichage de la variable](assets/Plantagotchi.pdf-3-1.png)
 
 On voit apparaître à l'écran la barre de défilement:
 
-![Variable "stade" affichée sous forme de barre de défilement dans le jeu](assets/Plantamagotchi.pdf-3-2.png)
+![Variable "stade" affichée sous forme de barre de défilement dans le jeu](assets/Plantagotchi.pdf-3-2.png)
 
 ### 2.2) Ajouter le code
 
@@ -101,15 +101,15 @@ Dans la catégorie “événements”, nous ajoutons l'événement “quand le d
 
 
 
-![Bloc événement "quand le drapeau vert est cliqué" dans la palette Scratch](assets/Plantamagotchi.pdf-3-3.png)
+![Bloc événement "quand le drapeau vert est cliqué" dans la palette Scratch](assets/Plantagotchi.pdf-3-3.png)
 ### 2.3) Changer l’apparence
 
 Ensuite, nous voulons changer l’apparence de la plante. Dans la catégorie “Apparence”, on prend la
 brique “basculer sur le costume Graine”.
 
-![Bloc "basculer sur le costume" dans la catégorie Apparence](assets/Plantamagotchi.pdf-4-0.png)
+![Bloc "basculer sur le costume" dans la catégorie Apparence](assets/Plantagotchi.pdf-4-0.png)
 
-![Code assemblé avec l'événement et l'instruction de changement de costume](assets/Plantamagotchi.pdf-4-1.png)
+![Code assemblé avec l'événement et l'instruction de changement de costume](assets/Plantagotchi.pdf-4-1.png)
 
 
 On clique sur le drapeau vert pour l'exécuter !
@@ -130,11 +130,11 @@ On va utiliser le bloc de “Contrôle” “Si quelque-chose, alors on bascule 
 “quelque-chose” s’appelle “condition” et nous allons le rajouter après.
 
 
-![Bloc conditionnel "si... alors..." dans la catégorie Contrôle](assets/Plantamagotchi.pdf-5-0.png)
+![Bloc conditionnel "si... alors..." dans la catégorie Contrôle](assets/Plantagotchi.pdf-5-0.png)
 
 Voici à quoi cela ressemble:
 
-![Structure conditionnelle assemblée avec l'instruction de costume](assets/Plantamagotchi.pdf-5-1.png)
+![Structure conditionnelle assemblée avec l'instruction de costume](assets/Plantagotchi.pdf-5-1.png)
 
 
 Il ne reste plus qu’à remplir la valeur de la “condition”. Pour cela il faut réfléchir dans quel cas nous
@@ -149,17 +149,17 @@ un “operateur”
 
 Dans la catégorie opérateur, on veut comparer si la valeur est exactement égale à 1.
 
-![Opérateur de comparaison "égal à" dans la catégorie Opérateurs](assets/Plantamagotchi.pdf-6-0.png)
+![Opérateur de comparaison "égal à" dans la catégorie Opérateurs](assets/Plantagotchi.pdf-6-0.png)
 
 
 On revient dans la catégorie “variable” et on glisse “stade” das l’emplacement blanc
 
 
 
-![Variable "stade" glissée dans l'opérateur de comparaison](assets/Plantamagotchi.pdf-6-1.png)
+![Variable "stade" glissée dans l'opérateur de comparaison](assets/Plantagotchi.pdf-6-1.png)
 Notre code ressemble à ça maintenant:
 
-![Code complet avec condition "si stade = 50 alors basculer sur costume Graine"](assets/Plantamagotchi.pdf-7-0.png)
+![Code complet avec condition "si stade = 50 alors basculer sur costume Graine"](assets/Plantagotchi.pdf-7-0.png)
 
 
 Cet opérateur va comparer la variable stade avec le chiffre 50, et si stade est 50, alors il va exécuter le
@@ -177,18 +177,18 @@ adulte au stade 4, puis la plante sèche au stade 5.
 |Stade = 1|Stade = 2|Stade = 3|Stade = 4|Stade = 5|
 
 
-![Costume "graine" représentant le stade 1 de croissance](assets/Plantamagotchi.pdf-7-1.png)
+![Costume "graine" représentant le stade 1 de croissance](assets/Plantagotchi.pdf-7-1.png)
 
-![Costume "petite" représentant le stade 2 de croissance](assets/Plantamagotchi.pdf-7-2.png)
+![Costume "petite" représentant le stade 2 de croissance](assets/Plantagotchi.pdf-7-2.png)
 
-![Costume "moyenne" représentant le stade 3 de croissance](assets/Plantamagotchi.pdf-7-3.png)
+![Costume "moyenne" représentant le stade 3 de croissance](assets/Plantagotchi.pdf-7-3.png)
 
-![Costume "grande" représentant le stade 4 de croissance](assets/Plantamagotchi.pdf-7-4.png)
+![Costume "grande" représentant le stade 4 de croissance](assets/Plantagotchi.pdf-7-4.png)
 
 
 Donc nous avons besoin de comparer stade a la valeur 1 pour le costume “Graine”
 
-![Code corrigé avec condition "si stade = 1 alors basculer sur costume Graine"](assets/Plantamagotchi.pdf-7-5.png)
+![Code corrigé avec condition "si stade = 1 alors basculer sur costume Graine"](assets/Plantagotchi.pdf-7-5.png)
 
 
 **Maintenant, c’est a toi de jouer :**
@@ -204,7 +204,7 @@ vert).
 
 Voici à quoi doit ressembler ton code a la fin :
 
-![Code complet avec toutes les conditions pour les 5 stades de la plante](assets/Plantamagotchi.pdf-8-0.png)
+![Code complet avec toutes les conditions pour les 5 stades de la plante](assets/Plantagotchi.pdf-8-0.png)
 
 
 Super ! On peut cliquer sur le drapeau vert de l'écran pour exécuter notre code et voir si la plante évolue
@@ -220,7 +220,7 @@ Piste: dans la catégorie “Contrôle”
 
 
 
-![Bloc "répéter indéfiniment" dans la catégorie Contrôle](assets/Plantamagotchi.pdf-8-1.png)
+![Bloc "répéter indéfiniment" dans la catégorie Contrôle](assets/Plantagotchi.pdf-8-1.png)
 ### 2.6) Répéter indéfiniment
 
 Répète indéfiniment c'est une bloc de contrôle qui permet de répéter le code à l'intérieur encore et
@@ -228,7 +228,7 @@ encore, jusqu’à que le programme s’arrête.
 
 Solution:
 
-![Code final avec boucle infinie englobant toutes les conditions](assets/Plantamagotchi.pdf-9-0.png)
+![Code final avec boucle infinie englobant toutes les conditions](assets/Plantagotchi.pdf-9-0.png)
 
 
 Et maintenant on peut vérifier le fonctionnement à nouveau en appuyant sur le drapeau vert.
@@ -249,7 +249,7 @@ Nous pouvons imaginer que la plante grandit un stade chaque minute.
 Le bloc qui permet d’attendre se trouve dans la catégorie “Contrôle”.
 
 
-![Bloc "attendre" dans la catégorie Contrôle](assets/Plantamagotchi.pdf-10-0.png)
+![Bloc "attendre" dans la catégorie Contrôle](assets/Plantagotchi.pdf-10-0.png)
 
 Ajoutons ce bloc et on change la valeur à 60 secondes (une minute).
 N’oubliez pas d’ajouter “quand le drapeau vert est cliqué”, pour que le temps commence à couler quand
@@ -258,7 +258,7 @@ le programme commence.
 Vous pouvez ajuster le temps à votre convenance, mais si vous avez choisi 60 secondes, votre code
 ressemble à ça :
 
-![Code pour gérer le temps avec attente de 60 secondes](assets/Plantamagotchi.pdf-10-1.png)
+![Code pour gérer le temps avec attente de 60 secondes](assets/Plantagotchi.pdf-10-1.png)
 
 ### 3.2) Grandir la plante
 
@@ -267,11 +267,11 @@ Le comportement que nous voulons obtenir c’est : une fois passés 60 secondes,
 cela nous allons dans la catégorie variable et le bloc “ajouter 1 a ma variable” semble pertinent pour ça:
 
 
-![Bloc "ajouter 1 à ma variable" dans la catégorie Variables](assets/Plantamagotchi.pdf-11-0.png)
+![Bloc "ajouter 1 à ma variable" dans la catégorie Variables](assets/Plantagotchi.pdf-11-0.png)
 
 Notre code ressemble à ça:
 
-![Code assemblé pour incrémenter le stade après attente](assets/Plantamagotchi.pdf-11-1.png)
+![Code assemblé pour incrémenter le stade après attente](assets/Plantagotchi.pdf-11-1.png)
 
 
 Alors, chaque fois qu’on ajoute un comportement, on peut vérifier si ca fait ce qu’on veut.
@@ -288,7 +288,7 @@ Piste: nous l’avons déjà fait dans 2.6 =)
 
 Réponse: le code ressemble a ca:
 
-![Code complet avec boucle infinie pour la croissance continue](assets/Plantamagotchi.pdf-12-0.png)
+![Code complet avec boucle infinie pour la croissance continue](assets/Plantagotchi.pdf-12-0.png)
 
 
 Petit coup de drapeau vert :
@@ -307,7 +307,7 @@ On a besoin de remettre le stade à sa valeur initiale au début.
 
 Pour cela nous allons utiliser le bloc “mettre ma variable à 0” dans la catégorie “variables”
 
-![Bloc "mettre ma variable à" dans la catégorie Variables](assets/Plantamagotchi.pdf-12-1.png)
+![Bloc "mettre ma variable à" dans la catégorie Variables](assets/Plantagotchi.pdf-12-1.png)
 
 
 **Mais, où l’ajouter? Et aussi, est-ce que la valeur 0 nous convient?**
@@ -315,7 +315,7 @@ Pour cela nous allons utiliser le bloc “mettre ma variable à 0” dans la cat
 Si tu as mis la bonne variable, la bonne valeur et le tout au bon endroit, ton code devrait ressembler à ça:
 
 
-![Code avec initialisation de la variable stade à 1 au début](assets/Plantamagotchi.pdf-13-0.png)
+![Code avec initialisation de la variable stade à 1 au début](assets/Plantagotchi.pdf-13-0.png)
 
 Est-ce que ça marche? -> Drapeau Vert -> yes !!
 Mais il nous reste à corriger le problème de l'incrément de stade à l’infini
@@ -325,7 +325,7 @@ Mais il nous reste à corriger le problème de l'incrément de stade à l’infi
 
 Comportement que nous voulons corriger:
 
-![Démonstration du problème de croissance infinie de la variable](assets/Plantamagotchi.pdf-13-1.png)
+![Démonstration du problème de croissance infinie de la variable](assets/Plantagotchi.pdf-13-1.png)
 
 
 Il y a souvent plusieurs façons de faire les choses.
@@ -340,14 +340,14 @@ Pour la deuxième possibilité, nous allons remplacer le bloc “répéter indé
 que”
 
 
-![Bloc "répéter jusqu'à ce que" dans la catégorie Contrôle](assets/Plantamagotchi.pdf-14-0.png)
+![Bloc "répéter jusqu'à ce que" dans la catégorie Contrôle](assets/Plantagotchi.pdf-14-0.png)
 
 Ce bloc répète le code a l'intérieur encore et encore tant que la condition est fausse. Puis, dès que la
 condition devient vraie, la répétition s'arrête.
 
 Le code:
 
-![Code avec boucle conditionnelle mais sans condition définie](assets/Plantamagotchi.pdf-14-1.png)
+![Code avec boucle conditionnelle mais sans condition définie](assets/Plantagotchi.pdf-14-1.png)
 
 
 Quand il y a un trou en losange c’est parce qu’il manque une condition…
@@ -361,7 +361,7 @@ Réponse : nous voulons répéter jusqu’à ce que stade = 5.
 
 Le code :
 
-![Code final avec condition d'arrêt "jusqu'à ce que stade = 5"](assets/Plantamagotchi.pdf-15-0.png)
+![Code final avec condition d'arrêt "jusqu'à ce que stade = 5"](assets/Plantagotchi.pdf-15-0.png)
 
 
 Le drapeau vert pour vérifier si le comportement obtenu correspond au comportement que nous voulons
@@ -426,7 +426,7 @@ préfères suivre un guide, ou tu peux essayer de le faire en autonomie.
 
 Example :
 
-![Sprite goutte d'eau pour le système d'arrosage](assets/Plantamagotchi.pdf-16-0.png)
+![Sprite goutte d'eau pour le système d'arrosage](assets/Plantagotchi.pdf-16-0.png)
 
 
 Voici où trouver notre image de goutte:
@@ -438,7 +438,7 @@ Voici où trouver notre image de goutte:
 Exemple de solution (Il y a plusieurs façons de programmer le même comportement).
 Comportement lors de l’action d’arrosage:
 
-![Code pour le comportement d'arrosage au clic sur la goutte](assets/Plantamagotchi.pdf-16-1.png)
+![Code pour le comportement d'arrosage au clic sur la goutte](assets/Plantagotchi.pdf-16-1.png)
 
 
 Comportement de l’eau dans le temps:
@@ -446,13 +446,13 @@ Au début, on met la valeur de eau à 2 (on l'initialise).
 La plante “boit” avec le temps (j’ai mis qu’elle boit tous les 4 secondes)
 
 
-![Code pour la consommation d'eau dans le temps](assets/Plantamagotchi.pdf-17-0.png)
+![Code pour la consommation d'eau dans le temps](assets/Plantagotchi.pdf-17-0.png)
 
 Interaction entre la variable “eau” et la variable “stade”:
 
 La plante meurt s'il n’y a plus d’eau ou si elle est trop arrosée (si l’eau arrive à 5)
 
-![Code pour la mort de la plante en cas de manque ou excès d'eau](assets/Plantamagotchi.pdf-17-1.png)
+![Code pour la mort de la plante en cas de manque ou excès d'eau](assets/Plantagotchi.pdf-17-1.png)
 
 ### 4.2.3) Animer l’arrosage
 
@@ -466,10 +466,10 @@ goutte tombe sur la plante:
 |||
 
 
-![Code d'animation de la goutte qui tombe sur la plante](assets/Plantamagotchi.pdf-18-1.png)
+![Code d'animation de la goutte qui tombe sur la plante](assets/Plantagotchi.pdf-18-1.png)
 ### 4.2) Indicateur du niveau d’eau
 
-![Interface de jeu avec variable eau affichée en barre de défilement](assets/Plantamagotchi.pdf-18-0.png)
+![Interface de jeu avec variable eau affichée en barre de défilement](assets/Plantagotchi.pdf-18-0.png)
 
 La barre de défilement est confortable pour le développement de notre jeu, mais ce serait mieux de la
 cacher et de montrer seulement le niveau d’eau de la plante avec un indicateur.
@@ -495,9 +495,9 @@ Pour rappel, “eau” peut avoir des valeurs du 0 à 5 (6 valeurs).
 
 
 
-![Exemples d'indicateurs visuels : chiffres et gouttes](assets/Plantamagotchi.pdf-19-0.png)
+![Exemples d'indicateurs visuels : chiffres et gouttes](assets/Plantagotchi.pdf-19-0.png)
 
-![Costumes du sprite indicateur avec représentation par gouttes](assets/Plantamagotchi.pdf-19-1.png)
+![Costumes du sprite indicateur avec représentation par gouttes](assets/Plantagotchi.pdf-19-1.png)
 ### 4.2.4) Le code de l’indicateur
 
 Nous avons déjà couvert comment changer le costume selon la valeur d’une variable (nous avons déjà
@@ -513,7 +513,7 @@ Voici à quoi peut ressembler notre code dans le Sprite “Niveau”:
 
 
 
-![Code pour changer le costume de l'indicateur selon le niveau d'eau](assets/Plantamagotchi.pdf-20-0.png)
+![Code pour changer le costume de l'indicateur selon le niveau d'eau](assets/Plantagotchi.pdf-20-0.png)
 ### 4.2.5) Cacher l’affichage de la variable eau
 
 Une fois que notre goutte marche correctement pour ajouter de l’eau a notre plante et que nous avons
@@ -547,18 +547,18 @@ graine” pour pouvoir recommencer.
 
 Créons un nouveau Sprite appellé “Game Over”
 
-![Code complet pour la gestion du bonheur de la plante](assets/Plantamagotchi.pdf-21-0.png)
+![Code complet pour la gestion du bonheur de la plante](assets/Plantagotchi.pdf-21-0.png)
 
 
 Dans l’onglet “costume” nous allons utiliser l’outil “texte” pour écrire “GAME OVER”. J’ai utilisé la couleur
 rouge et le font Pixel, mais tu peux utiliser celui que tu préfères !
 
 
-![Interface de création d'une nouvelle variable "bonheur"](assets/Plantamagotchi.pdf-22-0.png)
+![Interface de création d'une nouvelle variable "bonheur"](assets/Plantagotchi.pdf-22-0.png)
 
 Dans l'écran de jeu, on déplace le texte à l'endroit où on voudrait qu’il s’affiche.
 
-![Code pour l'interaction avec la plante qui augmente le bonheur](assets/Plantamagotchi.pdf-22-1.png)
+![Code pour l'interaction avec la plante qui augmente le bonheur](assets/Plantagotchi.pdf-22-1.png)
 
 
 Puis, on clique sur le drapeau vert…
@@ -572,7 +572,7 @@ variable stade pour cacher ou montrer le panneau “GAME OVER”.
 Voici les blocs à utiliser pour montrer ou cacher un sprite:
 
 
-![Code pour la diminution du bonheur dans le temps](assets/Plantamagotchi.pdf-23-0.png)
+![Code pour la diminution du bonheur dans le temps](assets/Plantagotchi.pdf-23-0.png)
 
 Où pouvons-nous ajouter le code?
 Comment pouvons nous obtenir ce comportement?
@@ -582,7 +582,7 @@ En cliquant sur le drapeau vert, on vérifie que le comportement obtenu correspo
 
 
 
-![Code pour l'arrêt de croissance en cas de bonheur insuffisant](assets/Plantamagotchi.pdf-23-1.png)
+![Code pour l'arrêt de croissance en cas de bonheur insuffisant](assets/Plantagotchi.pdf-23-1.png)
 ## 6) Notifications
 
 Dans notre jeu, la plante meurt assez facilement sans que l’utilisateur en soit conscient. Nous pourrions
@@ -604,7 +604,7 @@ Est-ce qu’on lui laisse la possibilité de désactiver le son?
 
 Pour jouer un son d’alerte, il y a 2 blocs qui peuvent nous intéresser:
 
-![Interface montrant les deux variables eau et bonheur](assets/Plantamagotchi.pdf-24-0.png)
+![Interface montrant les deux variables eau et bonheur](assets/Plantagotchi.pdf-24-0.png)
 
 
 Le premier sert à jouer un son et attendre jusqu’à que le son soit fini.
@@ -625,9 +625,9 @@ jouer jusqu’au bout.
 Ou sinon, 2 fois le “Clown Honk” :
 
 
-![Code d'exemple pour un système de score](assets/Plantamagotchi.pdf-25-0.png)
+![Code d'exemple pour un système de score](assets/Plantagotchi.pdf-25-0.png)
 
-![Code pour afficher un message de félicitations](assets/Plantamagotchi.pdf-25-1.png)
+![Code pour afficher un message de félicitations](assets/Plantagotchi.pdf-25-1.png)
 
 A toi d’essayer et choisir la combinaison qui te convient.
 
@@ -652,9 +652,9 @@ On peut modifier le code du Sprite “Goutte” pour ajouter l’alarme quand le
 
 
 
-![Code pour afficher un message de game over](assets/Plantamagotchi.pdf-25-2.png)
+![Code pour afficher un message de game over](assets/Plantagotchi.pdf-25-2.png)
 
-![Code pour l'ajout de son et musique au jeu](assets/Plantamagotchi.pdf-25-3.png)
+![Code pour l'ajout de son et musique au jeu](assets/Plantagotchi.pdf-25-3.png)
 ### 6.4) Envoi des Messages
 
 Une autre possibilité c’est d’utiliser le système d’envoi des messages.
@@ -663,7 +663,7 @@ envoyer un message pour leur informer de l'occurrence d’un événement.
 
 Les bloc qui permet d’envoyer les messages est indiqué en 1 et le bloc qui permet de les recevoir en 2 :
 
-![Code complet du sprite plante avec tous les systèmes intégrés](assets/Plantamagotchi.pdf-26-0.png)
+![Code complet du sprite plante avec tous les systèmes intégrés](assets/Plantagotchi.pdf-26-0.png)
 
 
 On peut créer de nouveaux messages quand on en a besoin.
@@ -677,12 +677,12 @@ On peut créer de nouveaux messages quand on en a besoin.
 ||<br>+ <br>|
 
 
-![Code du sprite goutte pour le système d'arrosage](assets/Plantamagotchi.pdf-27-0.png)
+![Code du sprite goutte pour le système d'arrosage](assets/Plantagotchi.pdf-27-0.png)
 ### 6.4) Alerter en cas d'excès d’arrosage
 
-![Code du sprite indicateur eau pour l'affichage visuel](assets/Plantamagotchi.pdf-27-1.png)
+![Code du sprite indicateur eau pour l'affichage visuel](assets/Plantagotchi.pdf-27-1.png)
 
-![Code du sprite indicateur bonheur pour l'affichage visuel](assets/Plantamagotchi.pdf-27-2.png)
+![Code du sprite indicateur bonheur pour l'affichage visuel](assets/Plantagotchi.pdf-27-2.png)
 
 Nous pouvons utiliser le niveau d’eau (variable que nous avons déjà) pour émettre un son quand le
 niveau d’eau est trop élevé (4). Comme ça, l’utilisateur sait que s’il continue a l’arroser, la plante mourra.
@@ -709,9 +709,9 @@ Nous pouvons utiliser la réflexion horizontale de nos sprites plante pour crée
 les basculer par intermittence toutes les secondes pour donner du mouvement a notre plante.
 
 
-![Interface finale du jeu Plantagotchi avec tous les éléments](assets/Plantamagotchi.pdf-29-0.png)
+![Interface finale du jeu Plantagotchi avec tous les éléments](assets/Plantagotchi.pdf-29-0.png)
 
-![Jeu en cours d'exécution montrant la plante et les indicateurs](assets/Plantamagotchi.pdf-29-1.png)
+![Jeu en cours d'exécution montrant la plante et les indicateurs](assets/Plantagotchi.pdf-29-1.png)
 ### 6.2) La fleur, des émotions
 
 Nous pouvons ajouter un sprite fleur, qui se montre seulement au stade adulte (dernier stade avant
@@ -734,7 +734,7 @@ Voici une proposition de modification à notre code initial pour garder 5 second
 (graine) à 3 (moyenne), puis prolonger à 30 secondes le stade 4 (grande) avant de passer au stade 5
 (game over)
 
-![Liste des améliorations possibles pour étendre le jeu](assets/Plantamagotchi.pdf-30-0.png)
+![Liste des améliorations possibles pour étendre le jeu](assets/Plantagotchi.pdf-30-0.png)
 
 
 D'ailleurs, tu pourrais varier le temps de chaque stade à ta convenance ! Par exemple, les Tamagotchis
@@ -750,7 +750,7 @@ Sur le canvas, vous pouvez dessiner une fleur. J’ai décidé de lui ajouter un
 plus attachante
 
 
-![Ressources et liens utiles pour le développement](assets/Plantamagotchi.pdf-31-0.png)
+![Ressources et liens utiles pour le développement](assets/Plantagotchi.pdf-31-0.png)
 
 Autrement, vous pouvez importer l’image de la fleur tel que décrit en 1.2 après avoir créé un nouveau
 sprite.
@@ -801,4 +801,4 @@ Voici l’hyperlien si vous souhaitez jouer avec notre création (conçue pendan
 
 
 
-![Informations de contact et remerciements](assets/Plantamagotchi.pdf-31-1.png)
+![Informations de contact et remerciements](assets/Plantagotchi.pdf-31-1.png)
