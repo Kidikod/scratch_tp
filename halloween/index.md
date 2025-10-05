@@ -566,6 +566,139 @@ répéter indéfiniment
   aller à "pointeur de souris"
 </pre>
 
+On fait un petit test. Je sais que les niveaux sont compliqué à faire maintenant mais ça permet au moins de vérifier que le jeu est toujours faisable. Et donc normalement on devrait avoir :
+- un écran de lancement du jeu
+- les trois niveau avec une difficulté progressive
+- et enfin le dernier niveau qui s'arrête brusquement pour basculer sur la surprise
+Tu as bien tout cela ?
+
+Si non, n'hésite pas à demander un peu d'aide pour que l'on voit où ça cloche. Autrement on va pouvoir garnir notre surprise pour la rendre bien plus effrayante qu'un simple boo!. Le but c'est de faire tomber le joueur de sa chaise. C'est partie ?
+
+On commence par retourner sur l'arrière-plan de la surprise. Supprime le message, on n'en a plus besoin. On peut se contenter d'un écran noir.
+
+Ensuite, on va ajouter un nouveau sprite en mettant le curseur de la souris sur la tête de chat en bas à droite puis en cliquant sur peindre.
+
+![Créer un nouveau sprite](assets/nouveau_sprite.png)
+
+Et on ajoute un costume de sorcière (en fait il n'existe pas de sprite sorcière tout fait qui fait peur, on est obligé de passer par les costumes). Donc on met le curseur sur la tête de chat en bas à gauche et on clique sur "Choisir un costume"
+
+![Choisir un costume](assets/choisir_costume.png)
+
+Ce costume va être super ! Il s'appel "Witch"
+
+![Un costume qui fait peur !](assets/costume_witch.png)
+
+Et enfin, supprime le premier costume vide, on n'en a pas besoin.
+
+On va pouvoir passer dans le code pour la faire apparaître brusquement lorsque l'on passe sur l'arrière-plan "surprise" puis faire un petite animation pour faire comme si la sorcière partait au loin sur son balet.
+
+Tu vas avoir besoin de ces blocs.
+
+<pre class="blocks">
+quand l'arrière-plan bascule sur "surprise"
+</pre>
+
+<pre class="blocks">
+s'orienter à ""
+</pre>
+
+<pre class="blocks">
+aller à x: "" y: ""
+</pre>
+
+<pre class="blocks">
+mettre taille à "" % de la taille initiale
+</pre>
+
+<pre class="blocks">
+montrer
+</pre>
+
+<pre class="blocks">
+répéter "" fois
+</pre>
+
+<pre class="blocks">
+ajouter "" à la taille
+</pre>
+
+<pre class="blocks">
+ajouter "" à l'effet "fantôme"
+</pre>
+
+<pre class="blocks">
+mettre l'effet "fantôme" à ""
+</pre>
+
+<pre class="blocks">
+attendre "" secondes
+</pre>
+
+<pre class="blocks">
+glisser en "" secondes à x: "" y: ""
+</pre>
+C'est un bloc qui permet de faire une animation de déplacement. On indique combien de seconde cela va prendre pour arriver à un endroit.
+
+<pre class="blocks">
+avancer de "" pas 
+</pre>
+C'est un bloc qui permet de déplacer le sprite. Celui-ci va partir dans une direction défini par l'angle. On peut faire un animation en l'insérant dans un bloc <code class="b">répéter "" fois</code>.
+
+<pre class="blocks">
+tourner de "" degrès
+</pre>
+C'est un bloc qui permet de faire tourner le sprite. On indique de quel angle il doit tourner. On peut faire un animation en l'insérant dans un bloc <code class="b">répéter "" fois</code>.
+
+<pre class="blocks">
+fixer le sens de rotation ""
+</pre>
+Ce bloc permet de changer le style de rotation du sprite. En mettant "à 360°", le sprite va tourner. En mettant "gauche-droite", le sprite va se retourner.
+
+<pre class="blocks">
+cacher
+</pre>
+
+Ça pourrait ressembler à ceci :
+
+<pre class="blocks">
+quand l'arrière-plan bascule sur "surprise"
+s'orienter à "90"
+aller à x: "-110" y: "-100"
+mettre taille à "300" % de la taille initiale
+mettre l'effet "fantôme" à "100"
+montrer
+répéter "5" fois
+  ajouter "40" à la taille
+  ajouter "-20" à l'effet "fantôme"
+attendre "1" secondes
+répéter "3" fois
+  glisser en "0.05" secondes à x: "-110" y: "-95"
+  glisser en "0.05" secondes à x: "-110" y: "-105"
+répéter "10" fois
+  avancer de "60" pas 
+  tourner de "3" degrès
+mettre taille à "50" % de la taille initiale
+attendre "1" secondes
+s'orienter à "90"
+aller à x: "260" y: "100"
+fixer le sens de rotation "gauche-droite"
+s'orienter à "-90"
+glisser en "1" secondes à x: "-260" y: "100"
+cacher
+</pre>
+
+Autre chose, lorsque l'on clique sur le drapeau, il faudrait que la sorcière soit caché. Tu vois comment tu pourrais faire cela ?
+
+Maintenant, on va ajouter du code sur le sprite des bonbons pour qu'il y ait une pluie de bonbon au passage de la sorcière. On va utiliser pour cela les messages. Tu te rappel du message pour dire qu'un bonbon est mangé ? Ben la c'est pour déclencher une pluie de bonbon. On va utiliser les clones pour faire apparaêtre plein de bonbon à la position de la sorcière et les faire tomber. Chaque bonbon devra disparaître en arrivant en bas de l'écran.
+
+Tu vas avoir besoin de ses blocs :
+
+<pre class="blocks">
+quand je reçois le message "pluie de bonbon"
+</pre>
+
+
+
 ## Poliçage
 
 
