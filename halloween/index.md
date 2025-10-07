@@ -20,11 +20,11 @@ Et pour faire tout cela, tu vas avoir besoin de :
 - Environ 3 heures
 - Ton imagination !
 
-Pour commencer, va sur le site de Scratch (scratch.mit.edu) puis clique sur « Créer » pour démarrer un nouveau projet.
+Pour commencer, va sur le site de [Scratch](scratch.mit.edu) puis clique sur « Créer » pour démarrer un nouveau projet.
 
 Au démarrage, la scène contient le petit chat : tu n'en as pas besoin ici, supprime‑le en cliquant sur la petite poubelle collée à la vignette du sprite. Désolé, petit chat, tu vas nous manquer.
 
-![Bouton de suppression du chat](assets/suppr_chat.png)
+<img alt="Bouton de suppression du chat" src="assets/suppr_chat.png"  style="display:block; margin: auto; width:50%;">
 
 ## Création du labyrinthe
 
@@ -40,11 +40,11 @@ Le premier arrière‑plan servira d'écran‑titre. Nomme‑le « écran titre 
 
 Ensuite, sur cet arrière‑plan, en bas, dessine un petit cercle blanc : ce cercle servira de bouton pour lancer la partie.
 
-![Écran titre](assets/ecran_titre.png)
+<img alt="Écran titre" src="assets/ecran_titre.png"  style="display:block; margin: auto; width:70%;">
 
 Maintenant, crée un premier niveau en dupliquant l'arrière‑plan (clic droit sur la vignette de l'arrière‑plan → « Dupliquer »).
 
-![Dupliquer l'arrière plan](assets/dupliquer_arriere_plan.png)
+<img alt="Dupliquer l'arrière plan" src="assets/dupliquer_arriere_plan.png"  style="display:block; margin: auto;">
 
 Appelle ce nouvel arrière‑plan "niveau1". Dessine ensuite un petit cercle blanc qui servira d'arrivée pour le premier niveau, puis un couloir pour le labyrinthe. Comme c'est le premier niveau, tu peux faire un couloir assez large pour commencer. Attends un peu avant de faire un niveau vraiment effrayant. 😉
 
@@ -66,11 +66,11 @@ Clique sur l'onglet "Costumes" pour le modifier. Utilise l'outil "Sélection" po
 
 Tu remarqueras que le costume a un nom lui aussi. Donne au costume le nom « démarrage ». Le bonbon nous servira d'appât pour lancer le jeu.
 
-![Nom du costume à mettre pour le démarrage du jeu](assets/nom_constume_demarrage.png)
+![Nom du costume à mettre pour le démarrage du jeu](assets/nom_costume_demarrage.png)
 
 Déplace ensuite le sprite pour le placer dans le rond blanc en bas.
 
-![Emplacement du bonbon pour le démarrage du jeu](assets/emplacement_demarrage.png)
+<img alt="Emplacement du bonbon pour le démarrage du jeu" src="assets/emplacement_demarrage.png"  style="display:block; margin: auto; width:70%">
 
 Et maintenant place au code ! Clique sur l'onglet "Code" pour commencer à coder.
 
@@ -83,6 +83,10 @@ Quand on clique sur le drapeau vert, le jeu doit revenir à l'écran‑titre ave
 Tu vas utiliser les blocs suivants :
 
 <pre class="blocks">
+basculer sur l'arrière-plan [écran titre v]
+</pre>
+
+<pre class="blocks">
 quand le drapeau vert pressé
 </pre>
 
@@ -91,25 +95,21 @@ montrer
 </pre>
 
 <pre class="blocks">
-basculer sur l'arrière-plan "écran titre"
+basculer sur le costume [démarrage v]
 </pre>
 
 <pre class="blocks">
-basculer sur le costume "démarrage"
+aller à x: (1) y: (-123)
 </pre>
-
-<pre class="blocks">
-aller à x: 1 y: -123
-</pre>
-Les chiffres que tu vois à l'écran pour ce bloc correspondent aux coordonnées actuelles du bonbon. Pas besoin d'y toucher donc.
+> 📝 Les chiffres que tu vois à l'écran pour ce bloc correspondent aux coordonnées actuelles du bonbon. Pas besoin d'y toucher donc.
 
 Exemple de script complet :
 
 <pre class="blocks">
 quand le drapeau vert pressé
-  basculer sur l'arrière-plan "écran titre"
-  aller à x: 1 y: -123
-  basculer sur le costume "démarrage"
+  basculer sur l'arrière-plan [écran titre v]
+  aller à x: (1) y: (-123)
+  basculer sur le costume [démarrage v]
   montrer
 </pre>
 
@@ -125,34 +125,34 @@ Mais tout d'abord, on doit ajouter un costume à notre bonbon pour qu'il puisse 
 
 Ensuite met le curseur de la souris sur le petit chat en bas à gauche puis clique sur le pinceau pour peindre un nouveau costume.
 
-![Ajout du costume](assets/ajout_costume.png)
+<img alt="Ajout du costume" src="assets/ajout_costume.png"  style="display:block; margin: auto; width:50%">
 
 Dessine un cercle en maintenant la touche Maj pour qu'il soit parfaitement proportionné et place‑le au centre du costume. Il y a un petit aimant pour t'aider à le centrer.
 
 Ensuite retourne sur l'onglet de Code. Tu vas avoir besoin de ces blocs :
 
 <pre class="blocks">
-touche le pointeur de souris ?
+<touche le [pointeur de souris v] ?>
 </pre>
 
 <pre class="blocks">
-basculer sur l'arrière-plan "niveau1"
+basculer sur l'arrière-plan [niveau1 v]
 </pre>
 
 <pre class="blocks">
-basculer sur le costume "en cours"
+attendre jusqu'à ce que <>
 </pre>
 
 <pre class="blocks">
-attendre jusqu'à ce que <condition>
+basculer sur le costume [en cours v]
 </pre>
 
 Exemple :
 
 <pre class="blocks">
-attendre jusqu'à ce que touche le pointeur de souris ?
-basculer sur l'arrière-plan "niveau1"
-basculer sur le costume "en cours"
+attendre jusqu'à ce que <touche le [pointeur de souris v] ?>
+basculer sur l'arrière-plan [niveau1 v]
+basculer sur le costume [en cours v]
 </pre>
 
 Normalement, si tu cliques sur le drapeau vert, ça devrait afficher le premier arrière‑plan avec le bonbon et c'est quand tu mets le curseur de la souris dessus que le premier niveau du labyrinthe se révèle.
@@ -170,15 +170,15 @@ Ajoute un message pour indiquer la défaite.
 Quand ça sera fait, tu vas pouvoir retourner sur l'onglet de code. Tu utiliseras notamment ces blocs :
 
 <pre class="blocks">
-répéter indéfiniment
+si <> alors
 </pre>
 
 <pre class="blocks">
-si <condition> alors
+aller à [pointeur de souris v]
 </pre>
 
 <pre class="blocks">
-couleur "noir" touchée ?
+couleur [#000000] touchée ?
 </pre>
 
 <pre class="blocks">
@@ -186,21 +186,22 @@ cacher
 </pre>
 
 <pre class="blocks">
-basculer sur l'arrière-plan "game over"
+répéter indéfiniment
 </pre>
 
 <pre class="blocks">
-aller à "pointeur de souris"
+basculer sur l'arrière-plan [game over v]
 </pre>
 
 Exemple de script du joueur :
 
 <pre class="blocks">
 répéter indéfiniment
-  si couleur "noir" touchée ? alors
+  si <couleur [#000000] touchée ?> alors
     cacher
-    basculer sur l'arrière-plan "game over"
-  aller à "pointeur de souris"
+    basculer sur l'arrière-plan [game over v]
+  fin
+  aller à [pointeur de souris v]
 </pre>
 
 Clique maintenant sur le drapeau pour faire des essais de déplacement.
@@ -211,11 +212,11 @@ Ajoutons des bonbons à ramasser pour rendre le labyrinthe plus intéressant.
 
 On va avoir besoin d'un nouveau sprite de bonbon. Pour de vrais bonbons cette fois, pas juste un appât pour enfant. Il y a un répertoire avec des images de bonbons : on va les utiliser comme costumes pour un seul sprite de bonbon. Commence par créer un sprite en plaçant le curseur de la souris sur l'icône du chat : un menu va apparaître, tu vas alors cliquer sur le bouton au milieu : Peindre.
 
-![Ajouter un nouveau sprite](assets/nouveau_sprite.png)
+<img alt="Ajouter un nouveau sprite" src="assets/nouveau_sprite.png"  style="display:block; margin: auto; width:70%">
 
 À partir de là, place le curseur de la souris sur l'icône du chat en bas à gauche : un autre menu va apparaître, il reste alors à cliquer sur le bouton du haut : Importer un Costume
 
-![Importer les costumes](assets/importer_costume.png)
+<img alt="Importer les costumes" src="assets/importer_costume.png"  style="display:block; margin: auto; width:50%">
 
 Tu peux, dans la boite de dialogue de sélection de l'image à importer, en sélectionner plusieurs. Comme ça, ça va importer tous les bonbon d'un coup. Il ne te restera plus qu'à supprimer le premier costume vide en cliquant sur la poubelle en haut à droit de la vignette du costume à supprimer.
 
@@ -226,19 +227,7 @@ Maintenant il est temps de placer les bonbons sur le niveau en codant. Il faut p
 Blocs utiles :
 
 <pre class="blocks">
-quand l'arrière-plan bascule sur "niveau1"
-</pre>
-
-<pre class="blocks">
 quand le drapeau vert pressé
-</pre>
-
-<pre class="blocks">
-créer un clone de "moi-même"
-</pre>
-
-<pre class="blocks">
-quand je commence comme un clone
 </pre>
 
 <pre class="blocks">
@@ -246,22 +235,35 @@ cacher
 </pre>
 
 <pre class="blocks">
+basculer sur le costume [costume v]
+</pre>
+> 📝 On peut aussi mettre une variable au lieu de sélectionner un costume. Ça marche avec le nom du costume ou le numéro du costume. 
+
+<pre class="blocks">
+quand je commence comme un clone
+</pre>
+
+<pre class="blocks">
 montrer
 </pre>
 
 <pre class="blocks">
-aller à x: <valeur> y: <valeur>
+aller à x: () y: ()
 </pre>
 
 <pre class="blocks">
-basculer sur le costume <indice>
+nombre aléatoire entre () et ()
 </pre>
 
 <pre class="blocks">
-nombre aléatoire entre <min> et <max>
+créer un clone de [moi-même v]
 </pre>
 
-Et là tu te demande : "C'est quoi un clone ?". Par défaut, il n'y a qu'un exemplaire du sprite de bonbon qui est présent dans l'écran, on va se servir de cet exemplaire comme machine à fabriquer des bonbons qui seront des clones. L'idée c'est que le sprite original soit caché, qu'on le déplace pour ensuite utiliser la fonction <code class="b">créer un clone de "moi-même"</code> et ainsi de suite.
+<pre class="blocks">
+quand l'arrière-plan bascule sur [niveau1 v]
+</pre>
+
+Et là tu te demande : "C'est quoi un clone ?". Par défaut, il n'y a qu'un exemplaire du sprite de bonbon qui est présent dans l'écran, on va se servir de cet exemplaire comme machine à fabriquer des bonbons qui seront des clones. L'idée c'est que le sprite original soit caché, qu'on le déplace pour ensuite utiliser la fonction <code class="b">créer un clone de [moi-même v]</code> et ainsi de suite.
 
 Lorsqu'un clone est créé, il reprend les mêmes caractéristiques de son père au moment de sa création. Il y a le bloc <code class="b">quand je commence comme un clone</code> qui se déclenche sur le clone nouvellement créé et qui va donc nous permettre de faire diverses chose comme le montrer, lui choisir un costume et définir son comportement. Toute ces modifications lui seront propre.
 
@@ -273,18 +275,18 @@ quand le drapeau vert pressé
 </pre>
 
 <pre class="blocks">
-quand l'arrière-plan bascule sur "niveau1"
-  aller à x: -90 y: -20
-  créer un clone de "moi-même"
-  aller à x: 40 y: 30
-  créer un clone de "moi-même"
-  aller à x: 100 y: -60
-  créer un clone de "moi-même"
+quand l'arrière-plan bascule sur [niveau1 v]
+  aller à x: (-90) y: (-20)
+  créer un clone de [moi-même v]
+  aller à x: (40) y: (30)
+  créer un clone de [moi-même v]
+  aller à x: (100) y: (-60)
+  créer un clone de [moi-même v]
 </pre>
 
 <pre class="blocks">
 quand je commence comme un clone
-  basculer sur le costume (nombre aléatoire entre 1 et 5)
+  basculer sur le costume (nombre aléatoire entre (1) et (5))
   montrer
 </pre>
 
@@ -295,34 +297,36 @@ Et maintenant, on va les manger. On va faire en sorte que lorsque le joueur touc
 Tu vas avoir besoin de ces blocs :
 
 <pre class="blocks">
-attendre jusqu'à ce que
+<touche le [joueur v] ?>
 </pre>
 
 <pre class="blocks">
-répéter 5 fois
+attendre jusqu'à ce que <>
 </pre>
 
 <pre class="blocks">
-ajouter 20 à l'effet "fantôme"
+ajouter (20) à l'effet [fantôme v]
 </pre>
-
-<pre class="blocks">
-touche le "joueur" ?
-</pre>
+> 📝 Lorsque que la valeur est 0, l'effet n'est pas appliqué. Lorsque qu'elle est à 100, l'effet est appliqué complètement.
 
 <pre class="blocks">
 supprimer ce clone
+</pre>
+
+<pre class="blocks">
+répéter (5) fois
 </pre>
 
 Voilà ce que tu devrais avoir normalement :
 
 <pre class="blocks">
 quand je commence comme un clone
-  basculer sur le costume (nombre aléatoire entre 1 et 5)
+  basculer sur le costume (nombre aléatoire entre (1) et (5))
   montrer
-  attendre jusqu'à ce que touche le "joueur" ?
-  répéter 5 fois
-    ajouter 20 à l'effet "fantôme"
+  attendre jusqu'à ce que <touche le [joueur v] ?>
+  répéter (5) fois
+    ajouter (20) à l'effet [fantôme v]
+  fin
   supprimer ce clone
 </pre>
 
@@ -337,7 +341,7 @@ quand le drapeau vert pressé
 </pre>
 
 <pre class="blocks">
-quand l'arrière-plan bascule sur "game over"
+quand l'arrière-plan bascule sur [game over v]
   supprimer ce clone
 </pre>
 
@@ -347,69 +351,69 @@ Vas‑y, essaie maintenant. C'est mieux, non ? Mais ce qui serait encore mieux, 
 
 On va tout d'abord avoir besoin d'un nouveau sprite pour afficher le score. Place le pointeur de la souris sur l'icône avec le chat, un menu va apparaître, tu vas alors cliquer sur le bouton au milieu : Peindre.
 
-![Ajouter un nouveau sprite](assets/nouveau_sprite.png)
+<img alt="Ajouter un nouveau sprite" src="assets/nouveau_sprite.png"  style="display:block; margin: auto; width:70%">
 
 Ensuite place le pointeur de la souris sur l'icône du chat en bas à gauche et clique dessus pour choisir un costume dans la liste de costumes proposés.
 
-![Choisir un costume](assets/choisir_costume.png)
+<img alt="Choisir un costume" src="assets/choisir_costume.png"  style="display:block; margin: auto; width:50%">
 
 Il existe des costumes représentant chaque chiffre. Il faudra tous les mettre en commençant par 1 et en finissant avec 0.
 
-![Exemple avec tous les chiffres](assets/costume_chiffres.png)
+<img alt="Exemple avec tous les chiffres" src="assets/costume_chiffres.png"  style="display:block; margin: auto; width:50%">
 
 Il ne reste plus qu'à coder le fonctionnement du score. Il faut que le score s'initialise à 0, une variable sera donc nécessaire. Ce score devrait augmenter de 1 pour chaque bonbon mangé. Il est possible d'utiliser des messages pour cela. Au passage, ça serait bien que le score soit orange et un peu plus petit, c'est plus dans le thème d'halloween et ça prend moins de place. Il existe un bloc de code qui permet de changer la couleur d'un sprite ainsi que sa taille selon celle d'origine.
 
 Tu vas avoir besoin de ces blocs.
 
 <pre class="blocks">
+mettre la taille à (50) % de la taille initiale
+</pre>
+
+<pre class="blocks">
+mettre [score v] à (0)
+</pre>
+
+<pre class="blocks">
+ajouter (1) à [score v]
+</pre>
+
+<pre class="blocks">
+mettre l'effet [couleur v] à (120)
+</pre>
+
+<pre class="blocks">
+basculer sur le costume (score)
+</pre>
+
+<pre class="blocks">
 quand le drapeau vert pressé
 </pre>
 
 <pre class="blocks">
-mettre (score) à 0
+envoyer à tous [miam v]
 </pre>
 
 <pre class="blocks">
-mettre l'effet "couleur" à 120
-</pre>
-
-<pre class="blocks">
-basculer sur le costume <indice>
+quand je reçois [miam v]
 </pre>
 
 <pre class="blocks">
 costume suivant
 </pre>
 
-<pre class="blocks">
-envoyer à tous "miam"
-</pre>
-
-<pre class="blocks">
-quand je reçois "miam"
-</pre>
-
-<pre class="blocks">
-ajouter 1 à (score)
-</pre>
-
-<pre class="blocks">
-mettre la taille à 50 % de la taille initiale
-</pre>
-
 Voilà ce que tu devrais avoir normalement :
 
 <pre class="blocks">
 quand le drapeau vert pressé
-mettre (score) à 0
-mettre la taille à 50 % de la taille initiale
-mettre l'effet "couleur" à 120
-basculer sur le costume (score)
+mettre [score v] à (0)
+mettre la taille à (50) % de la taille initiale
+mettre l'effet [couleur v] à (120)
+basculer sur le costume [score v]
 </pre>
 
 <pre class="blocks">
-quand je reçois "miam"
-ajouter 1 à (score)
+quand je reçois [miam v]
+ajouter (1) à [score v]
 costume suivant
 </pre>
 
@@ -430,22 +434,23 @@ La différence dans le code qu'il y aura par rapport au sprite score original, c
 Voici un bloc qui va pouvoir t'être utile
 
 <pre class="blocks">
-(score) modulo 10
+(score) modulo (10)
 </pre>
-C'est un bloc qui permet de récupérer ce qu'il reste d'une division.
+> 📝 C'est un bloc qui permet de récupérer ce qu'il reste d'une division.
 
 Voilà ce que tu devrais avoir normalement :
 
 <pre class="blocks">
 quand le drapeau vert pressé
-mettre la taille à 50 % de la taille initiale
-mettre l'effet "couleur" à 120
+mettre la taille à (50) % de la taille initiale
+mettre l'effet [couleur v] à (120)
 basculer sur le costume (score)
 cacher
 </pre>
 
-quand je reçois "miam"
-  si score > 0 et (score modulo 10) = 0 alors
+<pre class="blocks">
+quand je reçois [miam v]
+  si <<(score) > (0)> et <((score) modulo (10)) = (0)>> alors
     costume suivant
     montrer
 </pre>
@@ -456,11 +461,11 @@ Essaie pour voir le résultat. Tu devrais avoir les deux chiffres maintenant. Si
 
 On va mettre en place plusieurs niveaux dans notre jeu. Trois, ce sera bien. Le plus simple pour cela est de dupliquer le niveau précédent, de supprimer le superflu pour ne garder que l'arrivée. C'est cette arrivée qui va servir de point de départ du nouveau niveau. Il ne restera plus qu'à dessiner le reste du niveau.
 
-![2e niveau](assets/niveau2.png)
+<img alt="2e niveau" src="assets/niveau2.png"  style="display:block; margin: auto; width:70%">
 
 Il faudra faire pareil pour le 3e niveau. Idéalement, il faudrait que les niveaux soient de plus en plus difficiles. Il faudrait même que le 3e niveau soit très, très difficile pour inciter le joueur à se rapprocher de l'écran pour bien voir.
 
-![3e niveau](assets/niveau3.png)
+<img alt="3e niveau" src="assets/niveau3.png"  style="display:block; margin: auto; width:70%">
 
 C'est un bonbon spécial qui va permettre au joueur de passer au niveau suivant. On va donc commencer par dupliquer le sprite bonbon. Mais il va y avoir quelques changement dessus.
 
@@ -468,13 +473,13 @@ Il va d'abord falloir supprimer la gestion des clones. On ne fait que bouger le 
 
 Pour faire un bloc personnalisé, il faut aller dans le menu "Mes blocs" puis cliquer sur "Créer un bloc"
 
-![Comment aller sur "Mes blocs"](assets/mes_blocs.png)
+<img alt="Comment aller sur 'Mes blocs'" src="assets/mes_blocs.png"  style="display:block; margin: auto; width:50%">
 
 Dans la popin qui apparaît, il faut donner un nom au bloc que tu appelleras "gérer le bonbon pour aller au", ainsi qu'au paramètre "niveau suivant". Et enfin cliquer sur "Ok" pour valider.
 
 ![Popin pour créer un bloc](assets/popin_creer_bloc.png)
 
-Un nouveau bloc va apparaître qui s'appelle <code class="b">définir "gérer le bonbon pour aller au " (niveau suivant)</code>. C'est ce bloc qui va remplacer <code class="b">quand je commence comme un clone</code>. Pour l'appeler, il faudra utiliser le bloc <code class="b">gérer le bonbon pour aller au ""</code> qui a été créé. Ce bloc attend un paramètre : il faut mettre le nom du niveau suivant.
+Un nouveau bloc va apparaître qui s'appelle <code class="b">définir gérer le bonbon pour aller au (niveau suivant)</code>. C'est ce bloc qui va remplacer <code class="b">quand je commence comme un clone</code>. Pour l'appeler, il faudra utiliser le bloc <code class="b">gérer le bonbon pour aller au (niveau suivant) :: custom</code> qui a été créé. Ce bloc attend un paramètre : il faut mettre le nom du niveau suivant.
 
 Voilà pour les clones, il reste encore quelques modifications. La bascule du costume et son affichage devrait se faire lorsque l'on positionne le bonbon et non au déclenchement de la fonction créée. De même, il faudra ajouter un bloc pour réinitialiser l'effet fantôme à 0. Enfin, il faudrait doubler sa taille.
 
@@ -483,20 +488,20 @@ Et pour terminer, lorsque le bonbon est touché, il ne faudrait pas supprimer le
 Voilà ce que tu devrais avoir normalement comme code :
 
 <pre class="blocks">
-quand l'arrière-plan bascule sur "niveau1"
-  aller à x: <x> y: <y>
-  basculer sur le costume (nombre aléatoire entre 1 et 5)
-  mettre l'effet "fantôme" à 0
-  mettre la taille à 200 % de la taille d'origine
+quand l'arrière-plan bascule sur [niveau1 v]
+  aller à x: (x) y: (y)
+  basculer sur le costume (nombre aléatoire entre (1) et (5))
+  mettre l'effet [fantôme v] à (0)
+  mettre la taille à (200) % de la taille initiale
   montrer
-  gérer le bonbon pour aller au "niveau2"
+  gérer le bonbon pour aller au (niveau2) :: custom
 </pre>
 
 <pre class="blocks">
-définir "gérer le bonbon pour aller au" (niveau suivant)
-  attendre jusqu'à ce que touche le "joueur" ?
-  répéter 5 fois
-    ajouter 20 à l'effet "fantôme"
+définir gérer le bonbon pour aller au (niveau suivant)
+  attendre jusqu'à ce que <touche le [joueur v] ?>
+  répéter (5) fois
+    ajouter (20) à l'effet [fantôme v]
   basculer sur l'arrière-plan (niveau suivant)
 </pre>
 
@@ -506,7 +511,7 @@ quand le drapeau vert pressé
 </pre>
 
 <pre class="blocks">
-quand l'arrière-plan bascule sur "game over"
+quand l'arrière-plan bascule sur [game over v]
   cacher
 </pre>
 
@@ -516,7 +521,7 @@ Voilà, si tout se passe bien, en touchant ce bonbon spécial, on devrait passer
 
 Il est très important, pour que la surprise fonctionne bien, que le dernier niveau soit difficile... surtout vers la fin. Il faut que le joueur soit bien concentré pour essayer de le finir. Donc pour faire cela, il ne faut pas hésiter à réduire la taille du couloir. Un peu comme sur l'image ci-dessous.
 
-![3e niveau](assets/niveau3.png)
+<img alt="3e niveau" src="assets/niveau3.png"  style="display:block; margin: auto; width:70%">
 
 On va aussi dupliquer l'arrière-plan "game over" qui va nous servir de base pour faire la surprise. On va appeler cet arrière-plan "surprise". Mais en attendant de faire une belle surprise, on va juste remplacer le message "game over" par "boo !"
 
@@ -525,10 +530,10 @@ Ensuite ce que l'on va faire, c'est quelques modifications dans le code pour dé
 Dans le code du sprite "arrivee", pour le niveau 3 :
 
 <pre class="blocks">
-quand l'arrière-plan bascule sur "niveau3"
-  aller à x: <x> y: <y>
-  basculer sur le costume (nombre aléatoire entre 1 et 5)
-  gérer le bonbon pour aller au "surprise"
+quand l'arrière-plan bascule sur [niveau3 v]
+  aller à x: (100) y: (250)
+  basculer sur le costume (nombre aléatoire entre (1) et (5))
+  gérer le bonbon pour aller au [surprise] :: custom
 </pre>
 
 Ensuite, dans le code du sprite gérant les bonbons normaux : dans la partie qui place les bonbons dans le niveau 3, le dernier bonbon doit être placé à l'arrivée à la place du bonbon qui servait à passer au niveau suivant. Mais pour que l'illusion soit parfaite, il faut lui donner la même taille que le bonbon d'arrivée.
@@ -536,15 +541,15 @@ Ensuite, dans le code du sprite gérant les bonbons normaux : dans la partie qui
 Ça devrait ressembler à cela.
 
 <pre class="blocks">
-quand l'arrière-plan bascule sur "niveau3"
-  aller à x:<x> y:<y>
-  créer un clone de "moi-même"
-  aller à x:<x> y:<y>
-  créer un clone de "moi-même"
-  aller à x:<x> y:<y>
-  mettre la taille à 200 % de la taille d'origine
-  créer un clone de "moi-même"
-  mettre la taille à 100 % de la taille d'origine
+quand l'arrière-plan bascule sur [niveau3 v]
+  aller à x: (100) y: (130)
+  créer un clone de [moi-même v]
+  aller à x: (100) y: (130)
+  créer un clone de [moi-même v]
+  aller à x: (100) y: (130)
+  mettre la taille à (200) % de la taille initiale
+  créer un clone de [moi-même v]
+  mettre la taille à (100) % de la taille initiale
 </pre>
 
 
@@ -554,10 +559,11 @@ Ca devrait ressembler à ça.
 
 <pre class="blocks">
 répéter indéfiniment
-  si (couleur "noir" touchée ?) alors
+  si <couleur [#000000] touchée ?> alors
     cacher
-    basculer sur l'arrière-plan "game over"
-  aller à "pointeur de souris"
+    basculer sur l'arrière-plan [game over v]
+  fin
+  aller à [pointeur de souris v]
 </pre>
 
 On fait un petit test. Je sais que les niveaux sont compliqué à faire maintenant mais ça permet au moins de vérifier que le jeu est toujours faisable. Et donc normalement on devrait avoir :
@@ -574,15 +580,15 @@ On commence par retourner sur l'arrière-plan de la surprise. Supprime le messag
 
 Ensuite, on va ajouter un nouveau sprite en mettant le pointeur de la souris sur la tête de chat en bas à droite puis en cliquant sur peindre.
 
-![Créer un nouveau sprite](assets/nouveau_sprite.png)
+<img alt="Créer un nouveau sprite" src="assets/nouveau_sprite.png"  style="display:block; margin: auto; width:70%">
 
 Ajoute un costume de sorcière (en fait il n'existe pas de sprite sorcière tout fait qui fait peur, on est obligé de passer par les costumes). Met le curseur sur la tête de chat en bas à gauche et clique sur "Choisir un costume"
 
-![Choisir un costume](assets/choisir_costume.png)
+<img alt="Choisir un costume" src="assets/choisir_costume.png"  style="display:block; margin: auto; width:50%">
 
 Ce costume va être super ! Il s'appelle "Witch".
 
-![Un costume qui fait peur !](assets/costume_witch.png)
+<img alt="Un costume qui fait peur !" src="assets/costume_witch.png"  style="display:block; margin: auto; width:50%">
 
 Et enfin, supprime le premier costume vide.
 
@@ -591,19 +597,28 @@ On va pouvoir passer dans le code pour la faire apparaître brusquement lorsque 
 Tu vas avoir besoin de ces blocs.
 
 <pre class="blocks">
-quand l'arrière-plan bascule sur "surprise"
+avancer de (20) pas 
+</pre>
+> 📝 C'est un bloc qui permet de déplacer le sprite. Celui-ci va partir dans une direction défini par l'angle. On peut en faire une animation en l'insérant dans un bloc <code class="b">répéter (10) fois</code>.
+
+<pre class="blocks">
+répéter (5) fois
 </pre>
 
 <pre class="blocks">
-s'orienter à <angle>
+s'orienter à (90)
 </pre>
 
 <pre class="blocks">
-aller à x: <x> y: <y>
+aller à x: () y: ()
 </pre>
 
 <pre class="blocks">
-mettre taille à 500 % de la taille initiale
+mettre la taille à (500) % de la taille initiale
+</pre>
+
+<pre class="blocks">
+quand l'arrière-plan bascule sur [surprise v]
 </pre>
 
 <pre class="blocks">
@@ -611,75 +626,69 @@ montrer
 </pre>
 
 <pre class="blocks">
-répéter 5 fois
-</pre>
-
-<pre class="blocks">
-ajouter 20 à la taille
-</pre>
-
-<pre class="blocks">
-ajouter 20 à l'effet "fantôme"
-</pre>
-
-<pre class="blocks">
-mettre l'effet "fantôme" à 0
-</pre>
-
-<pre class="blocks">
-attendre 1 secondes
-</pre>
-
-<pre class="blocks">
-glisser en 1 secondes à x: <x> y: <y>
-</pre>
-C'est un bloc qui permet de faire une animation de déplacement. On indique combien de seconde cela va prendre pour arriver à un endroit.
-
-<pre class="blocks">
-avancer de 20 pas 
-</pre>
-C'est un bloc qui permet de déplacer le sprite. Celui-ci va partir dans une direction défini par l'angle. On peut en faire une animation en l'insérant dans un bloc <code class="b">répéter 10 fois</code>.
-
-<pre class="blocks">
-tourner de <angle> degrès
-</pre>
-C'est un bloc qui permet de faire tourner le sprite. On indique de quel angle il doit tourner. On peut en faire un animation en l'insérant dans un bloc <code class="b">répéter 10 fois</code>.
-
-<pre class="blocks">
-fixer le sens de rotation "gauche-droite"
-</pre>
-Ce bloc permet de changer le style de rotation du sprite. En mettant "à 360°", le sprite va tourner. En mettant "gauche-droite", le sprite va se retourner.
-
-<pre class="blocks">
 cacher
 </pre>
+
+<pre class="blocks">
+ajouter (20) à la taille
+</pre>
+
+<pre class="blocks">
+ajouter (20) à l'effet [fantôme v]
+</pre>
+
+<pre class="blocks">
+mettre l'effet [fantôme v] à (0)
+</pre>
+
+<pre class="blocks">
+attendre (1) secondes
+</pre>
+
+<pre class="blocks">
+tourner droite de (15) degrés
+</pre>
+> 📝 C'est un bloc qui permet de faire tourner le sprite. On indique de quel angle il doit tourner. On peut en faire un animation en l'insérant dans un bloc <code class="b">répéter (10) fois</code>.
+
+<pre class="blocks">
+fixer le sens de rotation [gauche-droite v]
+</pre>
+> 📝 Ce bloc permet de changer le style de rotation du sprite. En mettant "à 360°", le sprite va tourner. En mettant "gauche-droite", le sprite va se retourner.
+
+<pre class="blocks">
+glisser en (1) secondes à x: () y: ()
+</pre>
+> 📝 C'est un bloc qui permet de faire une animation de déplacement. On indique combien de seconde cela va prendre pour arriver à un endroit.
 
 Ça pourrait ressembler à ceci :
 
 <pre class="blocks">
-quand l'arrière-plan bascule sur "surprise"
-  s'orienter à 90
-  aller à x: -110 y: -100
-  mettre taille à 300 % de la taille initiale
-  mettre l'effet "fantôme" à 100
+quand l'arrière-plan bascule sur [surprise v]
+  s'orienter à (90)
+  aller à x: (-110) y: (-100)
+  mettre la taille à (300) % de la taille initiale
+  mettre l'effet [fantôme v] à (100)
   montrer
-  répéter 5 fois
-    ajouter 40 à la taille
-    ajouter -20 à l'effet "fantôme"
-  attendre 1 secondes
-  répéter 3 fois
-    glisser en 0.05 secondes à x: -110 y: -95
-    glisser en 0.05 secondes à x: -110 y: -105
-  répéter 10 fois
-    avancer de 60 pas
-    tourner de 3 degrés
-  mettre taille à 50 % de la taille initiale
-  attendre 1 secondes
-  s'orienter à 90
-  aller à x: 260 y: 100
-  fixer le sens de rotation "gauche-droite"
-  s'orienter à -90
-  glisser en 1 secondes à x: -260 y: 100
+  répéter (5) fois
+    ajouter (40) à la taille
+    ajouter (-20) à l'effet [fantôme v]
+  fin
+  attendre (1) secondes
+  répéter (3) fois
+    glisser en (0.05) secondes à x: (-110) y: (-95)
+    glisser en (0.05) secondes à x: (-110) y: (-105)
+  fin
+  répéter (10) fois
+    avancer de (60) pas
+    tourner droite de (3) degrés
+  fin
+  mettre la taille à (50) % de la taille initiale
+  attendre (1) secondes
+  s'orienter à (90)
+  aller à x: (260) y: (100)
+  fixer le sens de rotation [gauche-droite v]
+  s'orienter à (-90)
+  glisser en (1) secondes à x: (-260) y: (100)
   cacher
 </pre>
 
@@ -694,7 +703,7 @@ quand le drapeau vert pressé
 </pre>
 
 <pre class="blocks">
-quand l'arrière-plan bascule sur "game over"
+quand l'arrière-plan bascule sur [game over v]
   supprimer ce clone
 </pre>
 
@@ -703,70 +712,74 @@ Ensuite, on va retourner sur le code du sprite de la surprise et utiliser les me
 Tu vas avoir besoin de ses blocs :
 
 <pre class="blocks">
-quand je reçois "pluie_de_bonbon"
+attendre (1) secondes
 </pre>
 
 <pre class="blocks">
-répéter jusqu'à ce que <condition>
+répéter jusqu'à ce que <>
 </pre>
 
 <pre class="blocks">
-abscisse x
+quand je reçois [pluie_de_bonbon v] 
 </pre>
 
 <pre class="blocks">
-<nombre> < <nombre>
+<() < ()>
 </pre>
 
 <pre class="blocks">
-<nombre> / <nombre>
+(() / ())
 </pre>
 
 <pre class="blocks">
-créer un clone de "bonbon surprise"
+créer un clone de [bonbon surprise v]
 </pre>
 
 <pre class="blocks">
-attendre 1 secondes
+nombre aléatoire entre (0) et (5)
 </pre>
 
 <pre class="blocks">
-nombre aléatoire entre 0 et 5
+(abscisse x)
 </pre>
 
 Voilà à quoi ça devrait ressembler
 
 <pre class="blocks">
-quand je reçois "pluie de bonbon"
-  répéter jusqu'à ce que ((abscisse x) < -250)
-    créer un clone de "bonbon surprise"
-    attendre ((nombre aléatoire entre 1 et 5) / 100) secondes
+quand je reçois [pluie_de_bonbon v]
+  répéter jusqu'à ce que <(abscisse x) < (-250)>
+    créer un clone de [bonbon surprise v]
+    attendre ((nombre aléatoire entre (1) et (5)) / (100)) secondes
 </pre>
 
-Il reste à ajouter ce bloc <code class="b">envoyer à tous "pluie_de_bonbon"</code> dans le code de l'animation de la sorcière, au moment où la sorcière repasse au loin, est-ce que tu vois où ?
+Il reste à ajouter ce bloc <code class="b">envoyer à tous [pluie_de_bonbon v]</code> dans le code de l'animation de la sorcière, au moment où la sorcière repasse au loin, est-ce que tu vois où ?
 
 Quand ça sera fait, tu pourras tester en cliquant sur le bloc de l'animation de la sorcière pour voir le résultat. Si tout se passe bien, tu devrais voir plein de bonbons apparaître au passage de la sorcière. Il va maintenant falloir les faire tomber et disparaître. Il va falloir cliquer sur la vignette du sprite "bonbon surprise" pour cela.
 
 Tu vas avoir besoin de ces blocs :
 
 <pre class="blocks">
+basculer sur le costume [costume v]
+</pre>
+
+<pre class="blocks">
 supprimer ce clone
 </pre>
 
 <pre class="blocks">
+aller à [surprise v]
+</pre>
+
+<pre class="blocks">
+(abscisse x)
+</pre>
+
+<pre class="blocks">
+nombre aléatoire entre (1) et (5)
+</pre>
+
+<pre class="blocks">
 quand je commence comme un clone
-</pre>
-
-<pre class="blocks">
-aller à "surprise"
-</pre>
-
-<pre class="blocks">
-basculer sur le costume
-</pre>
-
-<pre class="blocks">
-nombre aléatoire entre 1 et 5
 </pre>
 
 <pre class="blocks">
@@ -774,29 +787,25 @@ montrer
 </pre>
 
 <pre class="blocks">
-glisser en 1 secondes à x: <x> y: <y>
+glisser en (1) secondes à x: () y: ()
 </pre>
 
 <pre class="blocks">
-<nombre> / <nombre>
+(() / ())
 </pre>
 
 <pre class="blocks">
-<nombre> + <nombre>
-</pre>
-
-<pre class="blocks">
-abscisse x
+(() + ())
 </pre>
 
 Ça devrait ressembler à ça :
 
 <pre class="blocks">
 quand je commence comme un clone
-  aller à "surprise"
-  basculer sur le costume (nombre aléatoire entre 1 et 5)
+  aller à [surprise v]
+  basculer sur le costume (nombre aléatoire entre (1) et (5))
   montrer
-  glisser en (1 + ((nombre aléatoire entre 1 et 10) / 10)) secondes à x: (abscisse x) y: -240
+  glisser en ((1) + ((nombre aléatoire entre (1) et (10)) / (10))) secondes à x: (abscisse x) y: (-240)
   supprimer ce clone
 </pre>
 
@@ -811,7 +820,7 @@ Il y en a trois qui serait très bien :
 - "Dun dun dunnn" va être joué au même moment, mais il faudrait le rendre plus fort si possible. Ah, il y a un bouton qui s'appelle comme ça ;
 - "Laugh3" ne serait joué qu'au moment du passage de la sorcière avec la pluie de bonbon. Il faudrait l'accélérer pour que ça fasse plus ... sorcière. Appuie sur le bouton "Plus vite" pour cela ;
 
-Il se reste plus qu'à placer les blocs <code class="b">jouer le son <son></code> avec le bon son aux bons endroits. Est-ce que tu vois où ?
+Il se reste plus qu'à placer les blocs <code class="b">jouer le son [son v]</code> avec le bon son aux bons endroits. Est-ce que tu vois où ?
 
 ## Conclusion
 
