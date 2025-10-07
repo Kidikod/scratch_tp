@@ -1,13 +1,11 @@
 ---
 language: scratch
-title: "Halloween - Tutoriel Scratch"
+title: "Halloween : Le Labyrinthe Hanté"
 description: "Créer un jeu de labyrinthe sur le thème d'Halloween avec Scratch"
 page_js:
   - /assets/js/scratchblocks.min.js
   - /assets/js/translations-all.js
 ---
-
-# Halloween : Le Labyrinthe Hanté
 
 ## Introduction
 
