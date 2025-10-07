@@ -1,6 +1,6 @@
 ---
 language: scratch
-title: "Plantagotchi - Tutoriel Scratch"
+title: "Plantagotchi"
 description: "Créer un jeu de plantes de compagnie avec Scratch"
 ---
 
