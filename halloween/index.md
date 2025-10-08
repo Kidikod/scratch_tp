@@ -58,7 +58,7 @@ Retourne sur l'arrière‑plan de l'écran titre puis crée un sprite qui servir
 
 ![Sélection de l'écran titre puis importer un sprite](assets/go_import_sprite.png)
 
-Dans le répertoire `resources` il y a plusieurs images de bonbons : choisis‑en un. Donne‑lui le nom `joueur` (même si c'est un bonbon, on l'appellera « joueur »). Si le bonbon est trop grand, réduis sa taille.
+Si tu n'as pas d'image de bonbon sous la main, en voici quelques uns ([bonbon1](resources/bonbon1.png), [bonbon2](resources/bonbon2.png), [bonbon3](resources/bonbon3.png), [bonbon4](resources/bonbon4.png), [bonbon5](resources/bonbon5.png)). Donne‑lui le nom `joueur` (même si c'est un bonbon, on l'appellera « joueur »). Si le bonbon est trop grand, réduis sa taille.
 
 Clique sur l'onglet "Costumes" pour le modifier. Utilise l'outil "Sélection" pour sélectionner tout le bonbon : un cadre bleu apparaîtra avec de petits carrés aux bords. Clique et maintiens sur l'un d'eux tout en appuyant sur la touche Alt pour conserver les proportions en réduisant la taille.
 
