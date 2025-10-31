@@ -30,10 +30,20 @@ Maintenant nous allons faire en sorte que le Père-Noël monte et descend quand 
 Pour cela tu vas avoir besoin des blocks suivants:
 <pre class="blocks">
 quand le drapeau vert pressé
+</pre>
+<pre class="blocks">
 aller à x: (-150) y:(0)
+</pre>
+<pre class="blocks">
 répéter indéfiniment
+</pre>
+<pre class="blocks">
 si <> alors
+</pre>
+<pre class="blocks">
 touche [] pressée
+</pre>
+<pre class="blocks">
 ajouter (10) à y
 </pre>
 
@@ -41,10 +51,18 @@ Tu as trouvé ? Vérifie la correction ci-dessous:
 
 <pre class="blocks">
 quand le drapeau vert pressé
-aller à x: (-150) y:(0)
-répéter indéfiniment
-    si <touche [flèche haut] pressée> alors
-        ajouter (10) à y
-    si <touche [flèche bas] pressée> alors
-        ajouter (-10) à y
+  aller à x: (-150) y:(0)
+  répéter indéfiniment
+      si <touche [flèche haut] pressée> alors
+          ajouter (10) à y
+      si <touche [flèche bas] pressée> alors
+          ajouter (-10) à y
+</pre>
+
+<pre class="blocks">
+quand le drapeau vert pressé
+  basculer sur l'arrière-plan [écran titre v]
+  aller à x: (1) y: (-123)
+  basculer sur le costume [démarrage v]
+  montrer
 </pre>
