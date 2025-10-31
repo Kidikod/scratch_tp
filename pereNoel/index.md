@@ -3,8 +3,8 @@ language: scratch
 title: "Noël : La distribution des cadeaux"
 description: "Créer un jeu de distribution de cadeaux de Noël avec Scratch"
 page_js:
-  - assets/scratchblocks.min.js
-  - assets/translations-all.js
+  - assets/js/scratchblocks.min.js
+  - assets/js/translations-all.js
 ---
 
 ## Introduction
