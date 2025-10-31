@@ -10,6 +10,7 @@ page_js:
 ## Introduction
 <img alt="image de description" src="assets/start.png"  style="display:block; margin: auto; width:50%;">
 Cette année nous allons aider le Père-Noël à faire sa distribution de cadeaux. Tout en évitant les avions, le Père Noël va devoir distribuer des cadeaux aux enfants dans les maisons, mais gare au Grinch.
+Pour réaliser ce TP, tu dois télécharger les différentes fihiers PNG (fichiers d'images) que tu trouveras ici: https://github.com/Kidikod/scratch_tp/tree/main/pereNoel/resources
 
 ## Préparons la scène du jeu
 Nous allons utiliser le logiciel Scratch pour faire notre jeu. Rends-toi à l'adresse https://scratch.mit.edu et clique sur le bouton _Créer_ en haut à gauche.
@@ -77,18 +78,18 @@ Tu vas maintenant devoir animer ton avion avec les conditions suivantes:
 * ensuite il va falloir attendre un temps entre 1 et 3 secondes avant de faire réapparaitre l'avion et le faire déplacer selon les mêmes conditions
 
 Essaye de trouver toi-même comment faire cela. Si tu ne trouves pas, tu peux regarder la suite qui te donnera les blocs à utiliser.
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 Voici la liste des blocs dont tu auras besoin pour animer ton avion.
 
 <pre class="blocks">
@@ -116,18 +117,18 @@ ordonnée y
 Si tu n'as toujours pas trouver, tu peux aller voir la suite pour avoir la correction.
 
 
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 Voici une solution pour animer ton avion tel que demandé:
 
@@ -143,18 +144,18 @@ quand le drapeau vert pressé
 ## Arrêtons tout quand Père-Noël touche l'avion
 Évitez l'avion ne sert pas vraiment à grand chose vu que Père-Noël passe à traver de l'avion. Peux-tu faire en sorte que le jeu s'arrête quand le Père-Noël touche l'avion.
 Essaye de trouver sinon continue plus loin pour avoir la liste des blocs à utiliser.
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 Voici la liste des blocs dont tu auras besoin pour arrêter le jeu quand Père-Noël touche l'avion.
 
 <pre class="blocks">
@@ -176,18 +177,18 @@ si <> alors
 Si tu n'as toujours pas trouver, tu peux aller voir la suite pour avoir la correction.
 
 
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 Voici une solution pour pouvoir arrêter le jeu quand Père-Noël touche l'avion. Depuis le sprite avion, ajoute les blocs suivants:
 
 <pre class="blocks">
@@ -215,18 +216,18 @@ En t'inspirant de ce qui a été fait pour l'avion, essaye de faire déplacer la
 Les blocs vont être similaire à ceux utilisés par l'avion. __Attention à bien sélectionner le sprite de la maison quand tu ajoutes tes blocs__.
 
 
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 Voici une solution pour animer ta maison tel que demandé:
 
@@ -263,18 +264,18 @@ Maintenant, à l'aide de cette variable, tu vas reprendre le bloc de code qui g�
 **avant d'afficher la maison à droite, elle doit basculer sur un costume aléatoire parmis les 3 disponibles**.
 
 Essaye de trouver par toi-même, les blocs à utiliser te sont présentés plus loin.
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 Voici la liste des blocs dont tu auras besoin pour changer le type de la maison.
 
 <pre class="blocks">
@@ -297,18 +298,19 @@ basculer sur le costume [ v]
 </pre>
 Encore un indice, tu peux utiliser la valeur de la variable _costumeMaison_ pour savoir quel costume sélectionner.
 
-Si tu ne trouves pas, une proposition de solution t'es donnée plus loin.</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
+Si tu ne trouves pas, une proposition de solution t'es donnée plus loin.
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 Voici une proposition de solution:
 <pre class="blocks">
 quand le drapeau vert pressé
@@ -329,7 +331,221 @@ quand le drapeau vert pressé
 </pre>
 
 ## Distribuons les cadeaux
-Bon, on a maintenant un Père-Noël qui évite les avions et les maisons. Mais ce serait bien qu'il distribue les cadeaux notre Père-Noël non ? Pour cela nous allons créer un autre sprite _cadeau_. Pour cela, importe le fichier _cadeau.png_ de la même manière que tu as importé les autres sprite. 
+Bon, on a maintenant un Père-Noël qui évite les avions et les maisons. Mais ce serait bien qu'il distribue les cadeaux notre Père-Noël non ? Pour cela nous allons créer un autre sprite _cadeau_. Pour cela, importe le fichier _cadeau.png_ de la même manière que tu as importé les autres sprites. 
+Ensuite, le but va être d'animer le lancer de cadeau. On veut le cadeau soit animé de la manière suivante:
+* le déplacement de cadeau doit se déclencher quand on appuie sur la touche espace
+* le mouvement du cadeau part du Père-Noël
+* le cadeau se déplace verticalement en 1 seconde jusqu'au sol
+* le cadeau disparait quand il a fini son mouvement
+Essaye de trouver comment animer ce mouvement. Si tu es bloqué(e), tu peux aller voir plus loin la liste des blocs à utiliser.
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Voici les blocs dont tu auras besoin pour animer ton cadeau:
+<pre class="blocks">
+montrer
+</pre>
+<pre class="blocks">
+cacher
+</pre>
+<pre class="blocks">
+glisser en () secondes à x:() y:()
+</pre>
+<pre class="blocks">
+aller à ( v)
+</pre>
+<pre class="blocks">
+Quand la touche [ v] est pressée
+</pre>
+<pre class="blocks">
+abscisse x
+</pre>
+Si tu ne trouves pas, tu peux aller voir la correction plus loin.
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Voici une correction pour résoudre ce problème:
+<pre class="blocks">
+Quand la touche [espace v] est pressée
+  aller à [pereNoel v]
+  montrer
+  glisser en (1) secondes à x:(abscisse x) y:(-200)
+  cacher
+</pre>
+
+## Comptons les points
+Maintenant ce serait bien de compter les points. Nous allons pour cela créer une nouvelle variable _score_. Dès qu'un cadeau est laché, le score pourra évoluer en fonction de là où il tombera. Voici les règles du score:
+* si un cadeau touche une maison, il est aussitôt caché (il a été déposé dans la maison)
+* un cadeau qui tombe par terre ne rapporte pas de points
+* un cadeau qui est déposé dans une maison vide ne rapporte pas de points
+* un cadeau qui est déposé dans une maison avec des enfants rapporte 10 points
+* un cadeau qui est déposé dans une maison habitée par le Grinch remet le score à zéro
+À toi de jouer !!! Si tu ne trouves pas, tu peux aller voir la liste des blocs à utiliser pour réaliser cette partie.
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Voici la liste des blocs qui te seront utiles:
+<pre class="blocks">
+cacher
+</pre>
+<pre class="blocks">
+quand le drapeau vert pressé
+</pre>
+<pre class="blocks">
+(costumeMaison)
+</pre>
+<pre class="blocks">
+si <> alors
+</pre>
+<pre class="blocks">
+répéter indéfiniment
+</pre>
+<pre class="blocks">
+mettre [ v] à ()
+</pre>
+<pre class="blocks">
+<touche le ( v) ?>
+</pre>
+<pre class="blocks">
+ajouter () à [ v]
+</pre>
+<pre class="blocks">
+<()=()>
+</pre>
+Tu trouveras la solution un peu plus loin au cas où tu es bloqué(e)
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Voici une solution pour mettre en place le comptage des points:
+<pre class="blocks">
+quand le drapeau vert pressé
+  mettre [score v] à (0)
+  répéter indéfiniment
+  si <touche le (maison v) ?> alors
+    cacher
+    si <(costumeMaison)=(2)> alors
+      ajouter (10) à [score v]
+	fin
+    si <(costumeMaison)=(3)> alors
+      mettre [score v] à (0)
+</pre>
+
+## Limitons le nombre de cadeaux
+Afin d'ajouter une condition de fin, nous allons limiter le nombre de cadeau. Disons que Père-Noël a 10 cadeaux à distribuer. Comment modifierais-tu le sprite _cadeau_ pour faire en sorte que le jeu s'arrête une fois que 10 cadeaux ont été distribués ? Tu trouveras plus bas la liste des blocs à ajouter au cas où tu es bloqué(e).
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Il te faudra avant tout créer une nouvelle variable _nombreCadeaux_ qui te permettra de compter les cadeaux déposés.
+Tu auras ensuite besoin des blocs suivants:
+<pre class="blocks">
+mettre [ v] à ()
+</pre>
+<pre class="blocks">
+ajouter () à [ v]
+</pre>
+<pre class="blocks">
+(nombreCadeaux)
+</pre>
+<pre class="blocks">
+si <> alors
+</pre>
+<pre class="blocks">
+<()=()>
+</pre>
+<pre class="blocks">
+stop [tout v]
+</pre>
+Une solution t'es proposée plus loin si tu es bloqué(e).
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+Voici les deux blocs du sprite _cadeau_ modifiés pour pouvoir gérer la limitation du nombre de cadeaux:
+<pre class="blocks">
+Quand la touche [espace v] est pressée
+  ajouter (1) à [nombreCadeaux v]
+  aller à [pereNoel v]
+  montrer
+  glisser en (1) secondes à x:(abscisse x) y:(-200)
+  cacher
+  si <(nombreCadeaux)=(10)> alors
+    stop [tout v]
+</pre>
+
+<pre class="blocks">
+quand le drapeau vert pressé
+  mettre [score v] à (0)
+  mettre [nombreCadeaux v] à (0)
+  répéter indéfiniment
+  si <touche le (maison v) ?> alors
+    cacher
+    si <(costumeMaison)=(2)> alors
+      ajouter (10) à [score v]
+	fin
+    si <(costumeMaison)=(3)> alors
+      mettre [score v] à (0)
+</pre>
+
+## Pour aller plus loin
+Voilà, le TP principal est terminé. À toi d'améliorer le jeu à ta convenance.
+Si tu veux quelques idées d'amélioration, en voici quelques-unes:
+* ajoute un mouvement avant-arrière à Père-Noël pour lui permettre des lancers plus précis
+* affiche plus d'une seule maison à la fois pour augmenter la difficulté du jeu
+* retire des points pour chaque maison avec enfant qui n'a pas reçu de cadeau
 
 <script>
 scratchblocks.renderMatching('pre.blocks', {
