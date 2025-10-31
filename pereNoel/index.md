@@ -10,10 +10,12 @@ page_js:
 ## Introduction
 <img alt="image de description" src="assets/start.png"  style="display:block; margin: auto; width:50%;">
 Cette année nous allons aider le Père-Noël à faire sa distribution de cadeaux. Tout en évitant les avions, le Père Noël va devoir distribuer des cadeaux aux enfants dans les maisons, mais gare au Grinch.
-Pour réaliser ce TP, tu dois télécharger les différentes fihiers PNG (fichiers d'images) que tu trouveras ici: https://github.com/Kidikod/scratch_tp/tree/main/pereNoel/resources
+Pour réaliser ce TP, tu dois télécharger les différents fichiers PNG (fichiers d'images) que tu trouveras ici <https://github.com/Kidikod/scratch_tp/tree/main/pereNoel/resources>
+
+
 
 ## Préparons la scène du jeu
-Nous allons utiliser le logiciel Scratch pour faire notre jeu. Rends-toi à l'adresse https://scratch.mit.edu et clique sur le bouton _Créer_ en haut à gauche.
+Nous allons utiliser le logiciel Scratch pour faire notre jeu. Rends-toi à l'adresse <https://scratch.mit.edu> et clique sur le bouton _Créer_ en haut à gauche.
 Le logiciel se charge. Tu peux fermer toutes les fenêtres vertes de Tutoriel. En bas à droite tu as la zone des _sprites_ (éléments de jeu). Par défaut tu as un seul sprite chat. Tu peux le supprimer car nous n'en aurons pas besoin. Pour cela, clique sur la poubelle à côté de son icône dans la zone des sprites. <br/>
 Maintenant, nous allons mettre un fond à notre jeu. En bas à droite, passe ton curseur **sans cliquer** sur ce bouton:
 <img alt="background" src="assets/background.png"  style="display:block; margin: auto; width:50%;">
