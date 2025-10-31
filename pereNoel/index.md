@@ -329,3 +329,18 @@ quand le drapeau vert pressé
 </pre>
 
 ## Distribuons les cadeaux
+Bon, on a maintenant un Père-Noël qui évite les avions et les maisons. Mais ce serait bien qu'il distribue les cadeaux notre Père-Noël non ? Pour cela nous allons créer un autre sprite _cadeau_. Pour cela, importe le fichier _cadeau.png_ de la même manière que tu as importé les autres sprite. 
+
+<script>
+scratchblocks.renderMatching('pre.blocks', {
+  style: 'scratch3',
+  languages: ['fr'],
+  scale: 1,
+});
+scratchblocks.renderMatching("code.b", {
+  inline: true,
+  style: 'scratch3',
+  languages: ['fr'],
+  scale: 0.75,
+});
+</script>
