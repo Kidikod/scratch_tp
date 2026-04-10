@@ -1,0 +1,11 @@
+<svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <!-- Projectile du joueur - Bleu -->
+  <!-- Corps principal -->
+  <rect x="6" y="2" width="4" height="10" fill="#00FFFF" stroke="#0088FF" stroke-width="1"/>
+  
+  <!-- Pointe -->
+  <polygon points="8,0 10,4 6,4" fill="#FFFF00" stroke="#AAAA00" stroke-width="1"/>
+  
+  <!-- Énergie -->
+  <rect x="7" y="4" width="2" height="6" fill="#FFFF00" stroke="#AAAA00" stroke-width="1"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Power-up Bouclier - Rétro pixel art -->
+  <!-- Fond -->
+  <rect x="8" y="8" width="16" height="16" fill="#00AA00" stroke="#006600" stroke-width="1"/>
+  
+  <!-- Symbole de bouclier intérieur -->
+  <!-- Haut du bouclier -->
+  <rect x="12" y="10" width="8" height="4" fill="#00FF00" stroke="#00DD00" stroke-width="1"/>
+  
+  <!-- Bas du bouclier -->
+  <polygon points="12,14 20,14 20,18 16,22 12,18" fill="#00FF00" stroke="#00DD00" stroke-width="1"/>
+  
+  <!-- Détails brillants -->
+  <rect x="14" y="12" width="4" height="2" fill="#FFFF00" stroke="#AAAA00" stroke-width="1"/>
+  <rect x="13" y="17" width="2" height="2" fill="#FFFF00" stroke="#AAAA00" stroke-width="1"/>
+  <rect x="17" y="17" width="2" height="2" fill="#FFFF00" stroke="#AAAA00" stroke-width="1"/>
+</svg>

@@ -1,0 +1,400 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galerie des Sprites Rétro 16-bit</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Courier New', monospace;
+      background: linear-gradient(135deg, #1a1a2e, #0f0f1e);
+      color: #00FF00;
+      padding: 20px;
+      min-height: 100vh;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #00FF00;
+      font-size: 2.5em;
+    }
+    
+    .subtitle {
+      text-align: center;
+      color: #00FFFF;
+      margin-bottom: 30px;
+      font-size: 0.9em;
+    }
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .sprite-card {
+      background: #1a1a2e;
+      border: 3px solid #00FF00;
+      border-radius: 4px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .sprite-card:hover {
+      box-shadow: 0 0 30px rgba(0, 255, 0, 0.6);
+      transform: translateY(-5px);
+      border-color: #00FFFF;
+    }
+    
+    .sprite-preview {
+      background: #0f0f1e;
+      border: 2px dashed #00FFFF;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 150px;
+      margin-bottom: 15px;
+      padding: 10px;
+      image-rendering: pixelated;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: crisp-edges;
+    }
+    
+    .sprite-preview img,
+    .sprite-preview svg {
+      max-width: 100%;
+      max-height: 140px;
+      width: auto;
+      height: auto;
+    }
+    
+    .sprite-title {
+      font-size: 1.2em;
+      color: #FFFF00;
+      margin-bottom: 8px;
+      text-shadow: 0 0 5px #FF6600;
+    }
+    
+    .sprite-description {
+      font-size: 0.9em;
+      color: #00FFFF;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    
+    .sprite-stats {
+      background: #0a0a1a;
+      border-left: 3px solid #FF6600;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 0.85em;
+      color: #FFFF00;
+    }
+    
+    .stat {
+      display: flex;
+      justify-content: space-between;
+      margin: 4px 0;
+    }
+    
+    .stat-label { color: #00FF00; }
+    .stat-value { color: #FFFF00; }
+    
+    .color-palette {
+      display: flex;
+      gap: 5px;
+      margin-top: 8px;
+      height: 20px;
+    }
+    
+    .color {
+      flex: 1;
+      border: 1px solid #00AA00;
+      position: relative;
+      border-radius: 2px;
+    }
+    
+    .color:hover::after {
+      content: attr(data-color);
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      font-size: 0.75em;
+      white-space: nowrap;
+      background: #000;
+      padding: 2px 4px;
+      border: 1px solid #00FF00;
+    }
+    
+    .category {
+      margin-bottom: 30px;
+    }
+    
+    .category-title {
+      font-size: 1.5em;
+      color: #FF6600;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #FF6600;
+      text-shadow: 0 0 10px #FF6600;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px dashed #00FF00;
+      color: #00FFFF;
+      font-size: 0.9em;
+    }
+    
+    @media (max-width: 768px) {
+      h1 { font-size: 1.8em; }
+      .gallery { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎮 Galerie Sprites Rétro 16-bit 🎮</h1>
+  <p class="subtitle">Shoot em Up - Collection Complète</p>
+  
+  <!-- ENNEMIS -->
+  <div class="category">
+    <div class="category-title">👾 Ennemis</div>
+    <div class="gallery">
+      <div class="sprite-card">
+        <div class="sprite-preview">
+          <img src="enemy_ship.svg" alt="Vaisseau Ennemi" style="width: 80px;">
+        </div>
+        <div class="sprite-title">Vaisseau Ennemi</div>
+        <div class="sprite-description">
+          Ennemi standard avec canons. Apparaît en formation et descend lentement.
+        </div>
+        <div class="sprite-stats">
+          <div class="stat">
+            <span class="stat-label">Taille:</span>
+            <span class="stat-value">32x32 px</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Couleur:</span>
+            <span class="stat-value">#FF3333 (Rouge)</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Rôle:</span>
+            <span class="stat-value">Ennemi basique</span>
+          </div>
+        </div>
+        <div class="color-palette">
+          <div class="color" style="background: #FF3333;" data-color="#FF3333"></div>
+          <div class="color" style="background: #AA0000;" data-color="#AA0000"></div>
+          <div class="color" style="background: #FF0000;" data-color="#FF0000"></div>
+          <div class="color" style="background: #333333;" data-color="#333333"></div>
+          <div class="color" style="background: #FFFF00;" data-color="#FFFF00"></div>
+        </div>
+      </div>
+      
+      <div class="sprite-card">
+        <div class="sprite-preview">
+          <img src="enemy_projectile.svg" alt="Projectile Ennemi" style="width: 30px;">
+        </div>
+        <div class="sprite-title">Projectile Ennemi</div>
+        <div class="sprite-description">
+          Tir ennemi rouge. À éviter à tout prix !
+        </div>
+        <div class="sprite-stats">
+          <div class="stat">
+            <span class="stat-label">Taille:</span>
+            <span class="stat-value">16x16 px</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Couleur:</span>
+            <span class="stat-value">#FF3333 (Rouge)</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Rôle:</span>
+            <span class="stat-value">Dangereux !</span>
+          </div>
+        </div>
+        <div class="color-palette">
+          <div class="color" style="background: #FF3333;" data-color="#FF3333"></div>
+          <div class="color" style="background: #FF0000;" data-color="#FF0000"></div>
+          <div class="color" style="background: #660000;" data-color="#660000"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- JOUEUR -->
+  <div class="category">
+    <div class="category-title">🚀 Joueur</div>
+    <div class="gallery">
+      <div class="sprite-card">
+        <div class="sprite-preview">
+          <img src="player_ship.svg" alt="Vaisseau Joueur" style="width: 80px;">
+        </div>
+        <div class="sprite-title">Mon Vaisseau</div>
+        <div class="sprite-description">
+          C'est TOI ! Vaisseau rapide et maniable avec moteur puissant.
+        </div>
+        <div class="sprite-stats">
+          <div class="stat">
+            <span class="stat-label">Taille:</span>
+            <span class="stat-value">32x32 px</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Couleur:</span>
+            <span class="stat-value">#00FF00 (Vert)</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Rôle:</span>
+            <span class="stat-value">Toi, le héros !</span>
+          </div>
+        </div>
+        <div class="color-palette">
+          <div class="color" style="background: #00FF00;" data-color="#00FF00"></div>
+          <div class="color" style="background: #00DD00;" data-color="#00DD00"></div>
+          <div class="color" style="background: #FFFF00;" data-color="#FFFF00"></div>
+          <div class="color" style="background: #FF6600;" data-color="#FF6600"></div>
+          <div class="color" style="background: #FFAA00;" data-color="#FFAA00"></div>
+        </div>
+      </div>
+      
+      <div class="sprite-card">
+        <div class="sprite-preview">
+          <img src="projectile.svg" alt="Projectile" style="width: 30px;">
+        </div>
+        <div class="sprite-title">Projectile</div>
+        <div class="sprite-description">
+          Tir cyan du joueur. Détruit les ennemis et donne des points !
+        </div>
+        <div class="sprite-stats">
+          <div class="stat">
+            <span class="stat-label">Taille:</span>
+            <span class="stat-value">16x16 px</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Couleur:</span>
+            <span class="stat-value">#00FFFF (Cyan)</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Rôle:</span>
+            <span class="stat-value">Attaque !</span>
+          </div>
+        </div>
+        <div class="color-palette">
+          <div class="color" style="background: #00FFFF;" data-color="#00FFFF"></div>
+          <div class="color" style="background: #0088FF;" data-color="#0088FF"></div>
+          <div class="color" style="background: #FFFF00;" data-color="#FFFF00"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- EFFETS SPÉCIAUX -->
+  <div class="category">
+    <div class="category-title">✨ Effets & Power-ups</div>
+    <div class="gallery">
+      <div class="sprite-card">
+        <div class="sprite-preview">
+          <img src="explosion.svg" alt="Explosion" style="width: 80px;">
+        </div>
+        <div class="sprite-title">Explosion</div>
+        <div class="sprite-description">
+          Boom ! Affichage lors d'une collision ou destruction d'ennemi.
+        </div>
+        <div class="sprite-stats">
+          <div class="stat">
+            <span class="stat-label">Taille:</span>
+            <span class="stat-value">32x32 px</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Couleur:</span>
+            <span class="stat-value">Feu & Blanc</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Usage:</span>
+            <span class="stat-value">Effet visuel</span>
+          </div>
+        </div>
+        <div class="color-palette">
+          <div class="color" style="background: #FFFFFF;" data-color="#FFFFFF"></div>
+          <div class="color" style="background: #FFFF00;" data-color="#FFFF00"></div>
+          <div class="color" style="background: #FF6600;" data-color="#FF6600"></div>
+          <div class="color" style="background: #FF3300;" data-color="#FF3300"></div>
+        </div>
+      </div>
+      
+      <div class="sprite-card">
+        <div class="sprite-preview">
+          <img src="powerup_shield.svg" alt="Bouclier" style="width: 70px;">
+        </div>
+        <div class="sprite-title">Power-up Bouclier</div>
+        <div class="sprite-description">
+          Protection temporaire contre les tirs ennemis. À récupérer absolument !
+        </div>
+        <div class="sprite-stats">
+          <div class="stat">
+            <span class="stat-label">Taille:</span>
+            <span class="stat-value">32x32 px</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Couleur:</span>
+            <span class="stat-value">#00AA00 (Vert)</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Effet:</span>
+            <span class="stat-value">+1 protection</span>
+          </div>
+        </div>
+        <div class="color-palette">
+          <div class="color" style="background: #00AA00;" data-color="#00AA00"></div>
+          <div class="color" style="background: #006600;" data-color="#006600"></div>
+          <div class="color" style="background: #00FF00;" data-color="#00FF00"></div>
+          <div class="color" style="background: #FFFF00;" data-color="#FFFF00"></div>
+        </div>
+      </div>
+      
+      <div class="sprite-card">
+        <div class="sprite-preview">
+          <img src="powerup_rapidfire.svg" alt="Tirs Rapides" style="width: 70px;">
+        </div>
+        <div class="sprite-title">Power-up Tirs Rapides</div>
+        <div class="sprite-description">
+          Double ta cadence de tirs ! Perfecto pour éliminer les ennemis rapidement.
+        </div>
+        <div class="sprite-stats">
+          <div class="stat">
+            <span class="stat-label">Taille:</span>
+            <span class="stat-value">32x32 px</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Couleur:</span>
+            <span class="stat-value">#FF8800 (Orange)</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Effet:</span>
+            <span class="stat-value">x2 cadence</span>
+          </div>
+        </div>
+        <div class="color-palette">
+          <div class="color" style="background: #FF8800;" data-color="#FF8800"></div>
+          <div class="color" style="background: #AA5500;" data-color="#AA5500"></div>
+          <div class="color" style="background: #FFFF00;" data-color="#FFFF00"></div>
+          <div class="color" style="background: #FF00FF;" data-color="#FF00FF"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="footer">
+    <p>🚀 Galerie Complète - Shoot em Up Rétro 16-bit 🎮</p>
+    <p style="margin-top: 10px; font-size: 0.85em;">Tous les sprites sont en SVG et facilement modifiables</p>
+  </div>
+</body>
+</html>

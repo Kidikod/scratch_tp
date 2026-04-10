@@ -1,0 +1,24 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Power-up Tirs Rapides - Rétro pixel art -->
+  <!-- Fond -->
+  <rect x="8" y="8" width="16" height="16" fill="#FF8800" stroke="#AA5500" stroke-width="1"/>
+  
+  <!-- Projectiles en formation -->
+  <!-- Projectile gauche haut -->
+  <rect x="10" y="12" width="2" height="4" fill="#FFFF00" stroke="#AAAA00" stroke-width="1"/>
+  
+  <!-- Projectile centre -->
+  <rect x="15" y="10" width="2" height="8" fill="#FFFF00" stroke="#AAAA00" stroke-width="1"/>
+  
+  <!-- Projectile droite haut -->
+  <rect x="20" y="12" width="2" height="4" fill="#FFFF00" stroke="#AAAA00" stroke-width="1"/>
+  
+  <!-- Projectile gauche bas -->
+  <rect x="10" y="18" width="2" height="4" fill="#FF6600" stroke="#AA4400" stroke-width="1"/>
+  
+  <!-- Projectile droite bas -->
+  <rect x="20" y="18" width="2" height="4" fill="#FF6600" stroke="#AA4400" stroke-width="1"/>
+  
+  <!-- Détails énergie -->
+  <rect x="14" y="16" width="4" height="2" fill="#FF00FF" stroke="#AA00AA" stroke-width="1"/>
+</svg>
