@@ -46,7 +46,7 @@ Définis une taille de scène adaptée, par exemple **480 × 360** pixels (par d
 
 Le vaisseau du joueur doit se déplacer avec les **flèches gauche/droite** et rester en bas de l'écran.
 
-```scratch
+<pre class="blocks">
 quand le drapeau vert est cliqué
 
 répète indéfiniment
@@ -65,7 +65,7 @@ répète indéfiniment
     mets x à (240)
   fin
 fin
-```
+</pre>
 
 **Ce que fait ce code :**
 - Évalue en continu les touches pressées
@@ -80,18 +80,18 @@ Quand tu appuies sur **ESPACE**, un projectile est lancé. Les projectiles se cl
 
 ### Code du sprite "Mon vaisseau" (ajouter à la boucle principale)
 
-```scratch
+<pre class="blocks">
 répète indéfiniment
   si <touche [espace v] appuyée ?> alors
     crée un clone de [Projectile v]
     attends (0.2) secondes
   fin
 fin
-```
+</pre>
 
 ### Code du sprite "Projectile"
 
-```scratch
+<pre class="blocks">
 quand je commence en tant que clone
   
   mets x à (position x de [Mon vaisseau v])
@@ -103,7 +103,7 @@ quand je commence en tant que clone
   fin
   
   supprime ce clone
-```
+</pre>
 
 **Points importants :**
 - Les clones héritent de la position du vaisseau au moment du tir
@@ -118,7 +118,7 @@ Les ennemis vont apparaître en **formation organisée** : 3 lignes de 4 ennemis
 
 ### Code du sprite "Ennemi" (au démarrage)
 
-```scratch
+<pre class="blocks">
 quand le drapeau vert est cliqué
   cache-toi
   mets [ligne v] à (0)
@@ -130,11 +130,11 @@ quand le drapeau vert est cliqué
     fin
     ajoute (1) à [ligne v]
   fin
-```
+</pre>
 
 ### Code du clone ennemi
 
-```scratch
+<pre class="blocks">
 quand je commence en tant que clone
   mets le costume à [ennemi v]
   mets la taille à (30) %
@@ -161,7 +161,7 @@ quand je commence en tant que clone
       supprime ce clone
     fin
   fin
-```
+</pre>
 
 ---
 
@@ -173,7 +173,7 @@ quand je commence en tant que clone
 
 ### Code du sprite "Projectile" (ajouter au clone)
 
-```scratch
+<pre class="blocks">
 quand je commence en tant que clone
   répète jusqu'à <(position y) > (180)>
     ajoute (8) à y
@@ -185,11 +185,11 @@ quand je commence en tant que clone
       supprime ce clone
     fin
   fin
-```
+</pre>
 
 ### Code du sprite "Ennemi" (gérer les collisions)
 
-```scratch
+<pre class="blocks">
 quand je reçois [ennemi touché v]
   supprime ce clone
 fin
@@ -201,11 +201,11 @@ répète indéfiniment
     supprime ce clone
   fin
 fin
-```
+</pre>
 
 ### Code du sprite "Mon vaisseau" (gérer les dégâts)
 
-```scratch
+<pre class="blocks">
 mets [vies v] à (3)
 
 quand je reçois [collision vaisseau v]
@@ -217,7 +217,7 @@ quand je reçois [collision vaisseau v]
     arrête [tout v]
   fin
 fin
-```
+</pre>
 
 ---
 
@@ -225,7 +225,7 @@ fin
 
 ### Code du sprite "Arrière-plan"
 
-```scratch
+<pre class="blocks">
 quand le drapeau vert est cliqué
   mets [score v] à (0)
   mets [vies v] à (3)
@@ -233,7 +233,7 @@ quand le drapeau vert est cliqué
 répète indéfiniment
   dis (assemblage [Score: ] (assemblage (score) (assemblage [  |  Vies: ] (vies))))
 fin
-```
+</pre>
 
 ---
 
@@ -243,7 +243,7 @@ Les ennemis vont aussi tirer sur toi ! Tu dois les éviter pour ne pas perdre de
 
 ### Code du sprite "Ennemi" (ajouter à la boucle du mouvement)
 
-```scratch
+<pre class="blocks">
 quand je commence en tant que clone
   :: comment Toute la logique de mouvement existante...
   
@@ -255,11 +255,11 @@ quand je commence en tant que clone
     attends (0.5) secondes
   fin
 fin
-```
+</pre>
 
 ### Code du sprite "Projectile ennemi" (nouveau sprite)
 
-```scratch
+<pre class="blocks">
 quand je commence en tant que clone
   mets x à (position x du clone ennemi)
   mets y à (position y du clone ennemi)
@@ -277,7 +277,7 @@ quand je commence en tant que clone
   fin
   
   supprime ce clone
-```
+</pre>
 
 **Points importants :**
 - Les ennemis tirent **aléatoirement** (pas trop souvent)
@@ -297,7 +297,7 @@ Le jeu devient plus difficile à chaque niveau ! Les ennemis sont plus rapides e
 
 ### Code du sprite "Arrière-plan"
 
-```scratch
+<pre class="blocks">
 quand le drapeau vert est cliqué
   mets [score v] à (0)
   mets [vies v] à (3)
@@ -314,11 +314,11 @@ quand le drapeau vert est cliqué
     dis (assemblage [Score: ] (assemblage (score) (assemblage [  |  Niveau: ] (niveau))))
   fin
 end
-```
+</pre>
 
 ### Code du sprite "Ennemi" (modifier la formation)
 
-```scratch
+<pre class="blocks">
 quand le drapeau vert est cliqué
   cache-toi
   mets [ligne v] à (0)
@@ -337,11 +337,11 @@ quand je reçois [niveau augmenté v]
   :: comment Augmente la vitesse des ennemis
   ajoute (0.5) à [vitesse_ennemis v]
 end
-```
+</pre>
 
 ### Code du clone ennemi (modifier la vitesse)
 
-```scratch
+<pre class="blocks">
 quand je commence en tant que clone
   mets le costume à [ennemi v]
   mets la taille à (30) %
@@ -367,7 +367,7 @@ quand je commence en tant que clone
       supprime ce clone
     fin
   fin
-```
+</pre>
 
 **Difficulté progressive :**
 - Niveau 1 : 3 lignes d'ennemis, vitesse 2
@@ -400,7 +400,7 @@ end
 
 ### Code du sprite "PowerUp" (nouveau sprite)
 
-```scratch
+<pre class="blocks">
 quand je commence en tant que clone
   mets la taille à (50) %
   montre-toi
@@ -434,11 +434,11 @@ quand je commence en tant que clone
   
   supprime ce clone
 end
-```
+</pre>
 
 ### Code du sprite "Mon vaisseau" (utiliser les bonuses)
 
-```scratch
+<pre class="blocks">
 :: comment Bouclier : absorbe un coup
 quand je reçois [collision vaisseau v]
   si <(bouclier_actif)> alors
@@ -462,7 +462,7 @@ répète indéfiniment
     fin
   fin
 fin
-```
+</pre>
 
 **Types de power-ups :**
 - 🛡️ **Bouclier** : Protège un coup
@@ -477,7 +477,7 @@ Rend le jeu plus vivant avec des animations !
 
 ### Code du sprite "Arrière-plan" (Début du jeu)
 
-```scratch
+<pre class="blocks">
 quand le drapeau vert est cliqué
   dis [Prépare-toi !] pendant (1) secondes
   dis [3...] pendant (1) secondes
@@ -485,11 +485,11 @@ quand le drapeau vert est cliqué
   dis [1...] pendant (1) secondes
   dis [À l'attaque !] pendant (1) secondes
 end
-```
+</pre>
 
 ### Code du sprite "Mon vaisseau" (Clignoter après collision)
 
-```scratch
+<pre class="blocks">
 quand je reçois [collision vaisseau v]
   :: comment Effet de clignotement
   répète (4)
@@ -499,11 +499,11 @@ quand je reçois [collision vaisseau v]
     attends (0.1) secondes
   fin
 end
-```
+</pre>
 
 ### Code du sprite "Explosion" (nouvelle animation)
 
-```scratch
+<pre class="blocks">
 quand je reçois [explosion v]
   mets x à (position x du clone ennemi)
   mets y à (position y du clone ennemi)
@@ -517,21 +517,21 @@ quand je reçois [explosion v]
   
   cache-toi
 end
-```
+</pre>
 
 ### Code du sprite "Ennemi" (créer l'explosion)
 
-```scratch
+<pre class="blocks">
 quand je reçois [ennemi touché v]
   :: comment L'explosion apparaît à ma position
   diffuse [explosion v]
   supprime ce clone
 end
-```
+</pre>
 
 ### Code du sprite "Mon vaisseau" (Game Over dramatique)
 
-```scratch
+<pre class="blocks">
 quand je reçois [fin du jeu v]
   mets [texture v] à [GAME OVER]
   dis [GAME OVER !] pendant (3) secondes
@@ -542,7 +542,7 @@ quand je reçois [fin du jeu v]
   attends (1) secondes
   dis [Appuie sur le drapeau vert pour recommencer] pendant (3) secondes
 end
-```
+</pre>
 
 **Animations ajoutées :**
 - Compte à rebours au démarrage
@@ -558,7 +558,7 @@ Ajoute une ambiance sonore arcade !
 
 ### Code du sprite "Mon vaisseau" (Son au tir)
 
-```scratch
+<pre class="blocks">
 répète indéfiniment
   si <touche [espace v] appuyée ?> alors
     joue la note [C5 v] pendant (0.05) beats
@@ -566,11 +566,11 @@ répète indéfiniment
     attends (0.2) secondes
   fin
 fin
-```
+</pre>
 
 ### Code du sprite "Ennemi" (Son de destruction)
 
-```scratch
+<pre class="blocks">
 quand je reçois [ennemi touché v]
   :: comment Joue une note descendante pour l'explosion
   joue la note [D5 v] pendant (0.1) beats
@@ -578,11 +578,11 @@ quand je reçois [ennemi touché v]
   joue la note [G4 v] pendant (0.1) beats
   supprime ce clone
 end
-```
+</pre>
 
 ### Code du sprite "Arrière-plan" (Musique de fond)
 
-```scratch
+<pre class="blocks">
 quand le drapeau vert est cliqué
   :: comment Boucle musicale simple (peux la modifier)
   répète indéfiniment
@@ -592,16 +592,16 @@ quand le drapeau vert est cliqué
     joue la note [C5 v] pendant (2) beats
   fin
 end
-```
+</pre>
 
 ### Code du sprite "Mon vaisseau" (Son de collision)
 
-```scratch
+<pre class="blocks">
 quand je reçois [collision vaisseau v]
   joue la note [G3 v] pendant (0.1) beats
   joue la note [C3 v] pendant (0.2) beats
 end
-```
+</pre>
 
 **Effets sonores rétro :**
 - 🔊 Tir : Note aigüe courte (C5)
@@ -645,3 +645,11 @@ Ordre de programmation recommandé :
 **Tip pour les enseignants** : Les étapes 1-5 sont essentielles. Les étapes 6-10 peuvent être faites en fonction du temps disponible. Elles offrent une bonne progressions pour les élèves avancés ! 
 
 **Bon codage et amusement avec ton shoot em up !** 🎮
+
+<script>
+scratchblocks.renderMatching('pre.blocks', {
+  style: 'scratch3',
+  languages: ['fr'],
+  scale: 1,
+});
+</script>
