@@ -88,11 +88,12 @@ Quand tu appuies sur **ESPACE**, un projectile est lancé. Les projectiles se cl
 
 <pre class="blocks">
 quand je commence comme un clone
+  aller à [Mon vaisseau]
   mettre la taille à (25)
-  répéter jusqu'à ce que <(ordonnée y) > (180)>
+  répéter jusqu'à ce que <(ordonnée y) > (179)>
     ajouter (8) à y
   fin
-  supprime ce clone
+  supprimer ce clone
 </pre>
 
 **Points importants :**
