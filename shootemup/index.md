@@ -50,16 +50,16 @@ Le vaisseau du joueur doit se déplacer avec les **flèches gauche/droite** et r
 quand le drapeau vert pressé
   répéter indéfiniment
     si <touche [flèche gauche v] pressée ?> alors
-      ajouter (-5) à abscisse x
+      ajouter (-5) à x
     fin
     si <touche [flèche droite v] pressée ?> alors
-      ajouter (5) à abscisse x
+      ajouter (5) à x
     fin
     si <(abscisse x) < (-240)> alors
-      mettre [abscisse x] à (-240)
+      mettre x à (-240)
     fin
     si <(abscisse x) > (240)> alors
-      mettre [abscisse x] à (240)
+      mettre x à (240)
     fin
   fin
 fin
@@ -91,11 +91,11 @@ fin
 
 <pre class="blocks">
 quand je commence en tant que clone
-  mettre abscisse x à (abscisse x de [Mon vaisseau v])
-  mettre ordonnée y à (ordonnée y de [Mon vaisseau v])
+  mettre x à (abscisse x de [Mon vaisseau v])
+  mettre y à (ordonnée y de [Mon vaisseau v])
   mettre la taille à (25) %
   répète jusqu'à <(ordonnée y) > (180)>
-    ajouter (8) à ordonnée y
+    ajouter (8) à y
   fin
   supprime ce clone
 fin
@@ -135,15 +135,15 @@ quand je commence en tant que clone
   mettre le costume à [ennemi v]
   mettre la taille à (30) %
   montrer
-  mettre abscisse x à (((ligne) * (100)) + (-150))
-  mettre ordonnée y à ((((3) - (ligne)) * (40)) + (150))
+  mettre x à (((ligne) * (100)) + (-150))
+  mettre y à ((((3) - (ligne)) * (40)) + (150))
   répéter indéfiniment
     avance de (2)
     tourne de (2) degrés vers la droite
     si <(abscisse x) > (250)> alors
-      mettre abscisse x à (-250)
+      mettre x à (-250)
     fin
-    ajouter (-0.5) à ordonnée y
+    ajouter (-0.5) à y
     si <(ordonnée y) < (-180)> alors
       supprime ce clone
     fin
@@ -164,7 +164,7 @@ fin
 <pre class="blocks">
 quand je commence en tant que clone
   répète jusqu'à <(ordonnée y) > (180)>
-    ajouter (8) à ordonnée y
+    ajouter (8) à y
     si <touchant [Ennemi v] ?> alors
       diffuse [ennemi touché v]
       ajouter (10) à [score v]
@@ -243,11 +243,11 @@ fin
 
 <pre class="blocks">
 quand je commence en tant que clone
-  mettre abscisse x à (abscisse x du clone ennemi)
-  mettre ordonnée y à (ordonnée y du clone ennemi)
+  mettre x à (abscisse x du clone ennemi)
+  mettre y à (ordonnée y du clone ennemi)
   mettre la taille à (25) %
   répète jusqu'à <(ordonnée y) < (-180)>
-    ajouter (-8) à ordonnée y
+    ajouter (-8) à y
     si <touchant [Mon vaisseau v] ?> alors
       diffuse [collision vaisseau v]
       supprime ce clone
@@ -319,15 +319,15 @@ quand je commence en tant que clone
   mettre la taille à (30) %
   montrer
   mettre [vitesse_ennemis v] à ((2) + (niveau))
-  mettre abscisse x à (((ligne) * (100)) + (-150))
-  mettre ordonnée y à ((((3) - (ligne)) * (40)) + (150))
+  mettre x à (((ligne) * (100)) + (-150))
+  mettre y à ((((3) - (ligne)) * (40)) + (150))
   répéter indéfiniment
     avance de (vitesse_ennemis)
     tourne de (2) degrés vers la droite
     si <(abscisse x) > (250)> alors
-      mettre abscisse x à (-250)
+      mettre x à (-250)
     fin
-    ajouter (-0.5) à ordonnée y
+    ajouter (-0.5) à y
     si <(ordonnée y) < (-180)> alors
       supprime ce clone
     fin
@@ -356,8 +356,8 @@ Des bonus apparaissent aléatoirement pour t'aider ! Récupère-les pour des ava
 quand je reçois [ennemi touché v]
   si <(nombre aléatoire entre (1) et (10)) < (4)> alors
     crée un clone de [PowerUp v]
-    mettre abscisse x du clone à (abscisse x)
-    mettre ordonnée y du clone à (ordonnée y)
+    mettre x du clone à (abscisse x)
+    mettre y du clone à (ordonnée y)
   fin
   supprime ce clone
 fin
@@ -378,7 +378,7 @@ quand je commence en tant que clone
     mettre [type_powerup v] à [rapidfire]
   fin
   répète jusqu'à <(ordonnée y) < (-180)>
-    ajouter (-3) à ordonnée y
+    ajouter (-3) à y
     si <touchant [Mon vaisseau v] ?> alors
       si <(type_powerup) = [bouclier]> alors
         mettre [bouclier_actif v] à (vrai)
@@ -457,8 +457,8 @@ fin
 
 <pre class="blocks">
 quand je reçois [explosion v]
-  mettre abscisse x à (abscisse x du clone ennemi)
-  mettre ordonnée y à (ordonnée y du clone ennemi)
+  mettre x à (abscisse x du clone ennemi)
+  mettre y à (ordonnée y du clone ennemi)
   montrer
 
   répète (3)
