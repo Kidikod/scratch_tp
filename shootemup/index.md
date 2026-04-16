@@ -50,13 +50,19 @@ Le vaisseau du joueur doit se déplacer avec les **flèches gauche/droite** et r
 quand le drapeau vert pressé
   répéter indéfiniment
     si <touche [flèche gauche v] pressée ?> alors
-      ajouter (-5) à x
+      ajouter (-5) à abscisse x
+    fin
     si <touche [flèche droite v] pressée ?> alors
-      ajouter (5) à x
-    si <(x) < (-240)> alors
-      mettre [x] à (-240)
-    si <(x) > (240)> alors
-      mettre [x] à (240)
+      ajouter (5) à abscisse x
+    fin
+    si <(abscisse x) < (-240)> alors
+      mettre [abscisse x] à (-240)
+    fin
+    si <(abscisse x) > (240)> alors
+      mettre [abscisse x] à (240)
+    fin
+  fin
+fin
 </pre>
 
 **Ce que fait ce code :**
@@ -77,18 +83,22 @@ répéter indéfiniment
   si <touche [espace v] pressée ?> alors
     crée un clone de [Projectile v]
     attends (0.2) secondes
+  fin
+fin
 </pre>
 
 ### Code du sprite "Projectile"
 
 <pre class="blocks">
 quand je commence en tant que clone
-  mettre x à (position x de [Mon vaisseau v])
-  mettre y à (position y de [Mon vaisseau v])
+  mettre abscisse x à (abscisse x de [Mon vaisseau v])
+  mettre ordonnée y à (ordonnée y de [Mon vaisseau v])
   mettre la taille à (25) %
-  répète jusqu'à <(position y) > (180)>
-    ajouter (8) à y
+  répète jusqu'à <(ordonnée y) > (180)>
+    ajouter (8) à ordonnée y
+  fin
   supprime ce clone
+fin
 </pre>
 
 **Points importants :**
@@ -112,7 +122,10 @@ quand le drapeau vert pressé
     répète (4)
       crée un clone de moi-même
       attends (0.2) secondes
+    fin
     ajouter (1) à [ligne v]
+  fin
+fin
 </pre>
 
 ### Code du clone ennemi
@@ -122,16 +135,20 @@ quand je commence en tant que clone
   mettre le costume à [ennemi v]
   mettre la taille à (30) %
   montrer
-  mettre x à (((ligne) * (100)) + (-150))
-  mettre y à ((((3) - (ligne)) * (40)) + (150))
+  mettre abscisse x à (((ligne) * (100)) + (-150))
+  mettre ordonnée y à ((((3) - (ligne)) * (40)) + (150))
   répéter indéfiniment
     avance de (2)
     tourne de (2) degrés vers la droite
-    si <(position x) > (250)> alors
-      mettre x à (-250)
-    ajouter (-0.5) à y
-    si <(position y) < (-180)> alors
+    si <(abscisse x) > (250)> alors
+      mettre abscisse x à (-250)
+    fin
+    ajouter (-0.5) à ordonnée y
+    si <(ordonnée y) < (-180)> alors
       supprime ce clone
+    fin
+  fin
+fin
 </pre>
 
 ---
@@ -146,12 +163,15 @@ quand je commence en tant que clone
 
 <pre class="blocks">
 quand je commence en tant que clone
-  répète jusqu'à <(position y) > (180)>
-    ajouter (8) à y
+  répète jusqu'à <(ordonnée y) > (180)>
+    ajouter (8) à ordonnée y
     si <touchant [Ennemi v] ?> alors
       diffuse [ennemi touché v]
       ajouter (10) à [score v]
       supprime ce clone
+    fin
+  fin
+fin
 </pre>
 
 ### Code du sprite "Ennemi" (gérer les collisions)
@@ -159,11 +179,14 @@ quand je commence en tant que clone
 <pre class="blocks">
 quand je reçois [ennemi touché v]
   supprime ce clone
+fin
 
 répéter indéfiniment
   si <touchant [Mon vaisseau v] ?> alors
     diffuse [collision vaisseau v]
     supprime ce clone
+  fin
+fin
 </pre>
 
 ### Code du sprite "Mon vaisseau" (gérer les dégâts)
@@ -176,6 +199,8 @@ quand je reçois [collision vaisseau v]
   si <(vies) = (0)> alors
     dis [Fin du jeu !] pendant (2) secondes
     arrête [tout v]
+  fin
+fin
 </pre>
 
 ---
@@ -188,9 +213,11 @@ quand je reçois [collision vaisseau v]
 quand le drapeau vert pressé
   mettre [score v] à (0)
   mettre [vies v] à (3)
+fin
 
 répéter indéfiniment
   dis (assemblage [Score: ] (assemblage (score) (assemblage [  |  Vies: ] (vies))))
+fin
 </pre>
 
 ---
@@ -206,22 +233,28 @@ quand je commence en tant que clone
   répéter indéfiniment
     si <nombre aléatoire entre (1) et (100) = (1)> alors
       crée un clone de [Projectile ennemi v]
+    fin
     attends (0.5) secondes
+  fin
+fin
 </pre>
 
 ### Code du sprite "Projectile ennemi" (nouveau sprite)
 
 <pre class="blocks">
 quand je commence en tant que clone
-  mettre x à (position x du clone ennemi)
-  mettre y à (position y du clone ennemi)
+  mettre abscisse x à (abscisse x du clone ennemi)
+  mettre ordonnée y à (ordonnée y du clone ennemi)
   mettre la taille à (25) %
-  répète jusqu'à <(position y) < (-180)>
-    ajouter (-8) à y
+  répète jusqu'à <(ordonnée y) < (-180)>
+    ajouter (-8) à ordonnée y
     si <touchant [Mon vaisseau v] ?> alors
       diffuse [collision vaisseau v]
       supprime ce clone
+    fin
+  fin
   supprime ce clone
+fin
 </pre>
 
 **Points importants :**
@@ -252,7 +285,10 @@ quand le drapeau vert pressé
       ajouter (1) à [niveau v]
       diffuse [niveau augmenté v]
       dis (assemblage [Niveau ] (assemblage (niveau) [ ! ])) pendant (2) secondes
+    fin
     dis (assemblage [Score: ] (assemblage (score) (assemblage [  |  Niveau: ] (niveau))))
+  fin
+fin
 </pre>
 
 ### Code du sprite "Ennemi" (modifier la formation)
@@ -265,10 +301,14 @@ quand le drapeau vert pressé
     répète (4)
       crée un clone de moi-même
       attends ((0.2) - ((niveau) * (0.01))) secondes
+    fin
     ajouter (1) à [ligne v]
+  fin
+fin
 
 quand je reçois [niveau augmenté v]
   ajouter (0.5) à [vitesse_ennemis v]
+fin
 </pre>
 
 ### Code du clone ennemi (modifier la vitesse)
@@ -279,16 +319,20 @@ quand je commence en tant que clone
   mettre la taille à (30) %
   montrer
   mettre [vitesse_ennemis v] à ((2) + (niveau))
-  mettre x à (((ligne) * (100)) + (-150))
-  mettre y à ((((3) - (ligne)) * (40)) + (150))
+  mettre abscisse x à (((ligne) * (100)) + (-150))
+  mettre ordonnée y à ((((3) - (ligne)) * (40)) + (150))
   répéter indéfiniment
     avance de (vitesse_ennemis)
     tourne de (2) degrés vers la droite
-    si <(position x) > (250)> alors
-      mettre x à (-250)
-    ajouter (-0.5) à y
-    si <(position y) < (-180)> alors
+    si <(abscisse x) > (250)> alors
+      mettre abscisse x à (-250)
+    fin
+    ajouter (-0.5) à ordonnée y
+    si <(ordonnée y) < (-180)> alors
       supprime ce clone
+    fin
+  fin
+fin
 </pre>
 
 **Difficulté progressive :**
@@ -312,9 +356,11 @@ Des bonus apparaissent aléatoirement pour t'aider ! Récupère-les pour des ava
 quand je reçois [ennemi touché v]
   si <(nombre aléatoire entre (1) et (10)) < (4)> alors
     crée un clone de [PowerUp v]
-    mettre x du clone à (position x)
-    mettre y du clone à (position y)
+    mettre abscisse x du clone à (abscisse x)
+    mettre ordonnée y du clone à (ordonnée y)
+  fin
   supprime ce clone
+fin
 ```
 
 ### Code du sprite "PowerUp" (nouveau sprite)
@@ -326,11 +372,13 @@ quand je commence en tant que clone
   si <(nombre aléatoire entre (1) et (2)) = (1)> alors
     mettre le costume à [bouclier v]
     mettre [type_powerup v] à [bouclier]
+  fin
   sinon
     mettre le costume à [rapidfire v]
     mettre [type_powerup v] à [rapidfire]
-  répète jusqu'à <(position y) < (-180)>
-    ajouter (-3) à y
+  fin
+  répète jusqu'à <(ordonnée y) < (-180)>
+    ajouter (-3) à ordonnée y
     si <touchant [Mon vaisseau v] ?> alors
       si <(type_powerup) = [bouclier]> alors
         mettre [bouclier_actif v] à (vrai)
@@ -339,8 +387,11 @@ quand je commence en tant que clone
         mettre [cadence_rapide v] à (vrai)
         attends (5) secondes
         mettre [cadence_rapide v] à (faux)
+      fin
       supprime ce clone
+    fin
   supprime ce clone
+fin
 </pre>
 
 ### Code du sprite "Mon vaisseau" (utiliser les bonuses)
@@ -352,6 +403,8 @@ quand je reçois [collision vaisseau v]
     diffuse [bouclier désactivé v]
   sinon
     ajouter (-1) à [vies v]
+  fin
+fin
 répéter indéfiniment
   si <touche [espace v] pressée ?> alors
     crée un clone de [Projectile v]
@@ -359,6 +412,9 @@ répéter indéfiniment
       attends (0.05) secondes
     sinon
       attends (0.2) secondes
+    fin
+  fin
+fin
 </pre>
 
 **Types de power-ups :**
@@ -381,6 +437,7 @@ quand le drapeau vert pressé
   dis [2...] pendant (1) secondes
   dis [1...] pendant (1) secondes
   dis [À l'attaque !] pendant (1) secondes
+fin
 </pre>
 
 ### Code du sprite "Mon vaisseau" (Clignoter après collision)
@@ -392,21 +449,25 @@ quand je reçois [collision vaisseau v]
     attends (0.1) secondes
     montrer
     attends (0.1) secondes
+  fin
+fin
 </pre>
 
 ### Code du sprite "Explosion" (nouvelle animation)
 
 <pre class="blocks">
 quand je reçois [explosion v]
-  mettre x à (position x du clone ennemi)
-  mettre y à (position y du clone ennemi)
+  mettre abscisse x à (abscisse x du clone ennemi)
+  mettre ordonnée y à (ordonnée y du clone ennemi)
   montrer
 
   répète (3)
     ajouter (5) à [taille v] %
     attends (0.1) secondes
+  fin
   
   cache-toi
+fin
 </pre>
 
 ### Code du sprite "Ennemi" (créer l'explosion)
@@ -415,6 +476,7 @@ quand je reçois [explosion v]
 quand je reçois [ennemi touché v]
   diffuse [explosion v]
   supprime ce clone
+fin
 </pre>
 
 ### Code du sprite "Mon vaisseau" (Game Over dramatique)
@@ -447,6 +509,8 @@ répéter indéfiniment
     joue la note [C5 v] pendant (0.05) beats
     crée un clone de [Projectile v]
     attends (0.2) secondes
+  fin
+fin
 </pre>
 
 ### Code du sprite "Ennemi" (Son de destruction)
@@ -457,6 +521,7 @@ quand je reçois [ennemi touché v]
   joue la note [B4 v] pendant (0.1) beats
   joue la note [G4 v] pendant (0.1) beats
   supprime ce clone
+fin
 </pre>
 
 ### Code du sprite "Arrière-plan" (Musique de fond)
@@ -468,6 +533,8 @@ quand le drapeau vert pressé
     joue la note [E4 v] pendant (0.5) beats
     joue la note [G4 v] pendant (0.5) beats
     joue la note [C5 v] pendant (2) beats
+  fin
+fin
 </pre>
 
 ### Code du sprite "Mon vaisseau" (Son de collision)
@@ -476,6 +543,7 @@ quand le drapeau vert pressé
 quand je reçois [collision vaisseau v]
   joue la note [G3 v] pendant (0.1) beats
   joue la note [C3 v] pendant (0.2) beats
+fin
 </pre>
 
 **Effets sonores rétro :**
@@ -497,7 +565,7 @@ quand je reçois [collision vaisseau v]
 | **Variables** | Suivre le score, les vies, les niveaux |
 | **Touches** | Gérer les contrôles du joueur |
 | **Collisions** | Détecter quand deux sprites se touchent |
-| **Position** | x et y pour placer les sprites précisément |
+| **Position** | abscisse x et ordonnée y pour placer les sprites précisément |
 
 ---
 
