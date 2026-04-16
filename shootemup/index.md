@@ -88,8 +88,8 @@ Quand tu appuies sur **ESPACE**, un projectile est lancé. Les projectiles se cl
 
 <pre class="blocks">
 quand je commence comme un clone
-  aller à [Mon vaisseau]
-  mettre la taille à (25)
+  aller à [Mon vaisseau v]
+  mettre la taille à (25) % de la taille initiale
   répéter jusqu'à ce que <(ordonnée y) > (179)>
     ajouter (8) à y
   fin
@@ -111,11 +111,11 @@ Les ennemis vont apparaître en **formation organisée** : 3 lignes de 4 ennemis
 
 <pre class="blocks">
 quand le drapeau vert pressé
-  cache-toi
+  cacher
   mettre [ligne v] à (0)
-  répète (3)
-    répète (4)
-      créer un clone de moi-même
+  répéter (3) fois
+    répéter (4) fois
+      créer un clone de [moi-même v]
       attendre (0.2) secondes
     fin
     ajouter (1) à [ligne v]
@@ -127,7 +127,7 @@ quand le drapeau vert pressé
 <pre class="blocks">
 quand je commence comme un clone
   mettre le costume à [ennemi v]
-  mettre la taille à (30)
+  mettre la taille à (30) % de la taille initiale
   montrer
   mettre x à (((ligne) * (100)) + (-150))
   mettre y à ((((3) - (ligne)) * (40)) + (150))
@@ -173,7 +173,7 @@ quand je reçois [ennemi touché v]
   supprime ce clone
 
 répéter indéfiniment
-  si <touchant [Mon vaisseau] ?> alors
+  si <touchant [Mon vaisseau v] ?> alors
     diffuse [collision vaisseau v]
     supprime ce clone
   fin
@@ -231,10 +231,10 @@ quand je commence comme un clone
 
 <pre class="blocks">
 quand je commence comme un clone
-  mettre la taille à (25)
+  mettre la taille à (25) % de la taille initiale
   répéter jusqu'à ce que <(ordonnée y) < (-180)>
     ajouter (-8) à y
-    si <touchant [Mon vaisseau] ?> alors
+    si <touchant [Mon vaisseau v] ?> alors
       diffuse [collision vaisseau v]
       supprime ce clone
     fin
@@ -279,10 +279,10 @@ quand le drapeau vert pressé
 
 <pre class="blocks">
 quand le drapeau vert pressé
-  cache-toi
+  cacher
   mettre [ligne v] à (0)
   répète ((3) + (niveau))
-    répète (4)
+    répéter (4) fois
       créer un clone de moi-même
       attendre ((0.2) - ((niveau) * (0.01))) secondes
     fin
@@ -298,7 +298,7 @@ quand je reçois [niveau augmenté v]
 <pre class="blocks">
 quand je commence comme un clone
   mettre le costume à [ennemi v]
-  mettre la taille à (30)
+  mettre la taille à (30) % de la taille initiale
   montrer
   mettre [vitesse_ennemis v] à ((2) + (niveau))
   mettre x à (((ligne) * (100)) + (-150))
@@ -347,20 +347,20 @@ quand je reçois [ennemi touché v]
 
 <pre class="blocks">
 quand je commence comme un clone
-  mettre la taille à (50)
+  mettre la taille à (50) % de la taille initiale
   montrer
   si <(nombre aléatoire entre (1) et (2)) = (1)> alors
     mettre le costume à [bouclier v]
-    mettre [type_powerup v] à [bouclier]
+    mettre [type_powerup v] à [bouclier v]
   fin
   sinon
     mettre le costume à [rapidfire v]
-    mettre [type_powerup v] à [rapidfire]
+    mettre [type_powerup v] à [rapidfire v]
   fin
   répéter jusqu'à ce que <(ordonnée y) < (-180)>
     ajouter (-3) à y
-    si <touchant [Mon vaisseau] ?> alors
-      si <(type_powerup) = [bouclier]> alors
+    si <touchant [Mon vaisseau v] ?> alors
+      si <(type_powerup) = [bouclier v]> alors
         mettre [bouclier_actif v] à (vrai)
         diffuse [bouclier activé v]
       sinon
@@ -422,8 +422,8 @@ quand le drapeau vert pressé
 
 <pre class="blocks">
 quand je reçois [collision vaisseau v]
-  répète (4)
-    cache-toi
+  répéter (4) fois
+    cacher
     attendre (0.1) secondes
     montrer
     attendre (0.1) secondes
@@ -438,12 +438,12 @@ quand je reçois [explosion v]
   mettre y à (ordonnée y du clone ennemi)
   montrer
 
-  répète (3)
+  répéter (3) fois
     ajouter (5) à [taille v] %
     attendre (0.1) secondes
   fin
   
-  cache-toi
+  cacher
 </pre>
 
 ### Code du sprite "Ennemi" (créer l'explosion)
