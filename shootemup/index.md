@@ -62,7 +62,6 @@ quand le drapeau vert pressé
       mettre x à (240)
     fin
   fin
-fin
 </pre>
 
 **Ce que fait ce code :**
@@ -98,7 +97,6 @@ quand je commence en tant que clone
     ajouter (8) à y
   fin
   supprime ce clone
-fin
 </pre>
 
 **Points importants :**
@@ -125,7 +123,6 @@ quand le drapeau vert pressé
     fin
     ajouter (1) à [ligne v]
   fin
-fin
 </pre>
 
 ### Code du clone ennemi
@@ -148,7 +145,6 @@ quand je commence en tant que clone
       supprime ce clone
     fin
   fin
-fin
 </pre>
 
 ---
@@ -171,7 +167,6 @@ quand je commence en tant que clone
       supprime ce clone
     fin
   fin
-fin
 </pre>
 
 ### Code du sprite "Ennemi" (gérer les collisions)
@@ -179,7 +174,6 @@ fin
 <pre class="blocks">
 quand je reçois [ennemi touché v]
   supprime ce clone
-fin
 
 répéter indéfiniment
   si <touchant [Mon vaisseau v] ?> alors
@@ -200,7 +194,6 @@ quand je reçois [collision vaisseau v]
     dis [Fin du jeu !] pendant (2) secondes
     arrête [tout v]
   fin
-fin
 </pre>
 
 ---
@@ -213,7 +206,6 @@ fin
 quand le drapeau vert pressé
   mettre [score v] à (0)
   mettre [vies v] à (3)
-fin
 
 répéter indéfiniment
   dis (assemblage [Score: ] (assemblage (score) (assemblage [  |  Vies: ] (vies))))
@@ -236,7 +228,6 @@ quand je commence en tant que clone
     fin
     attends (0.5) secondes
   fin
-fin
 </pre>
 
 ### Code du sprite "Projectile ennemi" (nouveau sprite)
@@ -254,7 +245,6 @@ quand je commence en tant que clone
     fin
   fin
   supprime ce clone
-fin
 </pre>
 
 **Points importants :**
@@ -288,7 +278,6 @@ quand le drapeau vert pressé
     fin
     dis (assemblage [Score: ] (assemblage (score) (assemblage [  |  Niveau: ] (niveau))))
   fin
-fin
 </pre>
 
 ### Code du sprite "Ennemi" (modifier la formation)
@@ -304,11 +293,9 @@ quand le drapeau vert pressé
     fin
     ajouter (1) à [ligne v]
   fin
-fin
 
 quand je reçois [niveau augmenté v]
   ajouter (0.5) à [vitesse_ennemis v]
-fin
 </pre>
 
 ### Code du clone ennemi (modifier la vitesse)
@@ -332,7 +319,6 @@ quand je commence en tant que clone
       supprime ce clone
     fin
   fin
-fin
 </pre>
 
 **Difficulté progressive :**
@@ -360,7 +346,6 @@ quand je reçois [ennemi touché v]
     mettre y du clone à (ordonnée y)
   fin
   supprime ce clone
-fin
 ```
 
 ### Code du sprite "PowerUp" (nouveau sprite)
@@ -391,7 +376,6 @@ quand je commence en tant que clone
       supprime ce clone
     fin
   supprime ce clone
-fin
 </pre>
 
 ### Code du sprite "Mon vaisseau" (utiliser les bonuses)
@@ -404,7 +388,7 @@ quand je reçois [collision vaisseau v]
   sinon
     ajouter (-1) à [vies v]
   fin
-fin
+
 répéter indéfiniment
   si <touche [espace v] pressée ?> alors
     crée un clone de [Projectile v]
@@ -437,7 +421,6 @@ quand le drapeau vert pressé
   dis [2...] pendant (1) secondes
   dis [1...] pendant (1) secondes
   dis [À l'attaque !] pendant (1) secondes
-fin
 </pre>
 
 ### Code du sprite "Mon vaisseau" (Clignoter après collision)
@@ -450,7 +433,6 @@ quand je reçois [collision vaisseau v]
     montrer
     attends (0.1) secondes
   fin
-fin
 </pre>
 
 ### Code du sprite "Explosion" (nouvelle animation)
@@ -467,7 +449,6 @@ quand je reçois [explosion v]
   fin
   
   cache-toi
-fin
 </pre>
 
 ### Code du sprite "Ennemi" (créer l'explosion)
@@ -476,7 +457,6 @@ fin
 quand je reçois [ennemi touché v]
   diffuse [explosion v]
   supprime ce clone
-fin
 </pre>
 
 ### Code du sprite "Mon vaisseau" (Game Over dramatique)
@@ -521,7 +501,6 @@ quand je reçois [ennemi touché v]
   joue la note [B4 v] pendant (0.1) beats
   joue la note [G4 v] pendant (0.1) beats
   supprime ce clone
-fin
 </pre>
 
 ### Code du sprite "Arrière-plan" (Musique de fond)
@@ -534,7 +513,6 @@ quand le drapeau vert pressé
     joue la note [G4 v] pendant (0.5) beats
     joue la note [C5 v] pendant (2) beats
   fin
-fin
 </pre>
 
 ### Code du sprite "Mon vaisseau" (Son de collision)
@@ -543,7 +521,6 @@ fin
 quand je reçois [collision vaisseau v]
   joue la note [G3 v] pendant (0.1) beats
   joue la note [C3 v] pendant (0.2) beats
-fin
 </pre>
 
 **Effets sonores rétro :**
