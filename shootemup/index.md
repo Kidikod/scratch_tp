@@ -126,20 +126,19 @@ quand le drapeau vert pressé
 
 <pre class="blocks">
 quand je commence comme un clone
-  mettre le costume à [ennemi v]
+  basculer sur le costume [ennemi v]
   mettre la taille à (30) % de la taille initiale
   montrer
-  mettre x à (((ligne) * (100)) + (-150))
-  mettre y à ((((3) - (ligne)) * (40)) + (150))
+  aller à x: (((ligne) * (100)) + (-150)) y: ((((3) - (ligne)) * (40)) + (150))
   répéter indéfiniment
-    avance de (2)
-    tourne de (2) degrés vers la droite
+    avancer de (2) pas
+    tourner droite de (2) degrés
     si <(abscisse x) > (250)> alors
       mettre x à (-250)
     fin
     ajouter (-0.5) à y
     si <(ordonnée y) < (-180)> alors
-      supprime ce clone
+      supprimer ce clone
     fin
   fin
 </pre>
@@ -161,7 +160,7 @@ quand je commence comme un clone
     si <touchant [Ennemi v] ?> alors
       diffuse [ennemi touché v]
       ajouter (10) à [score v]
-      supprime ce clone
+      supprimer ce clone
     fin
   fin
 </pre>
@@ -170,12 +169,12 @@ quand je commence comme un clone
 
 <pre class="blocks">
 quand je reçois [ennemi touché v]
-  supprime ce clone
+  supprimer ce clone
 
 répéter indéfiniment
   si <touchant [Mon vaisseau v] ?> alors
     diffuse [collision vaisseau v]
-    supprime ce clone
+    supprimer ce clone
   fin
 fin
 </pre>
@@ -236,10 +235,10 @@ quand je commence comme un clone
     ajouter (-8) à y
     si <touchant [Mon vaisseau v] ?> alors
       diffuse [collision vaisseau v]
-      supprime ce clone
+      supprimer ce clone
     fin
   fin
-  supprime ce clone
+  supprimer ce clone
 </pre>
 
 **Points importants :**
@@ -297,7 +296,7 @@ quand je reçois [niveau augmenté v]
 
 <pre class="blocks">
 quand je commence comme un clone
-  mettre le costume à [ennemi v]
+  basculer sur le costume [ennemi v]
   mettre la taille à (30) % de la taille initiale
   montrer
   mettre [vitesse_ennemis v] à ((2) + (niveau))
@@ -305,13 +304,13 @@ quand je commence comme un clone
   mettre y à ((((3) - (ligne)) * (40)) + (150))
   répéter indéfiniment
     avance de (vitesse_ennemis)
-    tourne de (2) degrés vers la droite
+    tourner droite de (2) degrés
     si <(abscisse x) > (250)> alors
       mettre x à (-250)
     fin
     ajouter (-0.5) à y
     si <(ordonnée y) < (-180)> alors
-      supprime ce clone
+      supprimer ce clone
     fin
   fin
 </pre>
@@ -340,7 +339,7 @@ quand je reçois [ennemi touché v]
     mettre x du clone à (abscisse x)
     mettre y du clone à (ordonnée y)
   fin
-  supprime ce clone
+  supprimer ce clone
 ```
 
 ### Code du sprite "PowerUp" (nouveau sprite)
@@ -350,11 +349,11 @@ quand je commence comme un clone
   mettre la taille à (50) % de la taille initiale
   montrer
   si <(nombre aléatoire entre (1) et (2)) = (1)> alors
-    mettre le costume à [bouclier v]
+    basculer sur le costume [bouclier v]
     mettre [type_powerup v] à [bouclier v]
   fin
   sinon
-    mettre le costume à [rapidfire v]
+    basculer sur le costume [rapidfire v]
     mettre [type_powerup v] à [rapidfire v]
   fin
   répéter jusqu'à ce que <(ordonnée y) < (-180)>
@@ -368,9 +367,9 @@ quand je commence comme un clone
         attendre (5) secondes
         mettre [cadence_rapide v] à (faux)
       fin
-      supprime ce clone
+      supprimer ce clone
     fin
-  supprime ce clone
+  supprimer ce clone
 </pre>
 
 ### Code du sprite "Mon vaisseau" (utiliser les bonuses)
@@ -451,7 +450,7 @@ quand je reçois [explosion v]
 <pre class="blocks">
 quand je reçois [ennemi touché v]
   diffuse [explosion v]
-  supprime ce clone
+  supprimer ce clone
 </pre>
 
 ### Code du sprite "Mon vaisseau" (Game Over dramatique)
@@ -495,7 +494,7 @@ quand je reçois [ennemi touché v]
   joue la note [D5 v] pendant (0.1) beats
   joue la note [B4 v] pendant (0.1) beats
   joue la note [G4 v] pendant (0.1) beats
-  supprime ce clone
+  supprimer ce clone
 </pre>
 
 ### Code du sprite "Arrière-plan" (Musique de fond)
