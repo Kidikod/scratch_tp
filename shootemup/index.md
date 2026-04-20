@@ -335,7 +335,7 @@ Des bonus apparaissent aléatoirement pour t'aider ! Récupère-les pour des ava
 
 ### Code du sprite "Ennemi" (générer les power-ups)
 
-```scratch
+<pre class="blocks">
 quand je reçois [ennemi touché v]
   si <(nombre aléatoire entre (1) et (10)) < (4)> alors
     créer un clone de [PowerUp v]
@@ -343,7 +343,7 @@ quand je reçois [ennemi touché v]
     mettre y du clone à (ordonnée y)
   fin
   supprimer ce clone
-```
+</pre>
 
 ### Code du sprite "PowerUp" (nouveau sprite)
 
