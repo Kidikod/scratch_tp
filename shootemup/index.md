@@ -207,7 +207,7 @@ quand le drapeau vert pressé
   mettre [vies v] à (3)
 
 répéter indéfiniment
-  dire [regrouper [Score: ] (regrouper (score) (regrouper [  |  Vies: ] (vies)))]
+  dire (regrouper [Score: ] (regrouper (score) (regrouper [  |  Vies: ] (vies))))
 fin
 </pre>
 
@@ -222,7 +222,7 @@ Les ennemis vont aussi tirer sur toi ! Tu dois les éviter pour ne pas perdre de
 <pre class="blocks">
 quand je commence comme un clone
   répéter indéfiniment
-    si <nombre aléatoire entre (1) et (100) = (1)> alors
+    si <(nombre aléatoire entre (1) et (100)) = (1)> alors
       créer un clone de [Projectile ennemi v]
     fin
     attendre (0.5) secondes
@@ -271,9 +271,9 @@ quand le drapeau vert pressé
     si <(score) > ((niveau) * (50))> alors
       ajouter (1) à [niveau v]
       envoyer à tous [niveau augmenté v]
-      dire (regrouper [Niveau ] (regrouper (niveau) [ ! ])) pendant (2) secondes
+      dire (regrouper [Niveau ] et (regrouper (niveau) et [ ! ])) pendant (2) secondes
     fin
-    dire (regrouper [Score: ] (regrouper (score) (regrouper [  |  Niveau: ] (niveau))))
+    dire (regrouper [Score: ] et (regrouper (score) et (regrouper [  |  Niveau: ] et (niveau))))
   fin
 </pre>
 
@@ -283,9 +283,9 @@ quand le drapeau vert pressé
 quand le drapeau vert pressé
   cacher
   mettre [ligne v] à (0)
-  répète ((3) + (niveau))
+  répéter ((3) + (niveau)) fois
     répéter (4) fois
-      créer un clone de moi-même
+      créer un clone de [moi-même v]
       attendre ((0.2) - ((niveau) * (0.01))) secondes
     fin
     ajouter (1) à [ligne v]
@@ -306,7 +306,7 @@ quand je commence comme un clone
   mettre x à (((ligne) * (100)) + (-150))
   mettre y à ((((3) - (ligne)) * (40)) + (150))
   répéter indéfiniment
-    avance de (vitesse_ennemis)
+    avancer de (vitesse_ennemis)
     tourner droite de (2) degrés
     si <(abscisse x) > (250)> alors
       mettre x à (-250)
@@ -379,7 +379,7 @@ quand je commence comme un clone
 
 <pre class="blocks">
 quand je reçois [collision vaisseau v]
-  si <(bouclier_actif)> alors
+  si (bouclier_actif) alors
     mettre [bouclier_actif v] à (faux)
     envoyer à tous [bouclier désactivé v]
   sinon
@@ -389,7 +389,7 @@ quand je reçois [collision vaisseau v]
 répéter indéfiniment
   si <touche [espace v] pressée ?> alors
     créer un clone de [Projectile v]
-    si <(cadence_rapide)> alors
+    si (cadence_rapide) alors
       attendre (0.05) secondes
     sinon
       attendre (0.2) secondes
@@ -461,8 +461,8 @@ quand je reçois [ennemi touché v]
 <pre class="blocks">
   mettre [texture v] à [GAME OVER]
   dire [GAME OVER !] pendant (3) secondes
-  dire (regrouper [Score final: ] (score)) pendant (2) secondes
-  dire (regrouper [Niveau atteint: ] (niveau)) pendant (2) secondes
+  dire (regrouper [Score final: ] et (score)) pendant (2) secondes
+  dire (regrouper [Niveau atteint: ] et (niveau)) pendant (2) secondes
   attendre (1) secondes
   dire [Appuie sur le drapeau vert pour recommencer] pendant (3) secondes
 </pre>
@@ -483,7 +483,7 @@ Ajoute une ambiance sonore arcade !
 <pre class="blocks">
 répéter indéfiniment
   si <touche [espace v] pressée ?> alors
-    joue la note [C5 v] pendant (0.05) beats
+    jouer la note [C5 v] pendant (0.05) temps
     créer un clone de [Projectile v]
     attendre (0.2) secondes
   fin
@@ -494,9 +494,9 @@ fin
 
 <pre class="blocks">
 quand je reçois [ennemi touché v]
-  joue la note [D5 v] pendant (0.1) beats
-  joue la note [B4 v] pendant (0.1) beats
-  joue la note [G4 v] pendant (0.1) beats
+  joue la note [D5 v] pendant (0.1) temps
+  joue la note [B4 v] pendant (0.1) temps
+  joue la note [G4 v] pendant (0.1) temps
   supprimer ce clone
 </pre>
 
@@ -505,10 +505,10 @@ quand je reçois [ennemi touché v]
 <pre class="blocks">
 quand le drapeau vert pressé
   répéter indéfiniment
-    joue la note [C4 v] pendant (0.5) beats
-    joue la note [E4 v] pendant (0.5) beats
-    joue la note [G4 v] pendant (0.5) beats
-    joue la note [C5 v] pendant (2) beats
+    joue la note [C4 v] pendant (0.5) temps
+    joue la note [E4 v] pendant (0.5) temps
+    joue la note [G4 v] pendant (0.5) temps
+    joue la note [C5 v] pendant (2) temps
   fin
 </pre>
 
@@ -516,8 +516,8 @@ quand le drapeau vert pressé
 
 <pre class="blocks">
 quand je reçois [collision vaisseau v]
-  joue la note [G3 v] pendant (0.1) beats
-  joue la note [C3 v] pendant (0.2) beats
+  joue la note [G3 v] pendant (0.1) temps
+  joue la note [C3 v] pendant (0.2) temps
 </pre>
 
 **Effets sonores rétro :**
