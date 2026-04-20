@@ -188,8 +188,10 @@ montrer
       mettre [décompte tir v] à ((chronomètre) + (0.5))
     fin
   </pre>
+</details>
 
-  ### Code du sprite "projectile"
+<details>
+  <summary>Code du sprite "projectile"</summary>
 
   <pre class="blocks">
   quand le drapeau vert pressé
@@ -210,41 +212,128 @@ montrer
 
 Les ennemis vont apparaître en **formation organisée** : 3 lignes de 4 ennemis.
 
-### Code du sprite "ennemi" (au démarrage)
+Voila ce qu'il va falloir développer :
+- Les clones apparaisse en dehors de l'écran
+- Les clones se déplace pour arriver à leur emplacement de formation
 
+Tu vas avoir besoin de ces blocs :
 <pre class="blocks">
 quand le drapeau vert pressé
-  cacher
-  mettre [ligne v] à (0)
-  répéter (3) fois
-    répéter (4) fois
-      créer un clone de [moi-même v]
-      attendre (0.2) secondes
-    fin
-    ajouter (1) à [ligne v]
-  fin
 </pre>
 
-### Code du clone ennemi
+<pre class="blocks">
+créer un clone de [ v]
+</pre>
 
 <pre class="blocks">
 quand je commence comme un clone
-  basculer sur le costume [ennemi v]
-  mettre la taille à (30) % de la taille initiale
-  montrer
-  aller à x: (((ligne) * (100)) + (-150)) y: ((((3) - (ligne)) * (40)) + (150))
-  répéter indéfiniment
-    avancer de (2) pas
-    tourner droite de (2) degrés
-    si <(abscisse x) > (250)> alors
-      mettre x à (-250)
-    fin
-    ajouter (-0.5) à y
-    si <(ordonnée y) < (-180)> alors
-      supprimer ce clone
-    fin
-  fin
 </pre>
+
+<pre class="blocks">
+supprimer ce clone
+</pre>
+
+<pre class="blocks">
+cacher
+</pre>
+
+<pre class="blocks">
+montrer
+</pre>
+
+<pre class="blocks">
+basculer sur le costume [ v]
+</pre>
+
+<pre class="blocks">
+si <> alors
+</pre>
+
+<pre class="blocks">
+répéter () fois
+fin
+</pre>
+
+<pre class="blocks">
+répéter indéfiniment
+fin
+</pre>
+
+<pre class="blocks">
+avancer de () pas
+</pre>
+
+<pre class="blocks">
+ajouter () à x
+</pre>
+
+<pre class="blocks">
+ajouter () à y
+</pre>
+
+<pre class="blocks">
+aller à x: () y: ()
+</pre>
+
+<pre class="blocks">
+<() < ()>
+</pre>
+
+<pre class="blocks">
+<() > ()>
+</pre>
+
+<pre class="blocks">
+(() + ())
+</pre>
+
+<pre class="blocks">
+(() - ())
+</pre>
+
+<pre class="blocks">
+(() * ())
+</pre>
+
+<details>
+  <summary>Code du sprite "ennemi" (au démarrage)</summary>
+
+  <pre class="blocks">
+  quand le drapeau vert pressé
+    cacher
+    mettre [ligne v] à (0)
+    répéter (3) fois
+      répéter (4) fois
+        créer un clone de [moi-même v]
+        attendre (0.2) secondes
+      fin
+      ajouter (1) à [ligne v]
+    fin
+  </pre>
+</details>
+
+<details>
+  <summary>Code du clone ennemi</summary>
+
+  <pre class="blocks">
+  quand je commence comme un clone
+    basculer sur le costume [ennemi v]
+    mettre la taille à (30) % de la taille initiale
+    montrer
+    aller à x: (((ligne) * (100)) + (-150)) y: ((((3) - (ligne)) * (40)) + (150))
+    répéter indéfiniment
+      avancer de (2) pas
+      tourner droite de (2) degrés
+      si <(abscisse x) > (250)> alors
+        mettre x à (-250)
+      fin
+      ajouter (-0.5) à y
+      si <(ordonnée y) < (-180)> alors
+        supprimer ce clone
+      fin
+    fin
+  </pre>
+</details>
 
 ## 💥 Étape 4 : Les collisions
 
