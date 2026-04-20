@@ -149,11 +149,11 @@ aller à [ v]
 </pre>
 
 <pre class="blocks">
-<() + ()>
+(() + ())
 </pre>
 
 <pre class="blocks">
-<() modulo ()>
+(() modulo ())
 </pre>
 
 <pre class="blocks">
@@ -204,7 +204,7 @@ montrer
     fin
     supprimer ce clone
   </pre>
-</detail>
+</details>
 
 ## 👾 Étape 3 : Créer les ennemis en formation
 
