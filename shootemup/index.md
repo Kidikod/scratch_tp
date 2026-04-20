@@ -9,32 +9,22 @@ page_js:
 
 ## 📋 Contexte du projet
 
-Dans cet atelier, tu vas créer un **petit jeu de tir spatial** où :
-- Tu pilotes ton vaisseau avec les flèches du clavier
-- Tu tires sur des ennemis qui apparaissent en formation
-- Chaque ennemi détruit te rapporte des points
-- Tu perds une vie si un ennemi te touche
+Dans cet atelier, on va concevoir un petit shoot em up. Tu y piloteras ton vaisseau à l’aide des flèches du clavier, tout en affrontant des ennemis qui apparaissent en formation. Il faudra les éliminer en tirant dessus pour gagner des points. Mais attention : les ennemis ne se laisseront pas faire.
 
-Les notions clés que tu vas approfondir :
-- ⭐ Le système de **clones** (créer plusieurs copies d'un sprite)
-- 🎮 La gestion des collisions
-- 📊 Les variables pour score et vies
-- ⏰ L'utilisation de messages pour la communication entre sprites
+Au fil de ce projet, on approfondira plusieurs notions essentielles. Tu apprendras notamment à utiliser le système de clones pour générer plusieurs copies d’un même sprite, à gérer les collisions entre objets du jeu, et à manipuler des variables pour suivre le score et le nombre de vies. Enfin, tu découvriras comment utiliser des messages afin de permettre aux différents éléments du jeu de communiquer entre eux efficacement.
 
 ## 🎨 Préparation : Les sprites et le décor
 
 ### 1. Crée les 3 sprites nécessaires
 
 Tu auras besoin de :
-1. **Mon vaisseau** - le vaisseau du joueur (dessin simple : triangle pointant vers le haut)
-2. **Ennemi** - un vaisseau ennemi qui se clonera
-3. **Projectile** - ton tir (petit cercle ou carré)
-
-> **Conseil** : Dessine des formes simples ou utilise la galerie de Scratch. Les sprites peuvent même être des emojis ou des formes géométriques.
+1. **Mon vaisseau** - le vaisseau du joueur (dessin simple : triangle pointant vers le haut) - [mon vaisseau](resources/sprites/player_ship.svg)
+2. **Ennemi** - un vaisseau ennemi qui se clonera - [ennemi](resources/sprites/enemy_ship.svg)
+3. **Projectile** - ton tir (petit cercle ou carré) - [projectile](resources/sprites/projectile.svg)
 
 ### 2. Configure la scène
 
-Définis une taille de scène adaptée, par exemple **480 × 360** pixels (par défaut dans Scratch).
+Définis une taille de scène adaptée, par exemple **480 × 360** pixels (c'est la taille par défaut dans Scratch).
 
 ## 🕹️ Étape 1 : Piloter ton vaisseau
 
