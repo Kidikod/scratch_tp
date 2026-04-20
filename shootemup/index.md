@@ -190,8 +190,8 @@ mettre [vies v] à (3)
 quand je reçois [collision vaisseau v]
   ajouter (-1) à [vies v]
   si <(vies) = (0)> alors
-    dis [Fin du jeu !] pendant (2) secondes
-    arrête [tout v]
+    dire [Fin du jeu !] pendant (2) secondes
+    stop [tout v]
   fin
 </pre>
 
@@ -207,7 +207,7 @@ quand le drapeau vert pressé
   mettre [vies v] à (3)
 
 répéter indéfiniment
-  dis (assemblage [Score: ] (assemblage (score) (assemblage [  |  Vies: ] (vies))))
+  dire [regrouper [Score: ] (regrouper (score) (regrouper [  |  Vies: ] (vies)))]
 fin
 </pre>
 
@@ -271,9 +271,9 @@ quand le drapeau vert pressé
     si <(score) > ((niveau) * (50))> alors
       ajouter (1) à [niveau v]
       envoyer à tous [niveau augmenté v]
-      dis (assemblage [Niveau ] (assemblage (niveau) [ ! ])) pendant (2) secondes
+      dire (regrouper [Niveau ] (regrouper (niveau) [ ! ])) pendant (2) secondes
     fin
-    dis (assemblage [Score: ] (assemblage (score) (assemblage [  |  Niveau: ] (niveau))))
+    dire (regrouper [Score: ] (regrouper (score) (regrouper [  |  Niveau: ] (niveau))))
   fin
 </pre>
 
@@ -413,11 +413,11 @@ Rend le jeu plus vivant avec des animations !
 
 <pre class="blocks">
 quand le drapeau vert pressé
-  dis [Prépare-toi !] pendant (1) secondes
-  dis [3...] pendant (1) secondes
-  dis [2...] pendant (1) secondes
-  dis [1...] pendant (1) secondes
-  dis [À l'attaque !] pendant (1) secondes
+  dire [Prépare-toi !] pendant (1) secondes
+  dire [3...] pendant (1) secondes
+  dire [2...] pendant (1) secondes
+  dire [1...] pendant (1) secondes
+  dire [À l'attaque !] pendant (1) secondes
 </pre>
 
 ### Code du sprite "Mon vaisseau" (Clignoter après collision)
@@ -460,11 +460,11 @@ quand je reçois [ennemi touché v]
 
 <pre class="blocks">
   mettre [texture v] à [GAME OVER]
-  dis [GAME OVER !] pendant (3) secondes
-  dis (assemblage [Score final: ] (score)) pendant (2) secondes
-  dis (assemblage [Niveau atteint: ] (niveau)) pendant (2) secondes
+  dire [GAME OVER !] pendant (3) secondes
+  dire (regrouper [Score final: ] (score)) pendant (2) secondes
+  dire (regrouper [Niveau atteint: ] (niveau)) pendant (2) secondes
   attendre (1) secondes
-  dis [Appuie sur le drapeau vert pour recommencer] pendant (3) secondes
+  dire [Appuie sur le drapeau vert pour recommencer] pendant (3) secondes
 </pre>
 
 **Animations ajoutées :**
