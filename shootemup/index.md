@@ -91,7 +91,7 @@ mettre y à ()
       fin
     fin
   </pre>
-<details>
+</details>
 
 ## 🔫 Étape 2 : Ajouter le système de tir
 
