@@ -104,7 +104,7 @@ Voila ce qu'il va falloir développer :
 
 Tu vas avoir besoin de ces blocs :
 <pre class="blocks">
-si <> alors
+quand le drapeau vert pressé
 </pre>
 
 <pre class="blocks">
@@ -120,6 +120,10 @@ supprimer ce clone
 </pre>
 
 <pre class="blocks">
+si <> alors
+</pre>
+
+<pre class="blocks">
 répéter jusqu'à ce que <>
 fin
 </pre>
@@ -130,6 +134,10 @@ fin
 
 <pre class="blocks">
 ajouter () à y
+</pre>
+
+<pre class="blocks">
+aller à x: () y: ()
 </pre>
 
 <pre class="blocks">
@@ -184,9 +192,13 @@ montrer
   ### Code du sprite "projectile"
 
   <pre class="blocks">
+  quand le drapeau vert pressé
+    aller à x: (-240) y: (-180)
+    cacher
+
   quand je commence comme un clone
     aller à [joueur v]
-    mettre la taille à (25) % de la taille initiale
+    montrer
     répéter jusqu'à ce que <(ordonnée y) > (179)>
       ajouter (8) à y
     fin
