@@ -157,23 +157,26 @@ quand je commence comme un clone
 quand je commence comme un clone
   répéter jusqu'à ce que <(ordonnée y) > (180)>
     ajouter (8) à y
-    si <touchant [Ennemi v] ?> alors
-      diffuse [ennemi touché v]
+    si <touche le [Ennemi v] ?> alors
+      envoyer à tous [ennemi touché v]
       ajouter (10) à [score v]
       supprimer ce clone
     fin
   fin
+  supprimer ce clone
 </pre>
 
 ### Code du sprite "Ennemi" (gérer les collisions)
 
 <pre class="blocks">
 quand je reçois [ennemi touché v]
-  supprimer ce clone
-
+  si <touche le [Projectile v] ?> alors
+    supprimer ce clone
+  fin
+  
 répéter indéfiniment
-  si <touchant [Mon vaisseau v] ?> alors
-    diffuse [collision vaisseau v]
+  si <touche le [Mon vaisseau v] ?> alors
+    envoyer à tous [collision vaisseau v]
     supprimer ce clone
   fin
 fin
@@ -233,8 +236,8 @@ quand je commence comme un clone
   mettre la taille à (25) % de la taille initiale
   répéter jusqu'à ce que <(ordonnée y) < (-180)>
     ajouter (-8) à y
-    si <touchant [Mon vaisseau v] ?> alors
-      diffuse [collision vaisseau v]
+    si <touche le [Mon vaisseau v] ?> alors
+      envoyer à tous [collision vaisseau v]
       supprimer ce clone
     fin
   fin
@@ -267,7 +270,7 @@ quand le drapeau vert pressé
   répéter indéfiniment
     si <(score) > ((niveau) * (50))> alors
       ajouter (1) à [niveau v]
-      diffuse [niveau augmenté v]
+      envoyer à tous [niveau augmenté v]
       dis (assemblage [Niveau ] (assemblage (niveau) [ ! ])) pendant (2) secondes
     fin
     dis (assemblage [Score: ] (assemblage (score) (assemblage [  |  Niveau: ] (niveau))))
@@ -358,10 +361,10 @@ quand je commence comme un clone
   fin
   répéter jusqu'à ce que <(ordonnée y) < (-180)>
     ajouter (-3) à y
-    si <touchant [Mon vaisseau v] ?> alors
+    si <touche le [Mon vaisseau v] ?> alors
       si <(type_powerup) = [bouclier v]> alors
         mettre [bouclier_actif v] à (vrai)
-        diffuse [bouclier activé v]
+        envoyer à tous [bouclier activé v]
       sinon
         mettre [cadence_rapide v] à (vrai)
         attendre (5) secondes
@@ -378,7 +381,7 @@ quand je commence comme un clone
 quand je reçois [collision vaisseau v]
   si <(bouclier_actif)> alors
     mettre [bouclier_actif v] à (faux)
-    diffuse [bouclier désactivé v]
+    envoyer à tous [bouclier désactivé v]
   sinon
     ajouter (-1) à [vies v]
   fin
@@ -449,7 +452,7 @@ quand je reçois [explosion v]
 
 <pre class="blocks">
 quand je reçois [ennemi touché v]
-  diffuse [explosion v]
+  envoyer à tous [explosion v]
   supprimer ce clone
 </pre>
 
