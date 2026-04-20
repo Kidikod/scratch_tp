@@ -22,13 +22,51 @@ Tu auras besoin de :
 2. **Ennemi** - un vaisseau ennemi qui se clonera - [ennemi](resources/sprites/enemy_ship.svg)
 3. **Projectile** - ton tir (petit cercle ou carré) - [projectile](resources/sprites/projectile.svg)
 
-### 2. Configure la scène
-
-Définis une taille de scène adaptée, par exemple **480 × 360** pixels (c'est la taille par défaut dans Scratch).
-
 ## 🕹️ Étape 1 : Piloter ton vaisseau
 
 Le vaisseau du joueur doit se déplacer avec les **flèches gauche/droite** et rester en bas de l'écran.
+
+Commence à coder le sprite "mon vaisseau", voila ce qu'il va falloir développer :
+- Évalue en continu les touches pressées
+- Déplace le vaisseau à gauche ou droite
+- Empêche le vaisseau de sortir de l'écran
+
+Tu vas avoir besoin de ces blocs
+
+<pre class="blocks">
+quand le drapeau vert pressé
+</pre>
+
+<pre class="blocks">
+répéter indéfiniment
+fin
+</pre>
+
+<pre class="blocks">
+si <> alors
+</pre>
+
+<pre class="blocks">
+(abscisse x)
+</pre>
+
+<pre class="blocks">
+ajouter () à x
+</pre>
+
+<pre class="blocks">
+mettre x à ()
+</pre>
+
+<pre class="blocks">
+<touche [flèche gauche v] pressée ?>
+</pre>
+
+<pre class="blocks">
+<() < ()>
+</pre>
+
+Exemple de script du joueur :
 
 <pre class="blocks">
 quand le drapeau vert pressé
@@ -47,11 +85,6 @@ quand le drapeau vert pressé
     fin
   fin
 </pre>
-
-**Ce que fait ce code :**
-- Évalue en continu les touches pressées
-- Déplace le vaisseau à gauche ou droite
-- Empêche le vaisseau de sortir de l'écran
 
 ## 🔫 Étape 2 : Ajouter le système de tir
 
