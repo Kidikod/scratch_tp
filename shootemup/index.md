@@ -207,7 +207,7 @@ quand le drapeau vert pressé
   mettre [vies v] à (3)
 
 répéter indéfiniment
-  dire (regrouper [Score: ] (regrouper (score) (regrouper [  |  Vies: ] (vies))))
+  dire (regrouper [Score: ] et (regrouper (score) et (regrouper [  |  Vies: ] et (vies))))
 fin
 </pre>
 
@@ -306,7 +306,7 @@ quand je commence comme un clone
   mettre x à (((ligne) * (100)) + (-150))
   mettre y à ((((3) - (ligne)) * (40)) + (150))
   répéter indéfiniment
-    avancer de (vitesse_ennemis)
+    avancer de (vitesse_ennemis) pas
     tourner droite de (2) degrés
     si <(abscisse x) > (250)> alors
       mettre x à (-250)
@@ -494,9 +494,9 @@ fin
 
 <pre class="blocks">
 quand je reçois [ennemi touché v]
-  joue la note [D5 v] pendant (0.1) temps
-  joue la note [B4 v] pendant (0.1) temps
-  joue la note [G4 v] pendant (0.1) temps
+  jouer la note [D5 v] pendant (0.1) temps
+  jouer la note [B4 v] pendant (0.1) temps
+  jouer la note [G4 v] pendant (0.1) temps
   supprimer ce clone
 </pre>
 
@@ -505,10 +505,10 @@ quand je reçois [ennemi touché v]
 <pre class="blocks">
 quand le drapeau vert pressé
   répéter indéfiniment
-    joue la note [C4 v] pendant (0.5) temps
-    joue la note [E4 v] pendant (0.5) temps
-    joue la note [G4 v] pendant (0.5) temps
-    joue la note [C5 v] pendant (2) temps
+    jouer la note [C4 v] pendant (0.5) temps
+    jouer la note [E4 v] pendant (0.5) temps
+    jouer la note [G4 v] pendant (0.5) temps
+    jouer la note [C5 v] pendant (2) temps
   fin
 </pre>
 
@@ -516,8 +516,8 @@ quand le drapeau vert pressé
 
 <pre class="blocks">
 quand je reçois [collision vaisseau v]
-  joue la note [G3 v] pendant (0.1) temps
-  joue la note [C3 v] pendant (0.2) temps
+  jouer la note [G3 v] pendant (0.1) temps
+  jouer la note [C3 v] pendant (0.2) temps
 </pre>
 
 **Effets sonores rétro :**
