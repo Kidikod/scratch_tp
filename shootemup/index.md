@@ -66,25 +66,27 @@ mettre x à ()
 <() < ()>
 </pre>
 
-Exemple de script du joueur :
+<details>
+  <summary>Exemple de script du joueur</summary>
 
-<pre class="blocks">
-quand le drapeau vert pressé
-  répéter indéfiniment
-    si <touche [flèche gauche v] pressée ?> alors
-      ajouter (-5) à x
+  <pre class="blocks">
+  quand le drapeau vert pressé
+    répéter indéfiniment
+      si <touche [flèche gauche v] pressée ?> alors
+        ajouter (-5) à x
+      fin
+      si <touche [flèche droite v] pressée ?> alors
+        ajouter (5) à x
+      fin
+      si <(abscisse x) < (-240)> alors
+        mettre x à (-240)
+      fin
+      si <(abscisse x) > (240)> alors
+        mettre x à (240)
+      fin
     fin
-    si <touche [flèche droite v] pressée ?> alors
-      ajouter (5) à x
-    fin
-    si <(abscisse x) < (-240)> alors
-      mettre x à (-240)
-    fin
-    si <(abscisse x) > (240)> alors
-      mettre x à (240)
-    fin
-  fin
-</pre>
+  </pre>
+<details>
 
 ## 🔫 Étape 2 : Ajouter le système de tir
 
