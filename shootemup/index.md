@@ -7,8 +7,6 @@ page_js:
   - assets/js/translations-all.js
 ---
 
-# 🚀 Shoot em up : Pilote ton vaisseau spatial
-
 ## 📋 Contexte du projet
 
 Dans cet atelier, tu vas créer un **petit jeu de tir spatial** où :
@@ -22,8 +20,6 @@ Les notions clés que tu vas approfondir :
 - 🎮 La gestion des collisions
 - 📊 Les variables pour score et vies
 - ⏰ L'utilisation de messages pour la communication entre sprites
-
----
 
 ## 🎨 Préparation : Les sprites et le décor
 
@@ -39,8 +35,6 @@ Tu auras besoin de :
 ### 2. Configure la scène
 
 Définis une taille de scène adaptée, par exemple **480 × 360** pixels (par défaut dans Scratch).
-
----
 
 ## 🕹️ Étape 1 : Piloter ton vaisseau
 
@@ -68,8 +62,6 @@ quand le drapeau vert pressé
 - Évalue en continu les touches pressées
 - Déplace le vaisseau à gauche ou droite
 - Empêche le vaisseau de sortir de l'écran
-
----
 
 ## 🔫 Étape 2 : Ajouter le système de tir
 
@@ -100,8 +92,6 @@ quand je commence comme un clone
 - Les clones héritent de la position du vaisseau au moment du tir
 - Le projectile monte à chaque étape
 - Il se supprime automatiquement quand il sort de l'écran
-
----
 
 ## 👾 Étape 3 : Créer les ennemis en formation
 
@@ -142,8 +132,6 @@ quand je commence comme un clone
     fin
   fin
 </pre>
-
----
 
 ## 💥 Étape 4 : Les collisions
 
@@ -195,8 +183,6 @@ quand je reçois [collision vaisseau v]
   fin
 </pre>
 
----
-
 ## 📊 Étape 5 : Affichage du score et des vies
 
 ### Code du sprite "Arrière-plan"
@@ -210,8 +196,6 @@ répéter indéfiniment
   dire (regrouper [Score: ] et (regrouper (score) et (regrouper [  |  Vies: ] et (vies))))
 fin
 </pre>
-
----
 
 ## 🔫 Étape 6 : Ajouter les tirs ennemis
 
@@ -248,8 +232,6 @@ quand je commence comme un clone
 - Les ennemis tirent **aléatoirement** (pas trop souvent)
 - Les projectiles ennemis **descendent** vers le joueur
 - Le joueur perd une vie au contact
-
----
 
 ## 📈 Étape 7 : Implémenter les niveaux progressifs
 
@@ -322,8 +304,6 @@ quand je commence comme un clone
 - Niveau 1 : 3 lignes d'ennemis, vitesse 2
 - Niveau 2 : 4 lignes, vitesse 2.5, tirs plus rapides
 - Niveau 3+ : Plus d'ennemis, plus rapides chaque fois
-
----
 
 ## ⚡ Étape 8 : Les Power-ups
 
@@ -403,8 +383,6 @@ fin
 - ⚡ **Tirs Rapides** : Double la cadence pendant 5 sec
 - 🎯 Idée future : Ralentisseur d'ennemis
 
----
-
 ## 🎬 Étape 9 : Animations visuelles
 
 Rend le jeu plus vivant avec des animations !
@@ -472,8 +450,6 @@ quand je reçois [ennemi touché v]
 - Clignotement du vaisseau après coup
 - Explosion visible au centre des ennemis
 
----
-
 ## 🔊 Étape 10 : Les sons rétro 8-bit (Bonus)
 
 Ajoute une ambiance sonore arcade !
@@ -526,10 +502,6 @@ quand je reçois [collision vaisseau v]
 - ⚠️ Collision : Deux notes basses (G3 → C3)
 - 🎵 Musique : Boucle simple C-E-G-C
 
----
-
----
-
 ## 💡 Points clés à retenir
 
 | Concept | Utilité |
@@ -540,8 +512,6 @@ quand je reçois [collision vaisseau v]
 | **Touches** | Gérer les contrôles du joueur |
 | **Collisions** | Détecter quand deux sprites se touchent |
 | **Position** | abscisse x et ordonnée y pour placer les sprites précisément |
-
----
 
 ## 🚀 Fiche récapitulative rapide
 
