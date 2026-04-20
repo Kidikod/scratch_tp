@@ -18,20 +18,20 @@ Au fil de ce projet, on approfondira plusieurs notions essentielles. Tu apprendr
 ### 1. Crée les 3 sprites nécessaires
 
 Tu auras besoin de :
-1. **Mon vaisseau** - le vaisseau du joueur (dessin simple : triangle pointant vers le haut) - [mon vaisseau](resources/sprites/player_ship.svg)
-2. **Ennemi** - un vaisseau ennemi qui se clonera - [ennemi](resources/sprites/enemy_ship.svg)
-3. **Projectile** - ton tir (petit cercle ou carré) - [projectile](resources/sprites/projectile.svg)
+1. **joueur** - le vaisseau du joueur (dessin simple : triangle pointant vers le haut) - [joueur](resources/sprites/player_ship.svg)
+2. **ennemi** - un vaisseau ennemi qui se clonera - [ennemi](resources/sprites/enemy_ship.svg)
+3. **projectile** - ton tir (petit cercle ou carré) - [projectile](resources/sprites/projectile.svg)
 
 ## 🕹️ Étape 1 : Piloter ton vaisseau
 
 Le vaisseau du joueur doit se déplacer avec les **flèches gauche/droite** et rester en bas de l'écran.
 
-Commence à coder le sprite "mon vaisseau", voila ce qu'il va falloir développer :
+Commence à coder le sprite "joueur", voila ce qu'il va falloir développer :
 - Évalue en continu les touches pressées
 - Déplace le vaisseau à gauche ou droite
 - Empêche le vaisseau de sortir de l'écran
 
-Tu vas avoir besoin de ces blocs
+Tu vas avoir besoin de ces blocs :
 
 <pre class="blocks">
 quand le drapeau vert pressé
@@ -59,6 +59,10 @@ mettre x à ()
 </pre>
 
 <pre class="blocks">
+mettre y à ()
+</pre>
+
+<pre class="blocks">
 <touche [flèche gauche v] pressée ?>
 </pre>
 
@@ -71,6 +75,7 @@ mettre x à ()
 
   <pre class="blocks">
   quand le drapeau vert pressé
+    mettre y à (-140)
     répéter indéfiniment
       si <touche [flèche gauche v] pressée ?> alors
         ajouter (-5) à x
@@ -90,39 +95,110 @@ mettre x à ()
 
 ## 🔫 Étape 2 : Ajouter le système de tir
 
-Quand tu appuies sur **ESPACE**, un projectile est lancé. Les projectiles se clonent du sprite "Projectile".
+Quand tu appuies sur **ESPACE**, un projectile est lancé. Les projectiles sont des clones du sprite "projectile".
 
-### Code du sprite "Mon vaisseau" (ajouter à la boucle principale)
-
-<pre class="blocks">
-  si <touche [espace v] pressée ?> alors
-    créer un clone de [Projectile v]
-    attendre (0.2) secondes
-  fin
-</pre>
-
-### Code du sprite "Projectile"
-
-<pre class="blocks">
-quand je commence comme un clone
-  aller à [Mon vaisseau v]
-  mettre la taille à (25) % de la taille initiale
-  répéter jusqu'à ce que <(ordonnée y) > (179)>
-    ajouter (8) à y
-  fin
-  supprimer ce clone
-</pre>
-
-**Points importants :**
+Voila ce qu'il va falloir développer :
 - Les clones héritent de la position du vaisseau au moment du tir
 - Le projectile monte à chaque étape
 - Il se supprime automatiquement quand il sort de l'écran
+
+Tu vas avoir besoin de ces blocs :
+<pre class="blocks">
+si <> alors
+</pre>
+
+<pre class="blocks">
+créer un clone de [ v]
+</pre>
+
+<pre class="blocks">
+quand je commence comme un clone
+</pre>
+
+<pre class="blocks">
+supprimer ce clone
+</pre>
+
+<pre class="blocks">
+répéter jusqu'à ce que <>
+fin
+</pre>
+
+<pre class="blocks">
+(ordonnée y)
+</pre>
+
+<pre class="blocks">
+ajouter () à y
+</pre>
+
+<pre class="blocks">
+aller à [ v]
+</pre>
+
+<pre class="blocks">
+<() > ()>
+</pre>
+
+<pre class="blocks">
+<() + ()>
+</pre>
+
+<pre class="blocks">
+<() modulo ()>
+</pre>
+
+<pre class="blocks">
+réinitialiser le chronomètre
+</pre>
+
+<pre class="blocks">
+(chronomètre)
+</pre>
+
+<pre class="blocks">
+mettre [ v] à ()
+</pre>
+
+<pre class="blocks">
+cacher
+</pre>
+
+<pre class="blocks">
+montrer
+</pre>
+
+<details>
+  <summary>Code du sprite "joueur" (ajouter à la boucle principale)</summary>
+
+  <pre class="blocks">
+    réinitialiser le chronomètre
+    mettre [décompte tir v] à (chronomètre)
+
+    si <<touche [espace v] pressée ?> et <(chronomètre) > (décompte tir)>> alors
+      créer un clone de [projectile v]
+      mettre [décompte tir v] à ((chronomètre) + (0.5))
+    fin
+  </pre>
+
+  ### Code du sprite "projectile"
+
+  <pre class="blocks">
+  quand je commence comme un clone
+    aller à [joueur v]
+    mettre la taille à (25) % de la taille initiale
+    répéter jusqu'à ce que <(ordonnée y) > (179)>
+      ajouter (8) à y
+    fin
+    supprimer ce clone
+  </pre>
+</detail>
 
 ## 👾 Étape 3 : Créer les ennemis en formation
 
 Les ennemis vont apparaître en **formation organisée** : 3 lignes de 4 ennemis.
 
-### Code du sprite "Ennemi" (au démarrage)
+### Code du sprite "ennemi" (au démarrage)
 
 <pre class="blocks">
 quand le drapeau vert pressé
@@ -164,13 +240,13 @@ quand je commence comme un clone
 - **score** : nombre de points
 - **vies** : nombre de vies restantes
 
-### Code du sprite "Projectile" (ajouter au clone)
+### Code du sprite "projectile" (ajouter au clone)
 
 <pre class="blocks">
 quand je commence comme un clone
   répéter jusqu'à ce que <(ordonnée y) > (180)>
     ajouter (8) à y
-    si <touche le [Ennemi v] ?> alors
+    si <touche le [ennemi v] ?> alors
       envoyer à tous [ennemi touché v]
       ajouter (10) à [score v]
       supprimer ce clone
@@ -179,23 +255,23 @@ quand je commence comme un clone
   supprimer ce clone
 </pre>
 
-### Code du sprite "Ennemi" (gérer les collisions)
+### Code du sprite "ennemi" (gérer les collisions)
 
 <pre class="blocks">
 quand je reçois [ennemi touché v]
-  si <touche le [Projectile v] ?> alors
+  si <touche le [projectile v] ?> alors
     supprimer ce clone
   fin
   
 répéter indéfiniment
-  si <touche le [Mon vaisseau v] ?> alors
+  si <touche le [joueur v] ?> alors
     envoyer à tous [collision vaisseau v]
     supprimer ce clone
   fin
 fin
 </pre>
 
-### Code du sprite "Mon vaisseau" (gérer les dégâts)
+### Code du sprite "joueur" (gérer les dégâts)
 
 <pre class="blocks">
 mettre [vies v] à (3)
@@ -226,26 +302,26 @@ fin
 
 Les ennemis vont aussi tirer sur toi ! Tu dois les éviter pour ne pas perdre de vies.
 
-### Code du sprite "Ennemi" (ajouter à la boucle du mouvement)
+### Code du sprite "ennemi" (ajouter à la boucle du mouvement)
 
 <pre class="blocks">
 quand je commence comme un clone
   répéter indéfiniment
     si <(nombre aléatoire entre (1) et (100)) = (1)> alors
-      créer un clone de [Projectile ennemi v]
+      créer un clone de [projectile ennemi v]
     fin
     attendre (0.5) secondes
   fin
 </pre>
 
-### Code du sprite "Projectile ennemi" (nouveau sprite)
+### Code du sprite "projectile ennemi" (nouveau sprite)
 
 <pre class="blocks">
 quand je commence comme un clone
   mettre la taille à (25) % de la taille initiale
   répéter jusqu'à ce que <(ordonnée y) < (-180)>
     ajouter (-8) à y
-    si <touche le [Mon vaisseau v] ?> alors
+    si <touche le [joueur v] ?> alors
       envoyer à tous [collision vaisseau v]
       supprimer ce clone
     fin
@@ -284,7 +360,7 @@ quand le drapeau vert pressé
   fin
 </pre>
 
-### Code du sprite "Ennemi" (modifier la formation)
+### Code du sprite "ennemi" (modifier la formation)
 
 <pre class="blocks">
 quand le drapeau vert pressé
@@ -338,7 +414,7 @@ Des bonus apparaissent aléatoirement pour t'aider ! Récupère-les pour des ava
 - **bouclier_actif** : vrai/faux si un bouclier est actif
 - **cadence_rapide** : vrai/faux pour les tirs rapides
 
-### Code du sprite "Ennemi" (générer les power-ups)
+### Code du sprite "ennemi" (générer les power-ups)
 
 <pre class="blocks">
 quand je reçois [ennemi touché v]
@@ -366,7 +442,7 @@ quand je commence comme un clone
   fin
   répéter jusqu'à ce que <(ordonnée y) < (-180)>
     ajouter (-3) à y
-    si <touche le [Mon vaisseau v] ?> alors
+    si <touche le [joueur v] ?> alors
       si <(type_powerup) = [bouclier v]> alors
         mettre [bouclier_actif v] à (vrai)
         envoyer à tous [bouclier activé v]
@@ -380,7 +456,7 @@ quand je commence comme un clone
   supprimer ce clone
 </pre>
 
-### Code du sprite "Mon vaisseau" (utiliser les bonuses)
+### Code du sprite "joueur" (utiliser les bonuses)
 
 <pre class="blocks">
 quand je reçois [collision vaisseau v]
@@ -393,7 +469,7 @@ quand je reçois [collision vaisseau v]
 
 répéter indéfiniment
   si <touche [espace v] pressée ?> alors
-    créer un clone de [Projectile v]
+    créer un clone de [projectile v]
     si (cadence_rapide) alors
       attendre (0.05) secondes
     sinon
@@ -423,7 +499,7 @@ quand le drapeau vert pressé
   dire [À l'attaque !] pendant (1) secondes
 </pre>
 
-### Code du sprite "Mon vaisseau" (Clignoter après collision)
+### Code du sprite "joueur" (Clignoter après collision)
 
 <pre class="blocks">
 quand je reçois [collision vaisseau v]
@@ -451,7 +527,7 @@ quand je reçois [explosion v]
   cacher
 </pre>
 
-### Code du sprite "Ennemi" (créer l'explosion)
+### Code du sprite "ennemi" (créer l'explosion)
 
 <pre class="blocks">
 quand je reçois [ennemi touché v]
@@ -459,7 +535,7 @@ quand je reçois [ennemi touché v]
   supprimer ce clone
 </pre>
 
-### Code du sprite "Mon vaisseau" (Game Over dramatique)
+### Code du sprite "joueur" (Game Over dramatique)
 
 <pre class="blocks">
   mettre [texture v] à [GAME OVER]
@@ -479,19 +555,19 @@ quand je reçois [ennemi touché v]
 
 Ajoute une ambiance sonore arcade !
 
-### Code du sprite "Mon vaisseau" (Son au tir)
+### Code du sprite "joueur" (Son au tir)
 
 <pre class="blocks">
 répéter indéfiniment
   si <touche [espace v] pressée ?> alors
     jouer la note [C5 v] pendant (0.05) temps
-    créer un clone de [Projectile v]
+    créer un clone de [projectile v]
     attendre (0.2) secondes
   fin
 fin
 </pre>
 
-### Code du sprite "Ennemi" (Son de destruction)
+### Code du sprite "ennemi" (Son de destruction)
 
 <pre class="blocks">
 quand je reçois [ennemi touché v]
@@ -513,7 +589,7 @@ quand le drapeau vert pressé
   fin
 </pre>
 
-### Code du sprite "Mon vaisseau" (Son de collision)
+### Code du sprite "joueur" (Son de collision)
 
 <pre class="blocks">
 quand je reçois [collision vaisseau v]
