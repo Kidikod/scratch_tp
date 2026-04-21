@@ -55,7 +55,7 @@ mettre y à ()
 </pre>
 
 <details>
-  <summary>Exemple de script du joueur</summary>
+  <summary>Exemple de script du "joueur"</summary>
 
   <pre class="blocks">
   quand le drapeau vert pressé
@@ -247,7 +247,7 @@ ajouter () à [ v]
 </details>
 
 <details>
-  <summary>Code du clone ennemi</summary>
+  <summary>Code du clone "ennemi"</summary>
 
   <pre class="blocks">
   quand je commence comme un clone
@@ -280,7 +280,7 @@ On va mettre en place le système de collision.
 Ces collisions servent à plusieurs choses :
 - La partie commence avec 3 vies et un score de 0
 - Lorsqu'un projectile touche un vaisseau ennemi, le projectile et le vaisseau doivent disparaitre et on gagne 100 points
-- Lorsqu'un vaisseau ennemie touche le vaisseau du joueur, le vaisseau ennemi dois disparaitres et l'on perd une vie
+- Lorsqu'un vaisseau ennemi touche le vaisseau du joueur, le vaisseau ennemi dois disparaitres et l'on perd une vie
 
 Tu vas avoir besoin d'une variable "score" et "vies". Ces variables sont globales
 
@@ -372,21 +372,7 @@ dire [] pendant () secondes
   </pre>
 </details>
 
-## 📊 Étape 5 : Affichage du score et des vies
-
-### Code du sprite "Arrière-plan"
-
-<pre class="blocks">
-quand le drapeau vert pressé
-  mettre [score v] à (0)
-  mettre [vies v] à (3)
-
-répéter indéfiniment
-  dire (regrouper [Score: ] et (regrouper (score) et (regrouper [  |  Vies: ] et (vies))))
-fin
-</pre>
-
-## 🔫 Étape 6 : Ajouter les tirs ennemis
+## 🔫 Étape 5 : Ajouter les tirs ennemis
 
 Les ennemis vont aussi tirer sur toi ! Tu dois les éviter pour ne pas perdre de vies.
 
@@ -422,7 +408,7 @@ quand je commence comme un clone
 - Les projectiles ennemis **descendent** vers le joueur
 - Le joueur perd une vie au contact
 
-## 📈 Étape 7 : Implémenter les niveaux progressifs
+## 📈 Étape 6 : Implémenter les niveaux progressifs
 
 Le jeu devient plus difficile à chaque niveau ! Les ennemis sont plus rapides et plus nombreux.
 
@@ -494,7 +480,7 @@ quand je commence comme un clone
 - Niveau 2 : 4 lignes, vitesse 2.5, tirs plus rapides
 - Niveau 3+ : Plus d'ennemis, plus rapides chaque fois
 
-## ⚡ Étape 8 : Les Power-ups
+## ⚡ Étape 7 : Les Power-ups
 
 Des bonus apparaissent aléatoirement pour t'aider ! Récupère-les pour des avantages.
 
@@ -572,7 +558,7 @@ fin
 - ⚡ **Tirs Rapides** : Double la cadence pendant 5 sec
 - 🎯 Idée future : Ralentisseur d'ennemis
 
-## 🎬 Étape 9 : Animations visuelles
+## 🎬 Étape 8 : Animations visuelles
 
 Rend le jeu plus vivant avec des animations !
 
@@ -639,7 +625,7 @@ quand je reçois [ennemi touché v]
 - Clignotement du vaisseau après coup
 - Explosion visible au centre des ennemis
 
-## 🔊 Étape 10 : Les sons rétro 8-bit (Bonus)
+## 🔊 Étape 9 : Les sons rétro 8-bit (Bonus)
 
 Ajoute une ambiance sonore arcade !
 
