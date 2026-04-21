@@ -97,6 +97,7 @@ quand je commence comme un clone
 supprimer ce clone
 
 si <> alors
+fin
 
 répéter jusqu'à ce que <>
 fin
@@ -178,7 +179,7 @@ quand je commence comme un clone
 
 supprimer ce clone
 
-attendre (0.5) secondes
+attendre () secondes
 
 cacher
 
@@ -187,6 +188,7 @@ montrer
 basculer sur le costume [ v]
 
 si <> alors
+fin
 
 répéter () fois
 fin
@@ -217,6 +219,8 @@ tourner droite de () degrés
 (() - ())
 
 (() * ())
+
+([sin v] de ())
 
 (chronomètre)
 
