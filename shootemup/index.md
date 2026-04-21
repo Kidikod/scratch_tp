@@ -161,7 +161,7 @@ montrer
 
 ## 👾 Étape 3 : Créer les ennemis en formation
 
-Les ennemis vont apparaître en **formation organisée** : 3 lignes de 4 ennemis.
+Les ennemis vont apparaître en **formation organisée** : 5 lignes de 4 ennemis.
 
 Voila ce qu'il va falloir développer :
 - Les clones apparaisse en dehors de l'écran
@@ -275,53 +275,102 @@ ajouter () à [ v]
 
 ## 💥 Étape 4 : Les collisions
 
-### Variables à créer
-- **score** : nombre de points
-- **vies** : nombre de vies restantes
+On va mettre en place le système de collision.
 
-### Code du sprite "projectile" (ajouter au clone)
+Ces collisions servent à plusieurs choses :
+- La partie commence avec 3 vies et un score de 0
+- Lorsqu'un projectile touche un vaisseau ennemi, le projectile et le vaisseau doivent disparaitre et on gagne 100 points
+- Lorsqu'un vaisseau ennemie touche le vaisseau du joueur, le vaisseau ennemi dois disparaitres et l'on perd une vie
 
+Tu vas avoir besoin d'une variable "score" et "vies". Ces variables sont globales
+
+Tu vas avoir besoin de ces blocs :
 <pre class="blocks">
-quand je commence comme un clone
-  répéter jusqu'à ce que <(ordonnée y) > (180)>
-    ajouter (8) à y
-    si <touche le [ennemi v] ?> alors
-      envoyer à tous [ennemi touché v]
-      ajouter (10) à [score v]
+si <> alors
+fin
+  
+supprimer ce clone
+
+stop [ v]
+
+quand je reçois [ v]
+
+envoyer à tous [ v] et attendre
+
+<touche le [ v] ?>
+
+mettre [ v] à ()
+
+ajouter () à [ v]
+
+dire [] pendant () secondes
+
+<() = ()>
+</pre>
+
+<details>
+  <summary>Code du sprite "projectile" (lors de la création du clone pendant qu'il avance)</summary>
+
+  <pre class="blocks">
+  si <touche le [ennemi v] ?> alors
+    envoyer à tous [ennemi touché v] et attendre
+    supprimer ce clone
+  fin
+  </pre>
+</details>
+
+<details>
+  <summary>Code du sprite "ennemi" (gérer la collisions avec le projectile)</summary>
+
+  <pre class="blocks">
+  quand je reçois [ennemi touché v]
+    si <touche le [projectile v] ?> alors
       supprimer ce clone
     fin
-  fin
-  supprimer ce clone
-</pre>
-
-### Code du sprite "ennemi" (gérer les collisions)
-
-<pre class="blocks">
-quand je reçois [ennemi touché v]
-  si <touche le [projectile v] ?> alors
-    supprimer ce clone
-  fin
+  </pre>
+</details>
   
-répéter indéfiniment
+<details>
+  <summary>Code du sprite "ennemi" (lors de la création du clone pendant qu'il avance)</summary>
+
+  <pre class="blocks">
   si <touche le [joueur v] ?> alors
-    envoyer à tous [collision vaisseau v]
+    envoyer à tous [collision joueur v] et attendre
     supprimer ce clone
   fin
-fin
-</pre>
+  </pre>
+</details>
 
-### Code du sprite "joueur" (gérer les dégâts)
+<details>
+  <summary>Code du sprite "joueur" (au démarrage)</summary>
 
-<pre class="blocks">
-mettre [vies v] à (3)
+  <pre class="blocks">
+  mettre [vies v] à (3)
+  mettre [score v] à (0)
+  </pre>
+</details>
 
-quand je reçois [collision vaisseau v]
+<details>
+  <summary>Code du sprite "joueur" (gérer la collisions avec l'ennemi)</summary>
+
+  <pre class="blocks">
+  quand je reçois [collision joueur v]
   ajouter (-1) à [vies v]
   si <(vies) = (0)> alors
     dire [Fin du jeu !] pendant (2) secondes
     stop [tout v]
   fin
-</pre>
+  </pre>
+</details>
+
+<details>
+  <summary>Code du sprite "joueur" (gérer la collisions du projectile avec l'ennemi)</summary>
+
+  <pre class="blocks">
+  quand je reçois [ennemi touché v]
+  ajouter (10) à [score v]
+  </pre>
+</details>
 
 ## 📊 Étape 5 : Affichage du score et des vies
 
