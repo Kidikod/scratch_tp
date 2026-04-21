@@ -89,74 +89,40 @@ Voila ce qu'il va falloir développer :
 Tu vas avoir besoin de ces blocs :
 <pre class="blocks">
 quand le drapeau vert pressé
-</pre>
 
-<pre class="blocks">
 créer un clone de [ v]
-</pre>
 
-<pre class="blocks">
 quand je commence comme un clone
-</pre>
 
-<pre class="blocks">
 supprimer ce clone
-</pre>
 
-<pre class="blocks">
 si <> alors
-</pre>
 
-<pre class="blocks">
 répéter jusqu'à ce que <>
 fin
-</pre>
 
-<pre class="blocks">
 (ordonnée y)
-</pre>
 
-<pre class="blocks">
 ajouter () à y
-</pre>
 
-<pre class="blocks">
 aller à x: () y: ()
-</pre>
 
-<pre class="blocks">
 aller à [ v]
-</pre>
 
-<pre class="blocks">
 <() > ()>
-</pre>
 
-<pre class="blocks">
 (() + ())
-</pre>
 
-<pre class="blocks">
 (() modulo ())
-</pre>
 
-<pre class="blocks">
 réinitialiser le chronomètre
-</pre>
 
-<pre class="blocks">
 (chronomètre)
-</pre>
 
-<pre class="blocks">
 mettre [ v] à ()
-</pre>
 
-<pre class="blocks">
 cacher
-</pre>
 
-<pre class="blocks">
 montrer
 </pre>
 
@@ -200,83 +166,63 @@ Voila ce qu'il va falloir développer :
 - Les clones apparaisse en dehors de l'écran
 - Les clones se déplace pour arriver à leur emplacement de formation
 
+Tu vas avoir besoin d'une variable "ligne" et "chrono ennemi"
+
 Tu vas avoir besoin de ces blocs :
 <pre class="blocks">
 quand le drapeau vert pressé
-</pre>
 
-<pre class="blocks">
 créer un clone de [ v]
-</pre>
 
-<pre class="blocks">
 quand je commence comme un clone
-</pre>
 
-<pre class="blocks">
 supprimer ce clone
-</pre>
 
-<pre class="blocks">
+attendre (0.5) secondes
+
 cacher
-</pre>
 
-<pre class="blocks">
 montrer
-</pre>
 
-<pre class="blocks">
 basculer sur le costume [ v]
-</pre>
 
-<pre class="blocks">
 si <> alors
-</pre>
 
-<pre class="blocks">
 répéter () fois
 fin
-</pre>
 
-<pre class="blocks">
 répéter indéfiniment
 fin
-</pre>
 
-<pre class="blocks">
 avancer de () pas
-</pre>
 
-<pre class="blocks">
-ajouter () à x
-</pre>
+(abscisse x)
 
-<pre class="blocks">
-ajouter () à y
-</pre>
+mettre x à ()
 
-<pre class="blocks">
+(ordonnée y)
+
 aller à x: () y: ()
-</pre>
 
-<pre class="blocks">
+s'orienter à ()
+
+tourner droite de () degrés
+
 <() < ()>
-</pre>
 
-<pre class="blocks">
 <() > ()>
-</pre>
 
-<pre class="blocks">
 (() + ())
-</pre>
 
-<pre class="blocks">
 (() - ())
-</pre>
 
-<pre class="blocks">
 (() * ())
+
+(chronomètre)
+
+mettre [ v] à ()
+
+ajouter () à [ v]
 </pre>
 
 <details>
@@ -286,10 +232,10 @@ aller à x: () y: ()
   quand le drapeau vert pressé
     cacher
     mettre [ligne v] à (0)
-    répéter (3) fois
+    répéter (5) fois
       répéter (4) fois
         créer un clone de [moi-même v]
-        attendre (0.2) secondes
+        attendre (0.5) secondes
       fin
       ajouter (1) à [ligne v]
     fin
@@ -301,18 +247,22 @@ aller à x: () y: ()
 
   <pre class="blocks">
   quand je commence comme un clone
+    mettre [chrono ennemi v] à (chronomètre)
     basculer sur le costume [ennemi v]
-    mettre la taille à (30) % de la taille initiale
-    montrer
     aller à x: (((ligne) * (100)) + (-150)) y: ((((3) - (ligne)) * (40)) + (150))
+    s'orienter à ((180) + ((ligne) * (30)))
+    montrer
     répéter indéfiniment
+      tourner droite de (([sin v] de (((chronomètre) - (chrono ennemi)) * (100))) * (-2)) degrés
       avancer de (2) pas
-      tourner droite de (2) degrés
-      si <(abscisse x) > (250)> alors
-        mettre x à (-250)
+      si <(abscisse x) > (239)> alors
+        mettre x à (-239)
+      sinon
+        si <(-239) > (abscisse x)> alors
+          mettre x à (239)
+        fin
       fin
-      ajouter (-0.5) à y
-      si <(ordonnée y) < (-180)> alors
+      si <(ordonnée y) < (-179)> alors
         supprimer ce clone
       fin
     fin
