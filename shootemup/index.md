@@ -35,38 +35,22 @@ Tu vas avoir besoin de ces blocs :
 
 <pre class="blocks">
 quand le drapeau vert pressé
-</pre>
 
-<pre class="blocks">
 répéter indéfiniment
 fin
-</pre>
 
-<pre class="blocks">
 si <> alors
-</pre>
 
-<pre class="blocks">
 (abscisse x)
-</pre>
 
-<pre class="blocks">
 ajouter () à x
-</pre>
 
-<pre class="blocks">
 mettre x à ()
-</pre>
 
-<pre class="blocks">
 mettre y à ()
-</pre>
 
-<pre class="blocks">
-<touche [flèche gauche v] pressée ?>
-</pre>
+<touche [ v] pressée ?>
 
-<pre class="blocks">
 <() < ()>
 </pre>
 
