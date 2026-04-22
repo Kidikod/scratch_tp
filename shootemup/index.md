@@ -432,6 +432,8 @@ cacher
 
 montrer
 
+(nombre aléatoire entre () et ())
+
 <touche le [ v] ?>
 </pre>
 
@@ -492,6 +494,65 @@ On va commencer par en faire 2 :
 
 Tu vas avoir besoin de deux nouvelles variable "bouclier actif" et "rapidfire actif". 
 Il faudra aussi deux variables liste "file x powerup" et "file y powerup". Ces listes vont te servir à passer les coordonnée des vaisseaux ennemi vers les powerups à créer durant leur déplacement.
+
+Tu vas avoir besoin de ces blocs :
+<pre class="blocks">
+quand le drapeau vert pressé
+
+créer un clone de [ v]
+
+quand je commence comme un clone
+
+supprimer ce clone
+
+répéter jusqu'à ce que <>
+fin
+
+si <> alors
+fin
+
+si <> alors
+sinon
+fin
+
+attendre () secondes
+
+mettre [ v] sur ()
+
+ajouter [] à [ v]
+
+supprimer tous les éléments de la liste [ v]
+
+supprimer l'élément () de [ v]
+
+envoyer à tous [ v]
+
+(abscisse x)
+
+(ordonnée y)
+
+ajouter () à y
+
+aller à x:() y:()
+
+cacher
+
+montrer
+
+([numéro] du costume)
+
+basculer sur le costume [ v]
+
+(nombre aléatoire entre () et ())
+
+(() * ())
+
+(() + ())
+
+(() - ())
+
+<touche le [ v] ?>
+</pre>
 
 <details>
   <summary>Code du sprite "ennemi" (à ajouter lorsque le vaisseau ennemi est touché)</summary>
@@ -559,7 +620,7 @@ quand je reçois [bouclier actif v]
 
 quand je reçois [rapidfire actif v]
   mettre [rapidfire actif v] à (1)
-  attendre (5) seconds
+  attendre (5) secondes
   mettre [rapidfire actif v] à (0)
 </pre>
 </details>
