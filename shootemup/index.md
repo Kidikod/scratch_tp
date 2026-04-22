@@ -468,7 +468,7 @@ quand je reçois [tir ennemi v]
   supprimer l'élément (1) de [pile y tir ennemi v]
   créer un clone de [moi-même v]
 </pre>
-</detail>
+</details>
 
 <details>
   <summary>Code du sprite "projectile ennemi" (déplacement du clone)</summary>
