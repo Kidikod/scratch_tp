@@ -527,7 +527,7 @@ quand je commence comme un clone
   répéter jusqu'à ce que <(ordonnée y) < (-179)>
     ajouter (-4) à y
     si <touche le [joueur v] ?> alors
-      si <([numéro] du costume) = (1)>
+      si <([numéro] du costume) = (1)> alors
         envoyer à tous [bouclier actif v]
       sinon
         envoyer à tous [rapidfire actif v]
@@ -541,7 +541,8 @@ quand je commence comme un clone
 
 <details>
   <summary>Code du sprite "joueur" (à ajouter à l'initialisation)</summary>
-<pre class="block">
+
+<pre class="blocks">
 quand le drapeau vert pressé
   mettre [bouclier actif v] à (0)
   mettre [rapidfire actif v] à (0)
@@ -551,7 +552,7 @@ quand le drapeau vert pressé
 
 <details>
   <summary>Code du sprite "joueur" (nouveau blocs à créer pour gérer les powerups)</summary>
-<pre class="block">
+<pre class="blocks">
 quand je reçois [bouclier actif v]
   mettre [bouclier actif v] à (1)
   basculer sur le costume [vaisseau joueur bouclier v]
