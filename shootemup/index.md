@@ -585,18 +585,11 @@ quand je reçois [rapidfire actif v]
 
 ## 🎬 Étape 7 : Animations visuelles
 
-Rend le jeu plus vivant avec des animations !
+On va rendre le jeu plus vivant avec des animations !
 
-### Code du sprite "Arrière-plan" (Début du jeu)
-
-<pre class="blocks">
-quand le drapeau vert pressé
-  dire [Prépare-toi !] pendant (1) secondes
-  dire [3...] pendant (1) secondes
-  dire [2...] pendant (1) secondes
-  dire [1...] pendant (1) secondes
-  dire [À l'attaque !] pendant (1) secondes
-</pre>
+Comme par exemple :
+- Un clignotement du vaisseau après coup
+- Une explosion visible au centre des ennemis et du joueur
 
 ### Code du sprite "joueur" (Clignoter après collision)
 
@@ -633,22 +626,6 @@ quand je reçois [ennemi touché v]
   envoyer à tous [explosion v]
   supprimer ce clone
 </pre>
-
-### Code du sprite "joueur" (Game Over dramatique)
-
-<pre class="blocks">
-  mettre [texture v] à [GAME OVER]
-  dire [GAME OVER !] pendant (3) secondes
-  dire (regrouper [Score final: ] et (score)) pendant (2) secondes
-  dire (regrouper [Niveau atteint: ] et (niveau)) pendant (2) secondes
-  attendre (1) secondes
-  dire [Appuie sur le drapeau vert pour recommencer] pendant (3) secondes
-</pre>
-
-**Animations ajoutées :**
-- Compte à rebours au démarrage
-- Clignotement du vaisseau après coup
-- Explosion visible au centre des ennemis
 
 <script>
 scratchblocks.renderMatching('pre.blocks', {
