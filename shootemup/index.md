@@ -416,8 +416,6 @@ supprimer tous les éléments de la liste [ v]
 
 supprimer l'élément () de [ v]
 
-envoyer à tous [ v]
-
 envoyer à tous [ v] et attendre
 
 s'orienter à ()
@@ -500,8 +498,8 @@ Il faudra aussi deux variables liste "file x powerup" et "file y powerup". Ces l
 
 <pre class="blocks">
   si <(nombre aléatoire entre (1) et (100)) < (40)> alors
-    ajouter [(abscisse x)] à [file x powerup v]
-    ajouter [(ordonnée y)] à [file y powerup v]
+    ajouter (abscisse x) à [file x powerup v]
+    ajouter (ordonnée y) à [file y powerup v]
     créer un clone de [powerup v]
   fin
 </pre>
@@ -549,6 +547,7 @@ quand le drapeau vert pressé
   mettre [rapidfire actif v] à (0)
   basculer sur le costume [vaisseau joueur v]
 </pre>
+</details>
 
 <details>
   <summary>Code du sprite "joueur" (nouveau blocs à créer pour gérer les powerups)</summary>
