@@ -15,12 +15,17 @@ Au fil de ce projet, on approfondira plusieurs notions essentielles. Tu apprendr
 
 ## 🎨 Préparation : Les sprites et le décor
 
-### 1. Crée les 3 sprites nécessaires
+### 1. Crée les 6 sprites nécessaires
 
 Tu auras besoin de :
-1. **joueur** - le vaisseau du joueur (dessin simple : triangle pointant vers le haut) - [joueur](resources/sprites/player_ship.svg)
-2. **ennemi** - un vaisseau ennemi qui se clonera - [ennemi](resources/sprites/enemy_ship.svg)
+1. **joueur** - le vaisseau du joueur (dessin simple : triangle pointant vers le haut). Ce sprite a 3 costumes (joueur, joueur avec bouclier et explosion) - [joueur](resources/sprites/player_ship.svg) [explosion](resources/sprites/explosion.svg)
+2. **ennemi** - un vaisseau ennemi qui se clonera. Ce sprite a 2 costume (ennemi et explosion) - [ennemi](resources/sprites/enemy_ship.svg) [explosion](resources/sprites/explosion.svg)
 3. **projectile** - ton tir (petit cercle ou carré) - [projectile](resources/sprites/projectile.svg)
+4. **projectile ennemi** - tir ennemi (petit cercle ou carré) - [projectile ennemi](resources/sprites/enemy_projectile.svg)
+5. **powerup** - les power ups (petit carré de couleur). Ce sprite a 2 costumes (bouclier, rapidfire) - [powerup shield](resources/sprites/powerup_shield.svg) [powerup rapidfire](resources/sprites/powerup_rapidfire.svg)
+
+> Attention à bien orienter les vaisseaux et projectile vers la droite !
+
 
 ## 🕹️ Étape 1 : Piloter ton vaisseau
 
@@ -487,7 +492,7 @@ On va commencer par en faire 2 :
 - 🛡️ **Bouclier** : Protège un coup
 - ⚡ **Tirs Rapides** : Double la cadence pendant 5 sec
 
-Tu vas avoir besoin de deux nouvelles variable "bouclier" et "cadence rapide". 
+Tu vas avoir besoin de deux nouvelles variable "bouclier actif" et "rapidfire actif". 
 Il faudra aussi deux variables liste "file x powerup" et "file y powerup". Ces listes vont te servir à passer les coordonnée des vaisseaux ennemi vers les powerups à créer durant leur déplacement.
 
 <details>
@@ -527,7 +532,7 @@ quand je commence comme un clone
       si <([numéro] du costume) = (1)>
         envoyer à tous [bouclier actif v]
       sinon
-        envoyer à tous [rapidefire actif v]
+        envoyer à tous [rapidfire actif v]
       fin
       supprimer ce clone
     fin
@@ -541,7 +546,7 @@ quand je commence comme un clone
 <pre class="block">
 quand le drapeau vert pressé
   mettre [bouclier actif v] à (0)
-  mettre [rapidefire actif v] à (0)
+  mettre [rapidfire actif v] à (0)
   basculer sur le costume [vaisseau joueur v]
 </pre>
 
@@ -552,10 +557,10 @@ quand je reçois [bouclier actif v]
   mettre [bouclier actif v] à (1)
   basculer sur le costume [vaisseau joueur bouclier v]
 
-quand je reçois [rapidefire actif v]
-  mettre [rapidefire actif v] à (1)
+quand je reçois [rapidfire actif v]
+  mettre [rapidfire actif v] à (1)
   attendre (5) seconds
-  mettre [rapidefire actif v] à (0)
+  mettre [rapidfire actif v] à (0)
 </pre>
 </details>
 
@@ -574,7 +579,7 @@ quand je reçois [rapidefire actif v]
 <details>
   <summary>Code du sprite "joueur" (modifier la gestion du tir)</summary>
 <pre class="blocks">
-  mettre [décompte tir v] à ((chronomètre) + ((0.5) - ((rapidefire actif) * (0.4))))
+  mettre [décompte tir v] à ((chronomètre) + ((0.5) - ((rapidfire actif) * (0.4))))
 </pre>
 </details>
 
@@ -644,89 +649,6 @@ quand je reçois [ennemi touché v]
 - Compte à rebours au démarrage
 - Clignotement du vaisseau après coup
 - Explosion visible au centre des ennemis
-
-## 🔊 Étape 8 : Les sons rétro 8-bit (Bonus)
-
-Ajoute une ambiance sonore arcade !
-
-### Code du sprite "joueur" (Son au tir)
-
-<pre class="blocks">
-répéter indéfiniment
-  si <touche [espace v] pressée ?> alors
-    jouer la note [C5 v] pendant (0.05) temps
-    créer un clone de [projectile v]
-    attendre (0.2) secondes
-  fin
-fin
-</pre>
-
-### Code du sprite "ennemi" (Son de destruction)
-
-<pre class="blocks">
-quand je reçois [ennemi touché v]
-  jouer la note [D5 v] pendant (0.1) temps
-  jouer la note [B4 v] pendant (0.1) temps
-  jouer la note [G4 v] pendant (0.1) temps
-  supprimer ce clone
-</pre>
-
-### Code du sprite "Arrière-plan" (Musique de fond)
-
-<pre class="blocks">
-quand le drapeau vert pressé
-  répéter indéfiniment
-    jouer la note [C4 v] pendant (0.5) temps
-    jouer la note [E4 v] pendant (0.5) temps
-    jouer la note [G4 v] pendant (0.5) temps
-    jouer la note [C5 v] pendant (2) temps
-  fin
-</pre>
-
-### Code du sprite "joueur" (Son de collision)
-
-<pre class="blocks">
-quand je reçois [collision vaisseau v]
-  jouer la note [G3 v] pendant (0.1) temps
-  jouer la note [C3 v] pendant (0.2) temps
-</pre>
-
-**Effets sonores rétro :**
-- 🔊 Tir : Note aigüe courte (C5)
-- 💥 Explosion : Descente de notes (D5 → B4 → G4)
-- ⚠️ Collision : Deux notes basses (G3 → C3)
-- 🎵 Musique : Boucle simple C-E-G-C
-
-## 💡 Points clés à retenir
-
-| Concept | Utilité |
-|---------|---------|
-| **Clones** | Créer plusieurs copies d'un sprite (ennemis, projectiles) |
-| **Messages** | Faire communiquer les sprites entre eux |
-| **Variables** | Suivre le score, les vies, les niveaux |
-| **Touches** | Gérer les contrôles du joueur |
-| **Collisions** | Détecter quand deux sprites se touchent |
-| **Position** | abscisse x et ordonnée y pour placer les sprites précisément |
-
-## 🚀 Fiche récapitulative rapide
-
-Ordre de programmation recommandé :
-1. ✅ Mouvement du vaisseau (étape 1)
-2. ✅ Système de tir (étape 2)
-3. ✅ Ennemis en formation (étape 3)
-4. ✅ Collisions et score (étape 4)
-5. ✅ Affichage score/vies (étape 5)
-6. 🎁 **Tirs ennemis** (étape 6)
-7. 📊 **Niveaux progressifs** (étape 7)
-8. ⚡ **Power-ups** (étape 8)
-9. 🎬 **Animations visuelles** (étape 9)
-10. 🔊 **Sons rétro** (étape 10)
-
----
-
-**Tip pour les enseignants** : Les étapes 1-5 sont essentielles. Les étapes 6-10 peuvent être faites en fonction du temps disponible. Elles offrent une bonne progressions pour les élèves avancés ! 
-
-**Bon codage et amusement avec ton shoot em up !** 🎮
 
 <script>
 scratchblocks.renderMatching('pre.blocks', {
