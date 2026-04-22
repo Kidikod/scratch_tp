@@ -438,12 +438,12 @@ montrer
 <pre class="blocks">
 quand je commence comme un clone
   répéter indéfiniment
-    si <(nombre aléatoire entre (1) et (100)) < (2)> alors
+    si <(nombre aléatoire entre (1) et (100)) < (3)> alors
       ajouter [(abscisse x)] à [file x tir ennemi v]
       ajouter [(ordonnée y)] à [file y tir ennemi v]
-      envoyer à tous [tir ennemi v]
+      créer un clone de [projectile ennemi v]
     fin
-    attendre (0.2) secondes
+    attendre (0.1) secondes
   fin
 </pre>
 </details>
@@ -453,7 +453,9 @@ quand je commence comme un clone
 
 <pre class="blocks">
 quand le drapeau vert pressé
-  s'orienter en direction de 180
+  supprimer tous les éléments de la liste [file x tir ennemi v]
+  supprimer tous les éléments de la liste [file y tir ennemi v]
+  s'orienter à (180)
   cacher
 </pre>
 </details>
@@ -462,19 +464,10 @@ quand le drapeau vert pressé
   <summary>Code du sprite "projectile ennemi" (création du clone)</summary>
 
 <pre class="blocks">
-quand je reçois [tir ennemi v]
-  aller à x:(élément (1) de [pile x tir ennemi v]) y:(élément (1) de [pile y tir ennemi v])
-  supprimer l'élément (1) de [pile x tir ennemi v]
-  supprimer l'élément (1) de [pile y tir ennemi v]
-  créer un clone de [moi-même v]
-</pre>
-</details>
-
-<details>
-  <summary>Code du sprite "projectile ennemi" (déplacement du clone)</summary>
-
-<pre class="blocks">
 quand je commence comme un clone
+  aller à x:(élément (1) de [file x tir ennemi v]) y:(élément (1) de [file y tir ennemi v])
+  supprimer l'élément (1) de [file x tir ennemi v]
+  supprimer l'élément (1) de [file y tir ennemi v]
   répéter jusqu'à ce que <(ordonnée y) < (-179)>
     ajouter (-8) à y
     si <touche le [joueur v] ?> alors
@@ -486,157 +479,106 @@ quand je commence comme un clone
 </pre>
 </details>
 
-## 📈 Étape 6 : Implémenter les niveaux progressifs
-
-Le jeu devient plus difficile à chaque niveau ! Les ennemis sont plus rapides et plus nombreux.
-
-### Variables à créer
-- **niveau** : numéro du niveau actuel
-- **vitesse_ennemis** : vitesse d'apparition
-- **nombre_ennemis** : quantité d'ennemis par vague
-
-### Code du sprite "Arrière-plan"
-
-<pre class="blocks">
-quand le drapeau vert pressé
-  mettre [score v] à (0)
-  mettre [vies v] à (3)
-  mettre [niveau v] à (1)
-  répéter indéfiniment
-    si <(score) > ((niveau) * (50))> alors
-      ajouter (1) à [niveau v]
-      envoyer à tous [niveau augmenté v]
-      dire (regrouper [Niveau ] et (regrouper (niveau) et [ ! ])) pendant (2) secondes
-    fin
-    dire (regrouper [Score: ] et (regrouper (score) et (regrouper [  |  Niveau: ] et (niveau))))
-  fin
-</pre>
-
-### Code du sprite "ennemi" (modifier la formation)
-
-<pre class="blocks">
-quand le drapeau vert pressé
-  cacher
-  mettre [ligne v] à (0)
-  répéter ((3) + (niveau)) fois
-    répéter (4) fois
-      créer un clone de [moi-même v]
-      attendre ((0.2) - ((niveau) * (0.01))) secondes
-    fin
-    ajouter (1) à [ligne v]
-  fin
-
-quand je reçois [niveau augmenté v]
-  ajouter (0.5) à [vitesse_ennemis v]
-</pre>
-
-### Code du clone ennemi (modifier la vitesse)
-
-<pre class="blocks">
-quand je commence comme un clone
-  basculer sur le costume [ennemi v]
-  mettre la taille à (30) % de la taille initiale
-  montrer
-  mettre [vitesse_ennemis v] à ((2) + (niveau))
-  mettre x à (((ligne) * (100)) + (-150))
-  mettre y à ((((3) - (ligne)) * (40)) + (150))
-  répéter indéfiniment
-    avancer de (vitesse_ennemis) pas
-    tourner droite de (2) degrés
-    si <(abscisse x) > (250)> alors
-      mettre x à (-250)
-    fin
-    ajouter (-0.5) à y
-    si <(ordonnée y) < (-180)> alors
-      supprimer ce clone
-    fin
-  fin
-</pre>
-
-**Difficulté progressive :**
-- Niveau 1 : 3 lignes d'ennemis, vitesse 2
-- Niveau 2 : 4 lignes, vitesse 2.5, tirs plus rapides
-- Niveau 3+ : Plus d'ennemis, plus rapides chaque fois
-
-## ⚡ Étape 7 : Les Power-ups
+## ⚡ Étape 6 : Les Power-ups
 
 Des bonus apparaissent aléatoirement pour t'aider ! Récupère-les pour des avantages.
 
-### Variables à créer
-- **bouclier_actif** : vrai/faux si un bouclier est actif
-- **cadence_rapide** : vrai/faux pour les tirs rapides
+On va commencer par en faire 2 :
+- 🛡️ **Bouclier** : Protège un coup
+- ⚡ **Tirs Rapides** : Double la cadence pendant 5 sec
 
-### Code du sprite "ennemi" (générer les power-ups)
+Tu vas avoir besoin de deux nouvelles variable "bouclier" et "cadence rapide". 
+Il faudra aussi deux variables liste "file x powerup" et "file y powerup". Ces listes vont te servir à passer les coordonnée des vaisseaux ennemi vers les powerups à créer durant leur déplacement.
+
+<details>
+  <summary>Code du sprite "ennemi" (à ajouter lorsque le vaisseau ennemi est touché)</summary>
 
 <pre class="blocks">
-quand je reçois [ennemi touché v]
-  si <(nombre aléatoire entre (1) et (10)) < (4)> alors
-    créer un clone de [PowerUp v]
-    mettre x du clone à (abscisse x)
-    mettre y du clone à (ordonnée y)
+  si <(nombre aléatoire entre (1) et (100)) < (40)> alors
+    ajouter [(abscisse x)] à [file x powerup v]
+    ajouter [(ordonnée y)] à [file y powerup v]
+    créer un clone de [powerup v]
   fin
-  supprimer ce clone
 </pre>
+</details>
 
-### Code du sprite "PowerUp" (nouveau sprite)
+<details>
+  <summary>Code du sprite "powerup" (initialisation)</summary>
 
+<pre class="blocks">
+quand le drapeau vert pressé
+  supprimer tous les éléments de la liste [file x powerup v]
+  supprimer tous les éléments de la liste [file y powerup v]
+  cacher
+</pre>
+</details>
+
+
+<details>
+  <summary>Code du sprite "PowerUp" (nouveau sprite)</summary>
 <pre class="blocks">
 quand je commence comme un clone
-  mettre la taille à (50) % de la taille initiale
-  montrer
-  si <(nombre aléatoire entre (1) et (2)) = (1)> alors
-    basculer sur le costume [bouclier v]
-    mettre [type_powerup v] à [bouclier v]
-  fin
-  sinon
-    basculer sur le costume [rapidfire v]
-    mettre [type_powerup v] à [rapidfire v]
-  fin
-  répéter jusqu'à ce que <(ordonnée y) < (-180)>
-    ajouter (-3) à y
+  aller à x:(élément (1) de [file x powerup v]) y:(élément (1) de [file y powerup v])
+  supprimer l'élément (1) de [file x powerup v]
+  supprimer l'élément (1) de [file y powerup v]
+  répéter jusqu'à ce que <(ordonnée y) < (-179)>
+    ajouter (-4) à y
     si <touche le [joueur v] ?> alors
-      si <(type_powerup) = [bouclier v]> alors
-        mettre [bouclier_actif v] à (vrai)
-        envoyer à tous [bouclier activé v]
+      si <([numéro] du costume) = (1)>
+        envoyer à tous [bouclier actif v]
       sinon
-        mettre [cadence_rapide v] à (vrai)
-        attendre (5) secondes
-        mettre [cadence_rapide v] à (faux)
+        envoyer à tous [rapidefire actif v]
       fin
       supprimer ce clone
     fin
+  fin
   supprimer ce clone
 </pre>
+</details>
 
-### Code du sprite "joueur" (utiliser les bonuses)
+<details>
+  <summary>Code du sprite "joueur" (à ajouter à l'initialisation)</summary>
+<pre class="block">
+quand le drapeau vert pressé
+  mettre [bouclier actif v] à (0)
+  mettre [rapidefire actif v] à (0)
+  basculer sur le costume [vaisseau joueur v]
+</pre>
 
+<details>
+  <summary>Code du sprite "joueur" (nouveau blocs à créer pour gérer les powerups)</summary>
+<pre class="block">
+quand je reçois [bouclier actif v]
+  mettre [bouclier actif v] à (1)
+  basculer sur le costume [vaisseau joueur bouclier v]
+
+quand je reçois [rapidefire actif v]
+  mettre [rapidefire actif v] à (1)
+  attendre (5) seconds
+  mettre [rapidefire actif v] à (0)
+</pre>
+</details>
+
+<details>
+  <summary>Code du sprite "joueur" (à ajouter lorsqu'on se fait toucher)</summary>
 <pre class="blocks">
-quand je reçois [collision vaisseau v]
-  si (bouclier_actif) alors
-    mettre [bouclier_actif v] à (faux)
-    envoyer à tous [bouclier désactivé v]
+  si <(bouclier actif) > (0)> alors
+    mettre [bouclier actif v] à (0)
+    basculer sur le costume [vaisseau joueur v]
   sinon
     ajouter (-1) à [vies v]
   fin
-
-répéter indéfiniment
-  si <touche [espace v] pressée ?> alors
-    créer un clone de [projectile v]
-    si (cadence_rapide) alors
-      attendre (0.05) secondes
-    sinon
-      attendre (0.2) secondes
-    fin
-  fin
-fin
 </pre>
+</details>
 
-**Types de power-ups :**
-- 🛡️ **Bouclier** : Protège un coup
-- ⚡ **Tirs Rapides** : Double la cadence pendant 5 sec
-- 🎯 Idée future : Ralentisseur d'ennemis
+<details>
+  <summary>Code du sprite "joueur" (modifier la gestion du tir)</summary>
+<pre class="blocks">
+  mettre [décompte tir v] à ((chronomètre) + ((0.5) - ((rapidefire actif) * (0.4))))
+</pre>
+</details>
 
-## 🎬 Étape 8 : Animations visuelles
+## 🎬 Étape 7 : Animations visuelles
 
 Rend le jeu plus vivant avec des animations !
 
@@ -703,7 +645,7 @@ quand je reçois [ennemi touché v]
 - Clignotement du vaisseau après coup
 - Explosion visible au centre des ennemis
 
-## 🔊 Étape 9 : Les sons rétro 8-bit (Bonus)
+## 🔊 Étape 8 : Les sons rétro 8-bit (Bonus)
 
 Ajoute une ambiance sonore arcade !
 
