@@ -238,8 +238,10 @@ ajouter () à [ v]
     mettre [ligne v] à (0)
     répéter (5) fois
       répéter (4) fois
+        aller à x: (((ligne) * (100)) + (-150)) y: (179)
+        s'orienter à ((180) + ((ligne) * (30)))
         créer un clone de [moi-même v]
-        attendre (0.5) secondes
+        attendre (0.5) secondes 
       fin
       ajouter (1) à [ligne v]
     fin
@@ -253,8 +255,6 @@ ajouter () à [ v]
   quand je commence comme un clone
     mettre [chrono ennemi v] à (chronomètre)
     basculer sur le costume [ennemi v]
-    aller à x: (((ligne) * (100)) + (-150)) y: ((((3) - (ligne)) * (40)) + (150))
-    s'orienter à ((180) + ((ligne) * (30)))
     montrer
     répéter indéfiniment
       tourner droite de (([sin v] de (((chronomètre) - (chrono ennemi)) * (100))) * (-2)) degrés
@@ -335,7 +335,7 @@ dire [] pendant () secondes
 
   <pre class="blocks">
   si <touche le [joueur v] ?> alors
-    envoyer à tous [collision joueur v] et attendre
+    envoyer à tous [joueur touché v] et attendre
     supprimer ce clone
   fin
   </pre>
@@ -354,10 +354,11 @@ dire [] pendant () secondes
   <summary>Code du sprite "joueur" (gérer la collisions avec l'ennemi)</summary>
 
   <pre class="blocks">
-  quand je reçois [collision joueur v]
+  quand je reçois [joueur touché v]
   ajouter (-1) à [vies v]
   si <(vies) = (0)> alors
-    dire [Fin du jeu !] pendant (2) secondes
+    cacher
+    attendre (2) secondes
     stop [tout v]
   fin
   </pre>
@@ -376,37 +377,110 @@ dire [] pendant () secondes
 
 Les ennemis vont aussi tirer sur toi ! Tu dois les éviter pour ne pas perdre de vies.
 
-### Code du sprite "ennemi" (ajouter à la boucle du mouvement)
+Voila comment ils vont s'y prendre :
+- Les ennemis tirent **aléatoirement** (pas trop souvent)
+- Les projectiles ennemis **descendent** vers le joueur
+- Le joueur perd une vie au contact avec le projectile
+
+Tu vas avoir besoin de deux variables liste "file x tir ennemi" et "file y tir ennemi". Ces listes vont te servir à passer les coordonnée des vaisseaux ennemi vers les projectiles à créer durant leur déplacement.
+
+Tu vas avoir besoin de ces blocs :
+<pre class="blocks">
+quand le drapeau vert pressé
+
+créer un clone de [ v]
+
+quand je commence comme un clone
+
+supprimer ce clone
+
+répéter indéfiniment
+fin
+
+répéter jusqu'à ce que <>
+fin
+
+si <> alors
+fin
+
+attendre () secondes
+
+ajouter () à [ v]
+
+supprimer tous les éléments de la liste [ v]
+
+supprimer l'élément () de [ v]
+
+envoyer à tous [ v]
+
+envoyer à tous [ v] et attendre
+
+s'orienter à ()
+
+(abscisse x)
+
+(ordonnée y)
+
+ajouter () à y
+
+aller à x:() y:()
+
+cacher
+
+montrer
+
+<touche le [ v] ?>
+</pre>
+
+<details>
+  <summary>Code du sprite "ennemi"</summary>
 
 <pre class="blocks">
 quand je commence comme un clone
   répéter indéfiniment
-    si <(nombre aléatoire entre (1) et (100)) = (1)> alors
-      créer un clone de [projectile ennemi v]
+    si <(nombre aléatoire entre (1) et (100)) < (2)> alors
+      ajouter (abscisse x) à [file x tir ennemi v]
+      ajouter (ordonnée y) à [file y tir ennemi v]
+      envoyer à tous [tir ennemi v]
     fin
-    attendre (0.5) secondes
+    attendre (0.2) secondes
   fin
 </pre>
+</details>
 
-### Code du sprite "projectile ennemi" (nouveau sprite)
+<details>
+  <summary>Code du sprite "projectile ennemi" (initialisation)</summary>
+
+<pre class="blocks">
+quand le drapeau vert pressé
+  s'orienter à 180
+  cacher
+</pre>
+</details>
+
+<details>
+  <summary>Code du sprite "projectile ennemi" (création du clone)</summary>
+quand je reçois [tir ennemi v]
+  aller à x:(élément (1) de [pile x tir ennemi v]) y:(élément (1) de [pile y tir ennemi v])
+  supprimer l'élément (1) de [pile x tir ennemi v]
+  supprimer l'élément (1) de [pile y tir ennemi v]
+  créer un clone de [moi-même v]
+
+<details>
+  <summary>Code du sprite "projectile ennemi" (déplacement du clone)</summary>
 
 <pre class="blocks">
 quand je commence comme un clone
-  mettre la taille à (25) % de la taille initiale
-  répéter jusqu'à ce que <(ordonnée y) < (-180)>
+  répéter jusqu'à ce que <(ordonnée y) < (-179)>
     ajouter (-8) à y
     si <touche le [joueur v] ?> alors
-      envoyer à tous [collision vaisseau v]
+      envoyer à tous [joueur touché v] et attendre
       supprimer ce clone
     fin
   fin
   supprimer ce clone
 </pre>
-
-**Points importants :**
-- Les ennemis tirent **aléatoirement** (pas trop souvent)
-- Les projectiles ennemis **descendent** vers le joueur
-- Le joueur perd une vie au contact
+</details>
 
 ## 📈 Étape 6 : Implémenter les niveaux progressifs
 
