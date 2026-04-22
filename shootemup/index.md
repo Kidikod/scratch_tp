@@ -405,7 +405,7 @@ fin
 
 attendre () secondes
 
-ajouter () à [ v]
+ajouter [] à [ v]
 
 supprimer tous les éléments de la liste [ v]
 
@@ -439,8 +439,8 @@ montrer
 quand je commence comme un clone
   répéter indéfiniment
     si <(nombre aléatoire entre (1) et (100)) < (2)> alors
-      ajouter (abscisse x) à [file x tir ennemi v]
-      ajouter (ordonnée y) à [file y tir ennemi v]
+      ajouter [(abscisse x)] à [file x tir ennemi v]
+      ajouter [(ordonnée y)] à [file y tir ennemi v]
       envoyer à tous [tir ennemi v]
     fin
     attendre (0.2) secondes
@@ -453,18 +453,22 @@ quand je commence comme un clone
 
 <pre class="blocks">
 quand le drapeau vert pressé
-  s'orienter à 180
+  s'orienter en direction de 180
   cacher
 </pre>
 </details>
 
 <details>
   <summary>Code du sprite "projectile ennemi" (création du clone)</summary>
+
+<pre class="blocks">
 quand je reçois [tir ennemi v]
   aller à x:(élément (1) de [pile x tir ennemi v]) y:(élément (1) de [pile y tir ennemi v])
   supprimer l'élément (1) de [pile x tir ennemi v]
   supprimer l'élément (1) de [pile y tir ennemi v]
   créer un clone de [moi-même v]
+</pre>
+</detail>
 
 <details>
   <summary>Code du sprite "projectile ennemi" (déplacement du clone)</summary>
